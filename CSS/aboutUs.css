@@ -1,0 +1,54 @@
+/* Responsivo Seccion 1 */
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;} 
+  
+  .subtitles{
+    text-align: center;    
+  } 
+
+
+ .intro {
+    text-align: center;
+    text-justify: auto;
+    font-size: 12px;
+  } 
+}
+
+
+
+/* Estilos Sección 5 */
+.CTA5 {
+    font-size: 28px;
+    margin: 0 auto 1ch auto;
+    width: 70%;
+}
+
+@media screen and (max-width: 768px) {
+    .CTA5 {
+        font-size: 14px;
+    }
+}
+
+/* Animación de imagen */
+.logoCirculo {
+    transition: transform 0.3s ease, filter 0.3s ease; /* Segundos para la transición*/
+    opacity: 0; 
+    animation: fadeIn 2s ease-in forwards;
+}
+
+.logoCirculo:hover {
+    transform: scale(1.1); 
+    filter: brightness(1.2); /* ++Brillo */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
