@@ -19,6 +19,14 @@
 
 
 
+/* Estilos de borde personalizado carousel */
+
+.custom-border {
+    border: 5px solid #8D94FF;
+    border-radius: 0.5rem; /* opcional: para esquinas redondeadas */
+}
+
+
 /* Estilos Sección 5 */
 .CTA5 {
     margin: 0 auto 1ch auto;
@@ -59,3 +67,4 @@
         opacity: 1;
     }
 }
+
