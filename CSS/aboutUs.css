@@ -21,7 +21,6 @@
 
 /* Estilos Sección 5 */
 .CTA5 {
-    font-size: 28px;
     margin: 0 auto 1ch auto;
     width: 80%;
 }
@@ -33,12 +32,8 @@
 }
 
 @media screen and (max-width: 768px) {
-    .CTA5 {
-        font-size: 17px;
-    }
-
     .logoCirculo {
-        width: 60%; 
+        width: 70%; 
         height: auto; 
         margin-bottom: 10px;
     }
