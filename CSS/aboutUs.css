@@ -21,16 +21,11 @@
 
 /* Estilos Sección 5 */
 .CTA5 {
-    font-size: 28px;
+    font-size: 25px;
     margin: 0 auto 1ch auto;
     width: 70%;
 }
 
-@media screen and (max-width: 768px) {
-    .CTA5 {
-        font-size: 14px;
-    }
-}
 
 /* Animación de imagen */
 .logoCirculo {
