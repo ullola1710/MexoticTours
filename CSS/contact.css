@@ -55,3 +55,24 @@
     }
 
 }
+
+/* Estilos formulario */
+
+/* Boton */
+#boton-enviar{
+    display: block;
+    margin: auto;
+    background-color: #C0C4FF;
+    color: black;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+ #boton-enviar:hover {
+    background-color: #5A64FF;
+    color: blanchedalmond;
+  }
+/* Cambio de letra del checkbox */
+.form-check{
+    font-size: 0.7rem;
+}
