@@ -1,3 +1,4 @@
+/* Estilos card */
 .card {
     height: 33vh;
 }
@@ -26,7 +27,7 @@
 .card-img-overlay {
     top: 50%;
     position: absolute;
-    height: 33vh;
+    height: 15vh;
     align-items: center;
     text-align: center;
 }
@@ -51,7 +52,7 @@
     }
 
     .card-img-overlay {
-        height: 20vh;
+        height: 10vh;
     }
 
 }
