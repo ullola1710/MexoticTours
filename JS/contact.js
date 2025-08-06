@@ -1,23 +1,234 @@
+// Variables existentes
 const form = document.getElementsByTagName("form").item(0);
+const validationNombre = document.getElementById("validationNombre");
+const validationApellido = document.getElementById("validationApellido");
 const email = document.getElementById("email");
 const validationEmail = document.getElementById("validationEmail");
+const inputTelefono = document.getElementById("validationTelefono");
+const mensaje = document.getElementById("inputMensaje");
 
-// Confirmación de correo electrónico - valida que los campos coincidan 
-// Dupla: Jade - Brandy 
+// Nuevas variables (para los feedbacks de Bootstrap y otros elementos)
+const privacyCheck = document.getElementById("privacyCheck");
+const validationServerEmail = document.getElementById("emailFeedback");
+const validationConfirmEmail = document.getElementById("validationEmailFeedback");
+const validationServerMessage = document.getElementById("validationServerMessage");
+const validationServerTelefono = document.getElementById("validationServerTelefono");
+const privacyCheckFeedback = document.getElementById("privacyCheckFeedback");
+
+// Expresiones regulares para validaciones específicas
+const emailRegex = new RegExp("^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$"); // Validación de email más estricta
+const textoRegex = new RegExp("^[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+$"); // Solo letras y espacios
+const telefonoRegex = new RegExp("^[1-9]{1}[0-9]{9}$"); // 10 dígitos, no inicia con 0
+
+let isValid = true; // Variable booleana para la validación general
+
+/**
+ * --- Funciones auxiliares para mostrar/ocultar errores --
+ */
+function mostrarError(element, feedbackElement, mensaje) {
+  element.classList.add("is-invalid");
+  feedbackElement.textContent = mensaje;
+  feedbackElement.style.display = "block";
+  isValid = false;
+}
+
+function ocultarError(element, feedbackElement) {
+  element.classList.remove("is-invalid");
+  feedbackElement.textContent = "";
+  feedbackElement.style.display = "none";
+}
+
+/**
+ *
+ * -- Funciones de validación --
+ *
+ */
+
+//Validar Nombre
+function validarNombre() {
+  const nombreValor = validationNombre.value.trim();
+  const feedbackElement = validationNombre.nextElementSibling;
+  
+  if (nombreValor === "") {
+    mostrarError(validationNombre, feedbackElement, "El nombre no puede ir vacío.");
+    return false;
+  } else if (nombreValor.length < 3) {
+    mostrarError(validationNombre, feedbackElement, "El nombre debe tener al menos 3 caracteres.");
+    return false;
+  } else if (!textoRegex.test(nombreValor)) {
+    mostrarError(validationNombre, feedbackElement, "El nombre solo puede contener letras y espacios.");
+    return false;
+  } else {
+    ocultarError(validationNombre, feedbackElement);
+    return true;
+  }
+}
+
+//Validar Apellido
+function validarApellido() {
+  const apellidoValor = validationApellido.value.trim();
+  const feedbackElement = validationApellido.nextElementSibling;
+
+  if (apellidoValor === "") {
+    mostrarError(validationApellido, feedbackElement, "El apellido no puede ir vacío.");
+    return false;
+  } else if (apellidoValor.length < 3) {
+    mostrarError(validationApellido, feedbackElement, "El apellido debe tener al menos 3 caracteres.");
+    return false;
+  } else if (!textoRegex.test(apellidoValor)) {
+    mostrarError(validationApellido, feedbackElement, "El apellido solo puede contener letras y espacios.");
+    return false;
+  } else {
+    ocultarError(validationApellido, feedbackElement);
+    return true;
+  }
+}
+
+//Validar Email
+function validarEmail() {
+  if (email.value.trim() === "") {
+    mostrarError(email, validationServerEmail, "El correo electrónico no puede ir vacío.");
+    return false;
+  } else if (!emailRegex.test(email.value.trim())) {
+    mostrarError(email, validationServerEmail, "Dirección de correo electrónico no válida.");
+    return false;
+  } else {
+    ocultarError(email, validationServerEmail);
+    return true;
+  }
+}
+
+//Confirma el Email
+function validarConfirmacionEmail() {
+  const emailValor = email.value.trim();
+  const confirmEmailValor = validationEmail.value.trim();
+
+  if (confirmEmailValor === "") {
+    mostrarError(validationEmail, validationConfirmEmail, "La confirmación de correo no puede ir vacía.");
+    return false;
+  } else if (emailValor !== confirmEmailValor) {
+    mostrarError(validationEmail, validationConfirmEmail, "Las direcciones de correo electrónico no coinciden.");
+    return false;
+  } else {
+    ocultarError(validationEmail, validationConfirmEmail);
+    return true;
+  }
+}
+
+//Validar Teléfono
+function validarTelefono() {
+  const telefonoValor = inputTelefono.value.trim();
+
+  if (telefonoValor === "") {
+    mostrarError(inputTelefono, validationServerTelefono, "El teléfono no puede ir vacío.");
+    return false;
+  } else if (!telefonoRegex.test(telefonoValor)) {
+    mostrarError(inputTelefono, validationServerTelefono, "El número telefónico debe tener 10 dígitos y no puede iniciar con cero.");
+    return false;
+  } else {
+    ocultarError(inputTelefono, validationServerTelefono);
+    return true;
+  }
+}
+
+// Validar mensaje
+function validarMensaje() {
+  if (mensaje.value.trim() === "") {
+    mostrarError(mensaje, validationServerMessage, "El mensaje no puede ir vacío.");
+    return false;
+  } else if (mensaje.value.trim().length < 20) {
+    mostrarError(mensaje, validationServerMessage, "El mensaje debe contener al menos 20 caracteres.");
+    return false;
+  } else {
+    ocultarError(mensaje, validationServerMessage);
+    return true;
+  }
+}
+
+// Validar política de privacidad
+function validarPrivacidad() {
+  if (!privacyCheck.checked) {
+    mostrarError(privacyCheck, privacyCheckFeedback, "Para poder continuar, es necesario aceptar nuestra política de privacidad.");
+    return false;
+  } else {
+    ocultarError(privacyCheck, privacyCheckFeedback);
+    return true;
+  }
+}
+
+// --- Lógica de validación general con isValid ---
+function validarFormularioCompleto() {
+  isValid = true; // Reinicia la variable de validación
+
+  const nombreValido = validarNombre();
+  const apellidoValido = validarApellido();
+  const emailValido = validarEmail();
+  const confirmEmailValido = validarConfirmacionEmail();
+  const telefonoValido = validarTelefono();
+  const mensajeValido = validarMensaje();
+  const privacidadValida = validarPrivacidad();
+  
+  // Devuelve true si todas las validaciones son verdaderas
+  return nombreValido && apellidoValido && emailValido && confirmEmailValido && telefonoValido && mensajeValido && privacidadValida;
+}
+
+// --- Escuchadores de eventos (blur y submit) ---
+
+// Validaciones en tiempo real al salir del campo
+validationNombre.addEventListener("blur", validarNombre);
+validationApellido.addEventListener("blur", validarApellido);
+email.addEventListener("blur", validarEmail);
+validationEmail.addEventListener("blur", validarConfirmacionEmail);
+inputTelefono.addEventListener("blur", validarTelefono);
+mensaje.addEventListener("blur", validarMensaje);
+privacyCheck.addEventListener("change", validarPrivacidad);
+
+
+// Limpiar errores al enfocar los campos
+function limpiarErrores() {
+  const campos = [
+    validationNombre,
+    validationApellido,
+    email,
+    validationEmail,
+    inputTelefono,
+    mensaje,
+    privacyCheck
+  ];
+
+  campos.forEach(campo => {
+    campo.classList.remove("is-invalid");
+  });
+}
+
+
+// Escuchador de evento para el envío del formulario
 form.addEventListener("submit", function (event) {
-    if (!form.checkValidity()) {
-        event.preventDefault();
-    } // checkValidity
+  event.preventDefault(); // Evita el envío por defecto
 
-    // Coincidencia de correos
-    if (email.value != validationEmail.value) {
-        validationEmail.classList.add("is-invalid"); // Si el correo esta mal, llamará a la clase is-invalid
-        validationEmail.classList.remove("is-valid");
-        event.preventDefault();
-    } else {
-        validationEmail.classList.remove("is-invalid");
-        validationEmail.classList.add("is-valid");
-    } // email.value confirmación
+  if (validarFormularioCompleto()) {
+// Enviar con EmailJS
+      emailjs.sendForm("service_pi5sznp", "template_xd5aaoa", form)
+      .then(
+        function (response) {
+          console.log(
+            "Correo enviado con éxito",
+            response.status,
+            response.text
+          );
+          alert("✅ Formulario enviado correctamente.");
+          form.reset();
+          limpiarErrores();
+        },
+        function (error) {
+          console.error("Error al enviar el correo", error);
+          alert(
+            "❌ Ocurrió un error al enviar el formulario. Intenta más tarde."
+          );
+        }
+      );
 
-    form.classList.add("was-validated");
-}); // form
+} else {
+    console.log("El formulario no es válido. Por favor, corrige los errores.");
+  }
+});
