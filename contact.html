@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous"/>
- 
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
+
   <link rel="stylesheet" href="./CSS/style.css" />
   <link rel="stylesheet" href="./CSS/contact.css" />
 </head>
@@ -16,92 +16,91 @@
   <!-- Dupla: Jade - Brandy  -->
   <main class="container-fluid p-0">
     <div class="card">
-      <img src="./assets/GardenCastilloChapultepec.jpg" class="card-img" alt="Castillo de Chapultepec"/>
-      <div class="card-img-overlay">
+      <img src="./assets/GardenCastilloChapultepec.jpg" class="card-img" alt="Castillo de Chapultepec" />
+      <div class="position-absolute bottom-0 start-50 translate-middle-x">
         <h1 class="card-title">No te quedes con dudas</h1>
         <p class="card-text">contáctanos</p>
       </div>
     </div>
-
     <!-- Formulario -->
-    <div id="forms" class="d-flex justify-content-center align-items-center" style="padding: 20px">
+    <div id="form" class="d-flex justify-content-center align-items-center" style="padding: 20px">
       <!-- min-height: 100vh; -->
-      <form class="w-100" style="max-width: 500px">
-        <div class="mb-2">
-          <label for="validationNombre" class="form-label">Nombre(s)</label>
-          <input type="text" class="form-control" id="validationNombre" value="" placeholder="Ingrese su nombre(s)"/>
-          <div class="invalid-feedback" id="invalidNombre">Nombre(s) no válidos</div>
-        </div>
+      <form id="contact-form" class="w-100" style="max-width: 500px">
 
+        <!-- Nombre -->
         <div class="mb-2">
-          <label for="validationApellido" class="form-label">Apellido(s)</label>
-          <input type="text" class="form-control" id="validationApellido" placeholder="Ingrese su apellido(s)"  />
-          <div class="invalid-feedback" id="invalidApellido">Apellido(s) no válido</div>
+          <label for="validationNombre" class="form-label">Nombre(s) : </label>
+          <input type="text" class="form-control" id="validationNombre" value="" name="nombre" placeholder="Ingrese su nombre(s)"   />
+          <div class="invalid-feedback">Nombre(s) no válido</div>
         </div>
-
+        <!-- Apellido -->
+        <div class="mb-2">
+          <label for="validationApellido" class="form-label">Apellido(s) :</label>
+          <input type="text" class="form-control" id="validationApellido" name="apellido" placeholder="Ingrese su apellido(s)"  />
+          <div class="invalid-feedback">Apellido(s) no válido</div>
+        </div>
         <!-- Correo -->
         <div class="mb-2">
-          <label for="email" class="form-label">Correo electrónico</label>
-          <input type="email" class="form-control" id="email" placeholder = "Ingrese su dirección de correo electrónico"
-            aria-describedby="validationServerEmail" />
-          <div id="validationServerEmail" class="alert alert-danger" role="=alert">
-            Dirección de correo electrónico no válida
-          </div>
+          <label for="email" class="form-label">Correo electrónico : </label>
+          <input type="email" class="form-control" id="email" name="correo"
+            placeholder="Ingrese su dirección de correo electrónico"  />
+          <div id="emailFeedback" class="invalid-feedback"></div>
         </div>
 
         <!-- Confirmación de correo -->
         <div class="mb-2">
           <label for="validationEmail" class="form-label">Confirmar correo electrónico</label>
-          <input type="email" class="form-control" id="validationEmail" placeholder = "Confirme su dirección de correo electrónico"
-            aria-describedby="confirmEmail"/>
-          <div id="validationConfirmEmail" class="alert alert-danger" role="alert">
-            Las direcciones de correo electrónico no coinciden
-          </div>
+          <input type="email" class="form-control" id="validationEmail"
+            placeholder="Confirme su dirección de correo electrónico" aria-describedby="confirmEmail" />
+          <div id="validationEmailFeedback" class="invalid-feedback"></div>
         </div>
-       <!--Número telefónico--> 
+
+        <!-- Telefono -->
         <div class="mb-2">
-          <label for="validationTelefono" class="form-label">Teléfono</label>
-          <input type="text" class="form-control" id="validationTelefono" placeholder = "Ingrese su número telefónico"
-            aria-describedby="validationServerTelefono" />
-          <div id="validationServerTelefono" class="invalid-feedback alert alert-danger" role="alert">
-            Número telefónico no válido
-          </div>
+          <label for="validationTelefono" class="form-label">Teléfono : </label>
+          <input type="text" class="form-control" id="validationTelefono" name="telefono" placeholder="Ingrese su número telefónico" />
+          <div id="validationServerTelefono" class="invalid-feedback"></div>
         </div>
         <!-- Mensaje -->
         <div class="mb-2">
-          <label for="inputMensaje" class="form-label">Mensaje</label>
-          <input type="text" class="form-control" id="inputMensaje" placeholder="Mensaje"/>
-          <div id="validationServerMessage" class="invalid-feedback alert alert-danger" role="ale">
-            Mensaje no válido
-          </div>
+          <label for="inputMensaje" class="form-label">Mensaje : </label>
+                          <textarea class="form-control" id="inputMensaje" name="mensaje" placeholder="Mensaje" rows="4"  ></textarea>
+                          <div id="validationServerMessage" class="invalid-feedback"></div>
+                       
         </div>
-
+        <!-- Politica de Privacidad -->
         <div class="mb-1">
           <label> Politica de privacidad </label>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="privacyCheck"
-              aria-describedby="privacyCheckFeedback" />
+            <input class="form-check-input" type="checkbox" id="privacyCheck" />
             <label class="form-check-label" for="privacyCheck">
               Autorizo el uso de mis datos conforme a la politica de
               privacidad del servicio.
             </label>
-            <div id="privacyCheckFeedback" class="invalid-feedback">
-              Para poder continuar, es necesario aceptar nuestra política de privacidad.
-            </div>
+            <div id="privacyCheckFeedback" class="invalid-feedback"></div>
           </div>
         </div>
-
         <div class="col-12">
           <button id="boton-enviar" class="btn btn-lg" type="submit">Enviar</button>
         </div>
 
       </form>
+
     </div>
   </main>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
     crossorigin="anonymous"></script>
-  <script src="./js/main.js" type="module"></script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("GNnB5jB5JcNSpPcEb");
+        })();
+    </script>
+
+
+  <script src="./JS/contact.js" type="module"></script>
 </body>
 
 </html>
