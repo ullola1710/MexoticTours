@@ -1,20 +1,18 @@
 /* Estilos card */
 .card {
     height: 33vh;
+    text-align: center;
 }
 
 .card-title {
     font-family: 'Dancing Script', 'sans-cursive';
-    font-size: 4rem;
+    font-size: clamp(1.5rem, 5vw, 4rem);
     font-weight: bold;
-    text-align: center;
 }
 
 .card-text {
-    font-size: 5rem;
-    line-height: 0.5;
+    font-size: clamp(2rem, 6vw, 5rem);
     font-weight: bold;
-    text-align: center;
 }
 
 .card-img {
@@ -24,26 +22,18 @@
     object-position: 50% 62%;
 }
 
-.card-img-overlay {
-    top: 50%;
-    position: absolute;
-    height: 15vh;
-    align-items: center;
-    text-align: center;
-}
-
 @media screen and (max-width: 768px) {
     .card {
         height: 20vh;
     }
 
-    .card-title {
-        font-size: 1.5rem;
+    /* .card-title {
+        font-size: 2rem;
     }
 
     .card-text {
-        font-size: 2rem;
-    }
+        font-size: 2.5rem;
+    } */
 
     .card-img {
         height: 20vh;
@@ -51,16 +41,13 @@
         object-position: 50% 62%;
     }
 
-    .card-img-overlay {
-        height: 10vh;
-    }
 
 }
 
 /* Estilos formulario */
 
 /* Boton */
-#boton-enviar{
+#boton-enviar {
     display: block;
     margin: auto;
     background-color: #C0C4FF;
@@ -69,11 +56,13 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
- #boton-enviar:hover {
+
+#boton-enviar:hover {
     background-color: #5A64FF;
     color: blanchedalmond;
-  }
+}
+
 /* Cambio de letra del checkbox */
-.form-check{
+.form-check {
     font-size: 0.7rem;
 }
