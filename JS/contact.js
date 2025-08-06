@@ -183,8 +183,6 @@ inputTelefono.addEventListener("blur", validarTelefono);
 mensaje.addEventListener("blur", validarMensaje);
 privacyCheck.addEventListener("change", validarPrivacidad);
 
-<<<<<<< HEAD
-=======
 
 // Limpiar errores al enfocar los campos
 function limpiarErrores() {
@@ -203,18 +201,12 @@ function limpiarErrores() {
   });
 }
 
->>>>>>> IRN
+
 // Escuchador de evento para el envío del formulario
 form.addEventListener("submit", function (event) {
   event.preventDefault(); // Evita el envío por defecto
 
   if (validarFormularioCompleto()) {
-<<<<<<< HEAD
-    console.log("Formulario válido. Enviando datos...");
-    alert("Formulario enviado con éxito!");
-    form.reset(); // Limpia los campos del formulario
-  } else {
-=======
 // Enviar con EmailJS
       emailjs.sendForm("service_pi5sznp", "template_xd5aaoa", form)
       .then(
@@ -237,7 +229,6 @@ form.addEventListener("submit", function (event) {
       );
 
 } else {
->>>>>>> IRN
     console.log("El formulario no es válido. Por favor, corrige los errores.");
   }
 });
