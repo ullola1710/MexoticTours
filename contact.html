@@ -23,13 +23,18 @@
       </div>
     </div>
     <!-- Formulario -->
-    <div id="forms" class="d-flex justify-content-center align-items-center" style="padding: 20px">
+    <div id="form" class="d-flex justify-content-center align-items-center" style="padding: 20px">
       <!-- min-height: 100vh; -->
+<<<<<<< HEAD
       <form class="w-100" style="max-width: 500px">
+=======
+      <form id="contact-form" class="w-100" style="max-width: 500px">
+>>>>>>> IRN
 
         <!-- Nombre -->
         <div class="mb-2">
           <label for="validationNombre" class="form-label">Nombre(s) : </label>
+<<<<<<< HEAD
           <input type="text" class="form-control" id="validationNombre" value="" placeholder="Ingrese su nombre(s)" />
           <div class="invalid-feedback">Nombre(s) no válido</div>
         </div>
@@ -37,13 +42,27 @@
         <div class="mb-2">
           <label for="validationApellido" class="form-label">Apellido(s) :</label>
           <input type="text" class="form-control" id="validationApellido" placeholder="Ingrese su apellido(s)" />
+=======
+          <input type="text" class="form-control" id="validationNombre" value="" name="nombre" placeholder="Ingrese su nombre(s)"   />
+          <div class="invalid-feedback">Nombre(s) no válido</div>
+        </div>
+        <!-- Apellido -->
+        <div class="mb-2">
+          <label for="validationApellido" class="form-label">Apellido(s) :</label>
+          <input type="text" class="form-control" id="validationApellido" name="apellido" placeholder="Ingrese su apellido(s)"  />
+>>>>>>> IRN
           <div class="invalid-feedback">Apellido(s) no válido</div>
         </div>
         <!-- Correo -->
         <div class="mb-2">
           <label for="email" class="form-label">Correo electrónico : </label>
+<<<<<<< HEAD
           <input type="email" class="form-control" id="email"
             placeholder="Ingrese su dirección de correo electrónico" />
+=======
+          <input type="email" class="form-control" id="email" name="correo"
+            placeholder="Ingrese su dirección de correo electrónico"  />
+>>>>>>> IRN
           <div id="emailFeedback" class="invalid-feedback"></div>
         </div>
 
@@ -58,13 +77,21 @@
         <!-- Telefono -->
         <div class="mb-2">
           <label for="validationTelefono" class="form-label">Teléfono : </label>
+<<<<<<< HEAD
           <input type="text" class="form-control" id="validationTelefono" placeholder="Ingrese su número telefónico" />
+=======
+          <input type="text" class="form-control" id="validationTelefono" name="telefono" placeholder="Ingrese su número telefónico" />
+>>>>>>> IRN
           <div id="validationServerTelefono" class="invalid-feedback"></div>
         </div>
         <!-- Mensaje -->
         <div class="mb-2">
           <label for="inputMensaje" class="form-label">Mensaje : </label>
+<<<<<<< HEAD
                           <textarea class="form-control" id="inputMensaje" placeholder="Mensaje" rows="4"></textarea>
+=======
+                          <textarea class="form-control" id="inputMensaje" name="mensaje" placeholder="Mensaje" rows="4"  ></textarea>
+>>>>>>> IRN
                           <div id="validationServerMessage" class="invalid-feedback"></div>
                        
         </div>
@@ -91,7 +118,20 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
     crossorigin="anonymous"></script>
+<<<<<<< HEAD
   <script src="./js/contact.js" type="module"></script>
+=======
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("GNnB5jB5JcNSpPcEb");
+        })();
+    </script>
+
+
+  <script src="./JS/contact.js" type="module"></script>
+>>>>>>> IRN
 </body>
 
 </html>

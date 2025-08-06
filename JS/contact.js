@@ -183,15 +183,61 @@ inputTelefono.addEventListener("blur", validarTelefono);
 mensaje.addEventListener("blur", validarMensaje);
 privacyCheck.addEventListener("change", validarPrivacidad);
 
+<<<<<<< HEAD
+=======
+
+// Limpiar errores al enfocar los campos
+function limpiarErrores() {
+  const campos = [
+    validationNombre,
+    validationApellido,
+    email,
+    validationEmail,
+    inputTelefono,
+    mensaje,
+    privacyCheck
+  ];
+
+  campos.forEach(campo => {
+    campo.classList.remove("is-invalid");
+  });
+}
+
+>>>>>>> IRN
 // Escuchador de evento para el envío del formulario
 form.addEventListener("submit", function (event) {
   event.preventDefault(); // Evita el envío por defecto
 
   if (validarFormularioCompleto()) {
+<<<<<<< HEAD
     console.log("Formulario válido. Enviando datos...");
     alert("Formulario enviado con éxito!");
     form.reset(); // Limpia los campos del formulario
   } else {
+=======
+// Enviar con EmailJS
+      emailjs.sendForm("service_pi5sznp", "template_xd5aaoa", form)
+      .then(
+        function (response) {
+          console.log(
+            "Correo enviado con éxito",
+            response.status,
+            response.text
+          );
+          alert("✅ Formulario enviado correctamente.");
+          form.reset();
+          limpiarErrores();
+        },
+        function (error) {
+          console.error("Error al enviar el correo", error);
+          alert(
+            "❌ Ocurrió un error al enviar el formulario. Intenta más tarde."
+          );
+        }
+      );
+
+} else {
+>>>>>>> IRN
     console.log("El formulario no es válido. Por favor, corrige los errores.");
   }
 });
