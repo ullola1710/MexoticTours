@@ -22,9 +22,12 @@ const telefonoRegex = new RegExp("^[1-9]{1}[0-9]{9}$"); // 10 dígitos, no inici
 
 let isValid = true; // Variable booleana para la validación general
 
+// Declaración de variables para pop-up de política de privacidad
+const privacyLink = document.getElementById("privacyLink");
+
 /**
- * --- Funciones auxiliares para mostrar/ocultar errores --
- */
+ * --- Funciones auxiliares para mostrar/ocultar errores --
+ */
 function mostrarError(element, feedbackElement, mensaje) {
   element.classList.add("is-invalid");
   feedbackElement.textContent = mensaje;
@@ -39,16 +42,16 @@ function ocultarError(element, feedbackElement) {
 }
 
 /**
- *
- * -- Funciones de validación --
- *
- */
+ *
+ * -- Funciones de validación --
+ *
+ */
 
 //Validar Nombre
 function validarNombre() {
   const nombreValor = validationNombre.value.trim();
   const feedbackElement = validationNombre.nextElementSibling;
-  
+
   if (nombreValor === "") {
     mostrarError(validationNombre, feedbackElement, "El nombre no puede ir vacío.");
     return false;
@@ -167,7 +170,7 @@ function validarFormularioCompleto() {
   const telefonoValido = validarTelefono();
   const mensajeValido = validarMensaje();
   const privacidadValida = validarPrivacidad();
-  
+
   // Devuelve true si todas las validaciones son verdaderas
   return nombreValido && apellidoValido && emailValido && confirmEmailValido && telefonoValido && mensajeValido && privacidadValida;
 }
@@ -201,14 +204,79 @@ function limpiarErrores() {
   });
 }
 
+// Pop-up
+privacyLink.onclick = function () {
+  document.body.insertAdjacentHTML("beforeend",
+    `<style>
+    /* Estilos para el fondo del popup */
+    .popup-overlay {
+      display: none; /* Inicialmente oculto */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    /* Estilos para el contenido del popup */
+    .popup-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      width: 70%;
+      max-width: 600px;
+      overflow-y: auto;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 25px;
+      cursor: pointer;
+    }
+    </style>
+    <div class="popup-overlay" id="popup">
+      <div class="popup-content">
+        <span class="close-btn" id="closePopup">&times;</span>
+        <h2>Política de Privacidad</h2>
+        <iframe src="./docs/PlanEstudiosDesarrolloJava.pdf" width="100%" height="400px" frameborder="0"></iframe>
+      </div>
+    </div>`
+  );
+
+  // Variables
+  const popup = document.getElementById("popup");
+  const closePopup = document.getElementById("closePopup");
+
+  popup.style.display = "flex";
+
+  closePopup.onclick = function(){
+    popup.style.displau = "none"; 
+    popup.remove();
+  } // closePopup.onclick
+
+  // ventana del popup
+  window.onclick = function(event) {
+    if(event.target === popup){
+      popup.style.display = "none";
+      popup.remove();
+    }
+  }
+
+}
 
 // Escuchador de evento para el envío del formulario
 form.addEventListener("submit", function (event) {
   event.preventDefault(); // Evita el envío por defecto
 
   if (validarFormularioCompleto()) {
-// Enviar con EmailJS
-      emailjs.sendForm("service_pi5sznp", "template_xd5aaoa", form)
+    // Enviar con EmailJS
+    emailjs.sendForm("service_pi5sznp", "template_xd5aaoa", form)
       .then(
         function (response) {
           console.log(
@@ -228,7 +296,7 @@ form.addEventListener("submit", function (event) {
         }
       );
 
-} else {
+  } else {
     console.log("El formulario no es válido. Por favor, corrige los errores.");
   }
 });
