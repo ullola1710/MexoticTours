@@ -5,9 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Navbar</title>
+    <link rel="stylesheet" href="./CSS/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         #navbar-custom {
             padding-left: 2rem;
@@ -75,6 +77,53 @@
         .btn-signin:hover {
             color: #FFC2DD;
         }
+
+        /* Estilos del submenu de productos */
+        #submenuProductosMobile ul {
+            background-color: rgba(218, 214, 214, 0.456);
+            border-radius: 0.5rem;
+            margin-top: 0.3rem;
+            padding: 0.3rem 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        #submenuProductosMobile .nav-link {
+            padding-left: 0.2rem;
+            font-size: 1rem;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        #submenuProductosMobile .nav-link:hover {
+            background-color: rgb(255, 255, 255);
+            border-radius: 0.4rem;
+        }
+
+        .collapse {
+            transition: height 0.35s ease;
+        }
+
+        /* Mediaqueri para el logo y su cambio de posicion */
+        @media (max-width: 991.98px) {
+            #navbar-custom .nav-link img.logoRosa {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        @media (min-width: 992px) {
+            #navbar-custom .nav-link img.logoRosa {
+                position: static;
+                transform: none;
+            }
+        }
+        /* Ajustes para la posicion dol boton burger */
+        .navbar-toggler {
+            z-index: 1051;
+        }
+      
+
     </style>
 </head>
 
@@ -82,20 +131,25 @@
 
     <main class="container-fluid p-0">
         <!-- Navbar -->
-
         <nav id="navbar-custom" class="navbar navbar-expand-lg navbar-dark rounded-pill fixed-top"
             style="background-color: #09112E; height: 4.5rem; width: auto; margin: 2.5rem 2.5rem 0 2.5rem;">
-            <div class="container-fluid">
-                <a class="nav-link" href="./index.html">
-                    <img class="logoRosa" src="./assets/LogoRosa.png" alt="Mexotic Tours" style="width: 3.2rem">
-                </a>
-                <button class="navbar-toggler position-absolute start-0" type="button" data-bs-toggle="offcanvas"
+            <div class="container">
+                <!-- Boton hamburguesa  -->
+                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#menuLateral" aria-controls="menuLateral" aria-expanded="false"
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
+                <!-- Posicion del logo (Izquierda en escritorio centrado en mobile)-->
+                <a class="navbar-brand d-none d-lg-block" href="./index.html">
+                    <img class="logoRosa" src="./assets/LogoRosa.png" alt="Mexotic Tours" style="width: 3.2rem">
+                </a>
+                <a class="position-absolute top-50 start-50 translate-middle d-lg-none" href="./index.html">
+                    <img class="logoRosa" src="./assets/LogoRosa.png" alt="Mexotic Tours" style="width: 3.2rem">
+                </a>
                 <!-- Sección 2 -->
-                <div class="position-absolute top-50 start-50 translate-middle" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse justify-content-center d-none d-lg-flex" id="navbarSupportedContent">
                     <ul class="navbar-nav mb-2 mb-lg-0 d-flex gap-3"> <!--ACA-->
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="./index.html">Inicio</a>
@@ -104,7 +158,7 @@
                             <a class="nav-link active" href="./aboutUs.html">Nosotras</a>
                         </li>
                         <!-- Dropdown -->
-                        <li class="nav-item dropdown">
+                        <li class="nav-item dropdown d-none d-lg-block">
                             <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="true">
                                 Productos
@@ -123,23 +177,87 @@
                         </li>
                     </ul>
                 </div>
-                <!-- Sección 3 -->
-                <div class="d-flex gap-2 position-absolute end-0 align-items-center pe-5">
+                <!-- Sección 3  Carrito  logIn SignIn-->
+                 
+                <div class="d-flex gap-2 align-items-center">
                     <a class="nav-link" href="#"> <!-- Falta hover para carrito -->
                         <i class="bi bi-cart2 fs-2"></i>
                     </a>
-                    <a class="btn btn-login rounded-pill" role="button" href="./logIn.html">Log in</a>
-                    <!-- rounded-pill para hacer el botón como pildora-->
-                    <a class="btn btn-signin rounded-pill" role="button" href="./signIn.html">Sign in</a>
+                    <a class="btn btn-login rounded-pill d-none d-lg-inline-block" role="button" href="./logIn.html">Log in</a>
+                    <a class="btn btn-signin rounded-pill d-none d-lg-inline-block" role="button" href="./signIn.html">Sign in</a>
                 </div>
             </div>
         </nav>
+        <!-- Menú mobile -->
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="menuLateral" aria-labelledby="menuLateralLabel"style="width: 100vw; max-width: 100vw; height: 100vh;">
+            <div class="offcanvas-header d-flex justify-content-start align-items-center" style="background-color: #ffffff;">
+                <!-- Boton de cerrar el menu -->
+                <button type="button"
+                        class="btn-close p-2"
+                        style="background-color: #6c757d; filter: invert(1); border-radius: 0.2rem; margin-left: 0.5rem;"
+                        data-bs-dismiss="offcanvas"
+                        aria-label="Close">
+                </button>
+            </div>
+            <!-- Cuerpo del menu -->
+            <div class="offcanvas-body d-flex justify-content-center align-items-center flex-column text-center"style="background-color: #ffffff; color: rgb(0, 0, 0);">
+                <ul class="navbar-nav gap-3 w-100">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link text-dark text-center" href="./index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link text-dark text-center" href="./aboutUs.html">Nosotras</a>
+                    </li>
+                    <!-- Submenu de productos con un icono de flecha que representa que se despliega -->
+                    <li class="nav-item d-lg-none">
+                       <a class="nav-link text-dark text-center d-flex justify-content-center align-items-center" data-bs-toggle="collapse" href="#submenuProductosMobile" role="button"
+                            aria-expanded="false" aria-controls="submenuProductosMobile" id="toggleProductosMobile">
+                            Productos
+                             <i class="bi bi-chevron-right ms-2" id="arrowIcon"></i>
+                        </a>
+                        <div class="collapse w-90" id="submenuProductosMobile">
+                            <ul class="navbar-nav w-90">
+                                <li class="nav-item w-90">
+                                    <a class="nav-link text-dark text-center" href="./products.html">Todo</a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li class="nav-item w-90">
+                                    <a class="nav-link text-dark text-center" href="./personalized.html">Personalizado</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark text-center" href="./experiences.html">Experiencias</a>
+                        <a  class="nav-link text-dark text-center" href="./logIn.html">Log in</a>
+                        <a class="nav-link text-dark text-center" href="./signIn.html">Sign in</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+            
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
     <script src="./js/main.js"></script>
-    <script>
+
+        <!-- Script para el icono de productos -->
+        <script>
+        const collapseElement = document.getElementById('submenuProductosMobile');
+        const arrowIcon = document.getElementById('arrowIcon');
+
+        collapseElement.addEventListener('show.bs.collapse', () => {
+            arrowIcon.classList.remove('bi-chevron-right');
+            arrowIcon.classList.add('bi-chevron-down');
+        });
+
+        collapseElement.addEventListener('hide.bs.collapse', () => {
+            arrowIcon.classList.remove('bi-chevron-down');
+            arrowIcon.classList.add('bi-chevron-right');
+        });
+    </script>
+    <!-- <script>
         document.addEventListener('DOMContentLoaded', () => {
             const nav = document.getElementById('navbar-custom');
             let lastScrollY = window.pageYOffset;
@@ -166,7 +284,7 @@
                 lastScrollY = currentScrollY;
             });
         });
-    </script>
+    </script> -->
 </body>
 
 </html>
