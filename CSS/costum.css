@@ -25,14 +25,15 @@ h1 {
     font-size: calc(1.525rem + 3.3vw);
     }
 }
+/* Para estados */
 
 .filtro-btn {
   background: #D4D4D4;
   color: #000000;
   border: 2px solid #fcf6ff;
   border-radius: 10px;
-  padding: 10px 20px;
-  font-size: 1rem;
+  padding: 1rem 6rem;
+  font-size: 1.35rem;
   transition: 0.2s;
 }
 
@@ -44,4 +45,56 @@ h1 {
 .filtro-btn.active {
   background: #D4D4D4;
   color: #000000;
+}
+
+
+/* para categorías */
+.category-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 1.35rem;
+    padding: 8px 16px;
+    border: 2px solid white;
+    border-radius: 8px;
+    color: #000000;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-btn:hover {
+    background-color: #8D94FF;
+    color: white;
+}
+
+.category-option {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 1.35rem;
+    padding: 8px 16px;
+    border: 2px solid white;
+    border-radius: 8px;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-option:hover {
+    background-color: #8D94FF;
+    color: white;
+}
+
+.category-option input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #8D94FF;
+    cursor: pointer;
+}
+
+/*  */
+.card img {
+    height: 200px;
+    object-fit: cover;
 }
