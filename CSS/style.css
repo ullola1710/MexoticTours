@@ -18,7 +18,7 @@ body, p, a, button{
 }
 
 /* Estilo para separadores */
-hr{
+.estiloHr{
     border-top: 5px solid #FFC2DD; 
     width: 80%; 
     margin: 2ch auto;

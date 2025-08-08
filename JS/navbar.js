@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const navbar = `
 <style>
+
       #navbar-custom {
           padding-left: 2rem;
           padding-right: 2rem;
@@ -68,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
 
         <div class="d-flex gap-2 align-items-center">
-            <a class="nav-link" href="#"><i class="bi bi-cart2 fs-2"></i></a>
+            <a class="nav-link" href="./cart.html"><i class="bi bi-cart2 fs-2"></i></a>
             <a class="btn btn-login rounded-pill d-none d-lg-inline-block" href="./logIn.html">Log in</a>
             <a class="btn btn-signin rounded-pill d-none d-lg-inline-block" href="./signIn.html">Sign in</a>
         </div>
