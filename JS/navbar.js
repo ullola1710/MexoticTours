@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     </style>
 
     <nav id="navbar-custom" class="navbar navbar-expand-lg navbar-dark rounded-pill fixed-top"
-        style="background-color: #09112E; height: 4.5rem; width: auto; margin: 2.5rem 2.5rem 0 2.5rem;">
+        style="background-color: #09112E; height: 4.3rem; width: auto; margin: 2.5rem 2.5rem 0 2.5rem;">
         <div class="container-fluid">
         <a class="nav-link" href="./index.html">
             <img class="logoRosa" src="./assets/LogoRosa.png" alt="Mexotic Tours" style="width: 3.2rem">
