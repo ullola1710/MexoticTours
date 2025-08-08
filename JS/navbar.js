@@ -69,11 +69,24 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("navbar-container").innerHTML = navbar;
 
   // Inicializar dropdowns si Bootstrap está cargado
-  if (typeof bootstrap !== "undefined") {
-    document.querySelectorAll('#navbar-custom .dropdown-toggle').forEach(dropdownToggleEl => {
-      new bootstrap.Dropdown(dropdownToggleEl);
-    });
+  function initializeDropdowns() {
+    if (typeof bootstrap !== "undefined" && bootstrap.Dropdown) {
+      document.querySelectorAll('#navbar-custom .dropdown-toggle').forEach(dropdownToggleEl => {
+        new bootstrap.Dropdown(dropdownToggleEl);
+      });
+    } else {
+      // Intenta de nuevo en 100ms
+      setTimeout(initializeDropdowns, 100);
+    }
   }
+
+  initializeDropdowns();
+
+  // if (typeof bootstrap !== "undefined") {
+  //   document.querySelectorAll('#navbar-custom .dropdown-toggle').forEach(dropdownToggleEl => {
+  //     new bootstrap.Dropdown(dropdownToggleEl);
+  //   });
+  // }
 
   // Lógica para ocultar/mostrar navbar al hacer scroll
   const nav = document.getElementById("navbar-custom");
