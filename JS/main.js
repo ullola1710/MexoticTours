@@ -7,19 +7,21 @@ const productos = [
         nombre:"Tequila",
         img:"",
         categoria:"Cultura, Fiesta",
-        horario:"",
-        disponibilidad:"",
-        duracion:"",
-        precio:"",
+        horario:"10:00-18:00",
+        descripcion:"Visita los campos de agave y observa cómo se produce y destila la bebida, mientras degustas cócteles y aprendes sobre sus orígenes.",
+        disponibilidad:"Sábados y Domingos",
+        duracion:"10 hrs",
+        precio:"790.00",
         incluye:"",
 
     },
     {
         estado:"Jalisco",
         nombre:"Mercado San Juan de Dios",
-        img: "",
+        img: "assets/mercado.jpg",
         categoria:"Gastronomía, Cultura",
         horario:"Lunes a Domingo, de 8:00 a 20:00 horas",
+        descripcion:"",
         disponibilidad:"",
         duracion:"Visita recomendada de 2 a 4 horas",
         precio:"",
@@ -32,6 +34,7 @@ const productos = [
         img:"",
         categoria:"Cultura",
         horario:"",
+        descripcion:"",
         disponibilidad:"",
         duracion:"6 hrs",
         precio:"",
@@ -44,6 +47,7 @@ const productos = [
         img:"",
         categoria:"Cultura, Fiesta",
         horario:"",
+        descripcion:"",
         disponibilidad:"",
         duracion:"4 hrs",
         precio:"",
@@ -56,6 +60,7 @@ const productos = [
         img:"",
         categoria:"Gastronomía, Cultura",
         horario:"",
+        descripcion:"",
         disponibilidad:"",
         duracion:"3 hrs",
         precio:"",
@@ -68,6 +73,7 @@ const productos = [
         img:"",
         categoria:"Arte",
         horario:"",
+        descripcion:"",
         disponibilidad:"",
         duracion:"",
         precio:"",
@@ -80,6 +86,7 @@ const productos = [
         img:"",
         categoria:"Cultura",
         horario:"",
+        descripcion:"",
         disponibilidad:"",
         duracion:"",
         precio:"",
@@ -92,6 +99,7 @@ const productos = [
         img:"",
         categoria:"Fiesta, Cultura",
         horario:"",
+        descripcion:"",
         disponibilidad:"",
         duracion:"",
         precio:"",
@@ -104,6 +112,7 @@ const productos = [
         img:"",
         categoria:"Cultura, Gastronomía",
         horario:"",
+        descripcion:"",
         disponibilidad:"",
         duracion:"3 hrs",
         precio:"",
@@ -116,6 +125,7 @@ const productos = [
         img:"",
         categoria:"Cultura",
         horario:"",
+        descripcion:"",
         disponibilidad:"",
         duracion:"",
         precio:"",
@@ -128,6 +138,7 @@ const productos = [
         img:"",
         categoria:"Gastronomía",
         horario:"",
+        descripcion:"",
         disponibilidad:"",
         duracion:"",
         precio:"",
@@ -140,6 +151,7 @@ const productos = [
         img:"",
         categoria:"Arte, Cultura",
         horario:"",
+        descripcion:"",
         disponibilidad:"",
         duracion:"",
         precio:"",
@@ -157,8 +169,13 @@ productos.forEach(producto => {
           <div class="card-body">
             <h5 class="card-title">${producto.nombre}</h5>
             <h6 class="card-title">${producto.categoria}</h6>
+            <p class="card-text">${producto.duracion}</p>
             <p class="card-text">${producto.descripcion}</p>
             <p class="card-text"><strong>$${producto.precio}</strong></p>
+            <button type="button" class="btn btn-primary"
+             style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+            Más información
+            </button>
           </div>
         </div>
       </div>
