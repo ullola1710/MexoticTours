@@ -1,0 +1,47 @@
+.masthead {
+    background-size: cover;
+    min-height: 60vh;
+    position: relative;
+    color: white;
+    text-shadow: 2px 2px 2px rgba(0,0,0,.2);
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+.color-overlay {
+    position: absolute;
+    width:100%;
+    height:100%;
+    background-color: rgba(0,0,0,.2);
+}
+
+@media (max-width: 768px){
+    .masthead{
+    min-height: 30vh;
+    }
+    h1{
+    font-size: calc(1.525rem + 3.3vw);
+    }
+}
+
+.filtro-btn {
+  background: #D4D4D4;
+  color: #000000;
+  border: 2px solid #fcf6ff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  transition: 0.2s;
+}
+
+.filtro-btn:hover {
+  background: #8D94FF;
+  color: #fff;
+}
+
+.filtro-btn.active {
+  background: #D4D4D4;
+  color: #000000;
+}
