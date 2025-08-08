@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const navbar = `
-    <style>
+<style>
       #navbar-custom {
           padding-left: 2rem;
           padding-right: 2rem;
@@ -24,27 +24,37 @@ document.addEventListener("DOMContentLoaded", () => {
       .btn-login:hover { background-color: #FFC2DD; }
       .btn-signin { background-color: #09112E; color: white; }
       .btn-signin:hover { color: #FFC2DD; }
+      #submenuProductosMobile ul {background-color: rgba(218, 214, 214, 0.456);border-radius: 0.5rem;margin-top: 0.3rem;padding: 0.3rem 0;transition: all 0.3s ease-in-out;}
+      #submenuProductosMobile .nav-link {padding-left: 0.2rem;font-size: 1rem;transition: background-color 0.2s ease-in-out;}
+      #submenuProductosMobile .nav-link:hover {background-color: rgb(255, 255, 255);border-radius: 0.4rem;}
+      .collapse {transition: height 0.35s ease;}
+      @media (max-width: 991.98px) {#navbar-custom .nav-link img.logoRosa {position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);}}
+      @media (min-width: 992px) {#navbar-custom .nav-link img.logoRosa {position: static;transform: none;}}
+      .navbar-toggler {z-index: 1051;}     
     </style>
 
     <nav id="navbar-custom" class="navbar navbar-expand-lg navbar-dark rounded-pill fixed-top"
         style="background-color: #09112E; height: 4.3rem; width: auto; margin: 2.5rem 2.5rem 0 2.5rem;">
         <div class="container-fluid">
-        <a class="nav-link" href="./index.html">
-            <img class="logoRosa" src="./assets/LogoRosa.png" alt="Mexotic Tours" style="width: 3.2rem">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#menuLateral" aria-controls="menuLateral" aria-expanded="false"
+            aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <a class="navbar-brand d-none d-lg-block" href="./index.html">
+          <img class="logoRosa" src="./assets/LogoRosa.png" alt="Mexotic Tours" style="width: 3.2rem">
+        </a>
+        <a class="position-absolute top-50 start-50 translate-middle d-lg-none" href="./index.html">
+          <img class="logoRosa" src="./assets/LogoRosa.png" alt="Mexotic Tours" style="width: 3.2rem">
+        </a>
 
-        <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse justify-content-center d-none d-lg-flex" id="navbarSupportedContent">
             <ul class="navbar-nav mb-2 mb-lg-0 d-flex gap-3">
-            <li class="nav-item"><a class="nav-link active" href="./index.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="./index.html">Inicio</a></li>
             <li class="nav-item"><a class="nav-link active" href="./aboutUs.html">Nosotras</a></li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown d-none d-lg-block">
                 <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
+                aria-expanded="true">
                 Productos
                 </a>
                 <ul class="dropdown-menu" style="background-color: #8D94FF;">
@@ -53,34 +63,60 @@ document.addEventListener("DOMContentLoaded", () => {
                 <li><a class="dropdown-item" style="color: white;" href="./personalized.html">Personalizado</a></li>
                 </ul>
             </li>
-            <li class="nav-item"><a class="nav-link active" href="./experiences.html">Experiencias</a></li>
+            <li class="nav-item"><a class="nav-link active"  aria-disabled="page" href="./experiences.html">Experiencias</a></li>
             </ul>
         </div>
 
         <div class="d-flex gap-2 align-items-center">
             <a class="nav-link" href="#"><i class="bi bi-cart2 fs-2"></i></a>
-            <a class="btn btn-login rounded-pill" href="./logIn.html">Log in</a>
-            <a class="btn btn-signin rounded-pill" href="./signIn.html">Sign in</a>
+            <a class="btn btn-login rounded-pill d-none d-lg-inline-block" href="./logIn.html">Log in</a>
+            <a class="btn btn-signin rounded-pill d-none d-lg-inline-block" href="./signIn.html">Sign in</a>
         </div>
         </div>
     </nav>   
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="menuLateral" aria-labelledby="menuLateralLabel"style="width: 100vw; max-width: 100vw; height: 100vh;">
+      <div class="offcanvas-header d-flex justify-content-start align-items-center" style="background-color: #ffffff;">
+        <button type="button" class="btn-close p-2" style="background-color: #6c757d; filter: invert(1); border-radius: 0.2rem; margin-left: 0.5rem;" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body d-flex justify-content-center align-items-center flex-column text-center"style="background-color: #ffffff; color: rgb(0, 0, 0);">
+        <ul class="navbar-nav gap-3 w-100">
+            <li class="nav-item"><a class="nav-link nav-link text-dark text-center" href="./index.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link nav-link text-dark text-center" href="./aboutUs.html">Nosotras</a></li>
+            <li class="nav-item d-lg-none"><a class="nav-link text-dark text-center d-flex justify-content-center align-items-center" data-bs-toggle="collapse" href="#submenuProductosMobile" role="button"
+                      aria-expanded="false" aria-controls="submenuProductosMobile" id="toggleProductosMobile">
+                      Productos<i class="bi bi-chevron-right ms-2 rotate-icon" id="arrowIcon"></i></a>
+            <div class="collapse w-90" id="submenuProductosMobile">
+              <ul class="navbar-nav w-90"><li class="nav-item w-90"><a class="nav-link text-dark text-center" href="./products.html">Todo</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li class="nav-item w-90"><a class="nav-link text-dark text-center" href="./personalized.html">Personalizado</a></li>
+              </ul>
+            </div>
+            </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark text-center" href="./experiences.html">Experiencias</a>
+                <a  class="nav-link text-dark text-center" href="./logIn.html">Log in</a>
+                <a class="nav-link text-dark text-center" href="./signIn.html">Sign in</a>
+              </li>
+          </ul>
+        </div>
+    </div>
     `;
 
   document.getElementById("navbar-container").innerHTML = navbar;
 
   // Inicializar dropdowns si Bootstrap está cargado
-  function initializeDropdowns() {
+  function dropdowns() {
     if (typeof bootstrap !== "undefined" && bootstrap.Dropdown) {
       document.querySelectorAll('#navbar-custom .dropdown-toggle').forEach(dropdownToggleEl => {
         new bootstrap.Dropdown(dropdownToggleEl);
       });
     } else {
       // Intenta de nuevo en 100ms
-      setTimeout(initializeDropdowns, 100);
+      setTimeout(dropdowns, 100);
     }
   }
 
-  initializeDropdowns();
+  dropdowns();
 
   // if (typeof bootstrap !== "undefined") {
   //   document.querySelectorAll('#navbar-custom .dropdown-toggle').forEach(dropdownToggleEl => {
@@ -88,26 +124,40 @@ document.addEventListener("DOMContentLoaded", () => {
   //   });
   // }
 
+// Script para el icono de productos
+  const collapseElement = document.getElementById('submenuProductosMobile');
+  const arrowIcon = document.getElementById('arrowIcon');
+
+  collapseElement.addEventListener('show.bs.collapse', () => {
+    arrowIcon.classList.remove('bi-chevron-right');
+    arrowIcon.classList.add('bi-chevron-down');
+  });
+
+  collapseElement.addEventListener('hide.bs.collapse', () => {
+    arrowIcon.classList.remove('bi-chevron-down');
+    arrowIcon.classList.add('bi-chevron-right');
+  });
+
   // Lógica para ocultar/mostrar navbar al hacer scroll
   const nav = document.getElementById("navbar-custom");
-  let lastScrollY = window.pageYOffset;
+  let scroll = window.pageYOffset;
 
   window.addEventListener("scroll", () => {
-    const currentScrollY = window.pageYOffset;
+    const currentScroll = window.pageYOffset;
 
-    if (currentScrollY <= 0) {
+    if (currentScroll <= 0) {
       nav.classList.remove("nav--hidden");
-      lastScrollY = 0;
+      scroll = 0;
       return;
     }
 
-    if (currentScrollY > lastScrollY || !nav.classList.contains("nav--hidden")) {
+    if (currentScroll > scroll || !nav.classList.contains("nav--hidden")) {
       nav.classList.add("nav--hidden");
-    } else if (currentScrollY < lastScrollY || nav.classList.contains("nav--hidden")) {
+    } else if (currentScroll < scroll || nav.classList.contains("nav--hidden")) {
       nav.classList.remove("nav--hidden");
     }
 
-    lastScrollY = currentScrollY;
+    scroll = currentScroll;
   });
 });
 
