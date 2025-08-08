@@ -1,6 +1,6 @@
 /* Estilos card */
 .card {
-    height: 33vh;
+    height: 40vh;
     text-align: center;
 }
 
@@ -8,18 +8,19 @@
     font-family: 'Dancing Script', 'sans-cursive';
     font-size: clamp(1.5rem, 4.5vw, 4rem);
     font-weight: bold;
+    line-height: 0;
 }
-
 .card-text {
     font-size: clamp(2rem, 5vw, 5rem);
     font-weight: bold;
+    line-height: 1.5;
 }
 
 .card-img {
-    height: 33vh;
+    height: 40vh;
     opacity: 60%;
     object-fit: cover;
-    object-position: 50% 62%;
+    object-position: 50% 65%;
 }
 
 @media screen and (max-width: 768px) {
@@ -38,7 +39,7 @@
     .card-img {
         height: 20vh;
         object-fit: cover;
-        object-position: 50% 62%;
+        object-position: 50% 65%;
     }
 
 
@@ -64,5 +65,5 @@
 
 /* Cambio de letra del checkbox */
 .form-check {
-    font-size: 0.7rem;
+    font-size: 0.7rem;
 }
