@@ -26,25 +26,33 @@ h1 {
     }
 }
 /* Para estados */
+.filtro-container {
+  background-color: #D4D4D4; /* beige */
+  border-radius: 50px; /* ovalado */
+  display: flex;
+  gap: 20rem; /* separación entre botones */
+  justify-content: center;
+  padding: 10px 20px;
+  width: 80%;
+  margin: auto; /* centrado */
+  font-family: 'Be Vietnam Pro', sans-serif;
+  margin-top: 2rem;
+}
 
 .filtro-btn {
-  background: #D4D4D4;
-  color: #000000;
-  border: 2px solid #fcf6ff;
-  border-radius: 10px;
-  padding: 1rem 6rem;
-  font-size: 1.35rem;
-  transition: 0.2s;
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  padding: 8px 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  color: black; /* texto negro */
+  font-family: 'Be Vietnam Pro', sans-serif;
 }
 
 .filtro-btn:hover {
-  background: #8D94FF;
-  color: #fff;
-}
-
-.filtro-btn.active {
-  background: #D4D4D4;
-  color: #000000;
+  background-color: rgba(0,0,0,0.05);
 }
 
 
@@ -98,3 +106,30 @@ h1 {
     height: 200px;
     object-fit: cover;
 }
+.cards-wrapper {
+  width: 80%;
+}
+
+
+.card-category {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 0.9rem;
+  color: #333; /* gris oscuro */
+  margin-bottom: 8px;
+}
+
+.btn-mas-info {
+  background-color: #8D94FF;
+  color: white;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-mas-info:hover {
+  background-color: #7a82e6; /* tono más oscuro al pasar el mouse */
+}
+
