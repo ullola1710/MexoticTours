@@ -2,6 +2,7 @@
 // toursData.js
 const tours = [
   {
+    id: 1 ,
     estado: 'CDMX',
     name: 'Palacio Postal',
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Palacio_Postal_Mexico.jpg/640px-Palacio_Postal_Mexico.jpg',
@@ -9,6 +10,7 @@ const tours = [
     category: 'Cultura',
     duracion:'',
     precio: '',
+    incluye: '' ,
   },
   {
     estado: 'Querétaro',
@@ -21,7 +23,7 @@ const tours = [
 
   },
   {
-    estado: '',
+    estado: 'Jalisco',
     name: 'Tour Tequila',
     img: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fpueblosmagicos.mexicodesconocido.com.mx%2Fjalisco%2Ftequila-jalisco%2F&psig=AOvVaw1U1g87mrBZHE3VOu84y_PD&ust=1754972641768000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCMiy8dj0gY8DFQAAAAAdAAAAABAE',
     description: 'Visita guiada a la fábrica de tequila artesanal.',
@@ -30,7 +32,7 @@ const tours = [
     precio:'',
   },
   {
-    estado: '',
+    estado: 'CDMX',
     name: 'Ragga by Joy Antara',
     img: 'https://upload.wikimedia.org/wikipedia/commons/4/47/Nightclub.jpg',
     description: 'Escenografía iluminada y ambiente sensacional.',
@@ -39,7 +41,7 @@ const tours = [
     precio:'',
   },
   {
-    estado:'',
+    estado:'Querétaro',
     name: 'Carranza 50',
     img: 'https://upload.wikimedia.org/wikipedia/commons/1/18/Restaurant.jpg',
     description: 'Restaurante con cocina mexicana en brasas.',
@@ -48,16 +50,16 @@ const tours = [
     precio: '',
   },
   {
-    estado:'',
+    estado:'Jalisco',
     name: 'Mercado San Juan de Dios',
     img: './assets/mercado.jpg',
     description: 'Más de 4000 puestos con comida y artesanías.',
     category: 'Gastronomía',
-    duracion: '',
+    duracion: '2 a 4 horas',
     precio: '',
   },
   {
-    estado: '',
+    estado: 'CDMX',
     name: 'Museo Soumaya',
     img: 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Museo_Soumaya.jpg',
     description: 'Museo de arte con arquitectura futurista.',
@@ -66,7 +68,7 @@ const tours = [
     precio: '',
   },
   {
-    estado:'',
+    estado:'Jalisco',
     name: 'Catedral de Guadalajara',
     img: 'https://upload.wikimedia.org/wikipedia/commons/0/0f/Catedral_Guadalajara.jpg',
     description: 'Imponente catedral con torres neogóticas.',
@@ -76,15 +78,15 @@ const tours = [
   },
   {
     estado:'',
-    name: 'Feria de San Marcos',
+    name: 'Viaje a Bernal y Tequisquiapan',
     img: 'https://upload.wikimedia.org/wikipedia/commons/d/da/Feria_San_Marcos.jpg',
-    description: 'Fiesta tradicional con música, comida y diversión.',
-    category: 'Fiesta',
+    description: 'Pasea por las hermosas calles de Bernal y Tequisquiapan. Prueba el delicioso vino y queso de la región semidesértica de Querétaro.',
+    category: 'Gastronomía, Cultura',
     duracion:'',
     precio:'',
   },
   {
-    estado:'',
+    estado:'CDMX',
     name: 'Museo de Arte Moderno',
     img: 'https://upload.wikimedia.org/wikipedia/commons/6/67/Museo_Arte_Moderno.jpg',
     description: 'Obras modernas y contemporáneas en un espacio icónico.',
