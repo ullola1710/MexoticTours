@@ -10,26 +10,71 @@
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 
     <link rel="stylesheet" href="./CSS/style.css">
-
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./CSS/tours.css">
     <!-- Bootstrap Iconsk -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body style="text-align: center; padding-top: 50px;">
+<body style="text-align: center;">
     <!-- Navbar -->
     <div id="navbar-container"></div>
 
-    <div style="padding-top:10rem">
-        <h1>Página en construcción</h1>
-        <p>Pronto tendremos más información. Mientras tanto, puedes visitar nuestras páginas de <a
-                href="aboutUs.html">"Nosotras"</a> y <a href="contact.html">"Contacto"</a></p>
+    <!-- Hero Section GDL INICIO -->
+    <header>
+        <section class="hero-section" style="position: relative; overflow: hidden; min-height: 100vh;">
+            <div class="hero-overlay">
+                <div class="hero-content text-center">
+                    <p class="lead text-white dancing-script">Explora lo mejor de México con viajes seguros y únicos</p>
+                    <h1 class="display-3 fw-bold text-white">DESCUBRE MÉXICO COMO NUNCA</h1>
+                    <p class="text-white Be-Vietnam-Pro">Viajes únicos en CDMX, Querétaro y Guadalajara</p>
+                    <a href="#" class="custom-btn btn-lg mt-3">
+                        <i class="bi bi-calendar-plus"></i> RESERVA
+                    </a>
+                </div>
+            </div>
+        </section>
+    </header>
 
-        <iframe width="650" height="350" src="https://www.youtube.com/embed/xoKugH6mOo8?autoplay=1&mute=1"
-            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
+    <!-- Contenedor de tarjetas  -->
+    <div class="container text-center hero-content">
+        <div class="row align-items-center">
+            <div class="col-12 col-md-6 align-items-center">
+                <span>
+                    <p class="fs-1 fw-semibold"> Mexotic no solo te lleva a un destino, te conecta
+                        con el...
+                    </p>
+                </span>
+                <span>
+                    <h4 class="lead dancing-script fw-semibold "> Nuestra esencia y beneficios </h4>
+                </span>
+
+            </div>
+        </div>
+        <div class="conteiner"style="background-color:#8d95ff6d">
+            <div class="row align-items-center">
+                <div class="col">
+                    <!-- Cards de tours -->
+                    <section>
+                        <h3 class="text-center mb-4"></h3>
+                        <div class="cards-wrapper mx-auto">
+                            <div id="tours-container" class="row g-4">
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+        </section>
+        </main>
     </div>
+    </div>
+    </div>
+    <!-- Footer -->
     <div id="footer-container"></div>
 
     <!-- Bootstrap JS (bundle incluye Popper necesario para dropdown) -->
@@ -38,11 +83,10 @@
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Tu navbar generado dinámicamente -->
+    <!-- -->
     <script src="./JS/navbar.js"></script>
     <script src="./JS/footer.js"></script>
-
-
+    <script src="./JS/main.js"></script>
 
     <!-- Scripts de Bootstrap y Navbar -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
