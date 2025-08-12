@@ -109,6 +109,7 @@ function addItem(tour) {
       <div class="card-body">
         <h5 class="card-title">${tour.name}</h5>
         <p class="card-category">${tour.category}</p>
+        <p class="card-estado">${tour.estado}</p>
         <p class="card-text">${tour.description}</p>
         <button class="btn-mas-info">Más información</button>
 
