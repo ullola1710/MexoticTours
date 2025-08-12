@@ -1,59 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>En construcción...</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <title>Nuestros Tours</title>
 
-    <link rel="stylesheet" href="./CSS/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&display=swap" rel="stylesheet">
 
-    <!-- Bootstrap Iconsk -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"> -->
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./CSS/costum.css" rel="stylesheet">
+    <link href="./CSS/style.css" rel="stylesheet">
 </head>
+<body>
 
-<body style="text-align: center; padding-top: 50px;">
-    <!-- Navbar -->
     <div id="navbar-container"></div>
 
-    <div style="padding-top:10rem">
-        <h1>Página en construcción</h1>
-        <p>Pronto tendremos más información. Mientras tanto, puedes visitar nuestras páginas de <a
-                href="aboutUs.html">"Nosotras"</a> y <a href="contact.html">"Contacto"</a></p>
+    <header class="masthead" style="background-image: url('./assets/bellasartes.png');">
+        <div class="color-overlay d-flex flex-column justify-content-center align-items-center text-center">
+            <h1>¿Listo para tu próxima aventura?</h1>
+            <h2>¡Elige tu tour ahora!</h2>
+        </div>
+    </header>
+<!-- Sección de estados -->
+<section class="filtro-tours mb-5">
+  <div class="filtro-container">
+    <button class="filtro-btn">Estado de México/CDMX</button>
+    <button class="filtro-btn">Querétaro</button>
+    <button class="filtro-btn">Jalisco</button>
+  </div>
+</section>
 
-        <iframe width="650" height="350" src="https://www.youtube.com/embed/xoKugH6mOo8?autoplay=1&mute=1"
-            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-    </div>
+<!-- Sección de categorías -->
+ <br>
+        <section class="mb-5">
+            <div class="d-flex justify-content-center align-items-center gap-2 gap-md-4 flex-wrap">
+                <span class="category-btn active" role="button">
+                    <i class="bi bi-list-ul"></i> Todo
+                </span>
+                <p class="d-none d-md-block fs-2 m-0">|</p>
+
+                <label class="category-option">
+                    <input type="checkbox" name="categoria" value="cultura">
+                    <i class="bi bi-bank"></i>
+                    <span>Cultura</span>
+                </label>
+                <p class="d-none d-md-block fs-2 m-0">|</p>
+
+                <label class="category-option">
+                    <input type="checkbox" name="categoria" value="arte">
+                    <i class="bi bi-palette"></i>
+                    <span>Arte</span>
+                </label>
+                <p class="d-none d-md-block fs-2 m-0">|</p>
+
+                <label class="category-option">
+                    <input type="checkbox" name="categoria" value="gastronomia">
+                    <i class="bi bi-egg-fried"></i>
+                    <span>Gastronomía</span>
+                </label>
+                <p class="d-none d-md-block fs-2 m-0">|</p>
+
+                <label class="category-option">
+                    <input type="checkbox" name="categoria" value="fiesta">
+                    <i class="bi bi-music-note-beamed"></i>
+                    <span>Fiesta</span>
+                </label>
+            </div>
+        </section>
+<!-- Cards de tours -->
+        <section>
+            <h3 class="text-center mb-4"></h3>
+            <div class="cards-wrapper mx-auto">
+            <div id="tours-container" class="row g-4">
+
+                </div>
+                </div>
+        </section>
+    </main>
+<br>
     <div id="footer-container"></div>
-
-    <!-- Bootstrap JS (bundle incluye Popper necesario para dropdown) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Tu navbar generado dinámicamente -->
     <script src="./JS/navbar.js"></script>
     <script src="./JS/footer.js"></script>
+    
+    <script src="./JS/main.js"></script> 
 
-
-
-    <!-- Scripts de Bootstrap y Navbar -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-        crossorigin="anonymous"></script> -->
-
-    <!-- Script de tu navbar -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./JS/navbar_corregido.js" defer></script> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
-
 </html>
