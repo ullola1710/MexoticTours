@@ -113,15 +113,15 @@ position: absolute;
         }
 
 
-    .carousel-item img {
-        max-height: 54rem; /* Ajusta este valor (ej. 300px, 500px) */
+    .carousel-itemindex img {
+        max-height: 54rem; /* Ajusta este valor (ej. 300px, 500px)*/
         width: auto; /* Mantiene la proporción */
         margin: 0 auto;
         display: block;
     }
 
 
-        .carousel-inner h5{
+        .carousel-innerindex h5{
             font-size: 5.5rem;
             color: white;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 5);
@@ -131,7 +131,7 @@ position: absolute;
             color: #fff; /* Asegura que el texto sea visible (ajusta según*/
         }
 
-        .carousel-inner p{
+        .carousel-innerindex p{
             font-size: 2.8rem;
             font-family: 'Dancing Script', cursive;
             color: white;
@@ -142,11 +142,11 @@ position: absolute;
             color: #fff; /* Asegura que el texto sea visible (ajusta según*/
         }
 
-        .carousel{
+        .carouselindex{
             background-color:#09112E;
         }
 
-        .carousel-control-prev{
+        .carousel-control-previndex{
                         background-color: #8D94FF;
             border: none;
             border-radius: 2rem; /* Bordes más redondeados */
@@ -165,7 +165,7 @@ position: absolute;
             margin: 0 auto;
         }
 
-            .carousel-control-next{
+            .carousel-control-nextindex{
                         background-color: #8D94FF;
             border: none;
             border-radius: 2rem; /* Bordes más redondeados */
