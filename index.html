@@ -19,6 +19,76 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        .card-imp-top {
+            height: 200px;
+            object-fit: cover;
+           /* transition: transform 0.3s ease-in-out;/*Transición para la imagen*/
+        }
+
+        .card {
+            transition: box-shadow 0.3s ease-in-out;
+            /*Suaviza transición*/
+            cursor: pointer;
+            overflow: hidden;/*oculta lo que se salga de la tarjeta*/
+        }
+
+        .card:hover {
+           transform: scale(1.05);
+            /*escala la tarjeta cuando el mouse está encima*/
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);/*sombra cursor: pointer;
+            /*Cursor*/
+        }
+        #contenedorTarjetas {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(./assets/bellasartes.png);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        .typewriter {
+            overflow: hidden;
+            /*Oculta texto*/
+            border-right: .15em solid orange;
+            /*cursor*/
+            white-space: nowrap;
+            /*Evita que el texto salte a la sig. linea*/
+            margin: 0 auto;
+            padding: 1.5rem;
+            letter-spacing: .15em;
+            animation:
+                typing 3.5s steps(35, end)forwards,
+                blink-caret .60s step-end 7 forwards;
+            font-family:'Dancing Script', cursive; 
+            font-size: 3rem;
+
+        }
+
+        /* La animación de "escritura" */
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        /* La animación del cursor que parpadea */
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: #fff;
+            }
+        }
+    </style>
 </head>
 
 <body style="text-align: center;">
@@ -42,6 +112,7 @@
     </header>
     <br>
     <!-- Carrusel -->
+<<<<<<< HEAD
         <section class="carouselindex">
             <div id="carouselExampleDark" class="carousel carousel-dark slide">
             <div class="carousel-indicatorsindex">
@@ -79,65 +150,128 @@
             <button class="carousel-control-nextindex" type="button" data-bs-target="#carouselExampleDarkindex" data-bs-slide="next">
                 <span class="carousel-control-next-iconindex" aria-hidden="true"></span>
                 <span class="visually-hiddenindex">Next</span>
-            </button>
+=======
+    <section class="carousel">
+        <div id="carouselExampleDark" class="carousel carousel-dark slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
             </div>
-         </section>
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                    <img src="./assets/expiatorio.jpg" class="d-block w-80" alt="">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Guadalajara "La Perla Tapatía"</h5>
+                        <p>"La ciudad de las rosas te llama a caminar por sus plazas y a brindar por la vida."</p>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="./assets/pb.jpg" class="d-block w-80" alt="">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Querétaro "El Tesoro Colonial"</h5>
+                        <p>"Donde la historia se hizo nación, hoy te espera una ciudad para enamorarte."</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./assets/cdmx.jpg" class="d-block w-80" alt="">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>CDMX "El Mosaico Interminable"</h5>
+                        <p>"Donde cada barrio es un mundo y cada calle es un universo por descubrir."</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+>>>>>>> MtMv_
+            </button>
+        </div>
+    </section>
 
     <!-- Contenedor de tarjetas  -->
-    <div class="container text-center hero-content">
-        <div class="row align-items-center">
-            <div class="col-12 col-md-12 align-items-center">
-                <span>
-                    <p class="disfs-1 fw-semibold"> Mexotic no solo te lleva a un destino, te conecta
-                        con el...
-                    </p>
-                </span>
-                <span>
-                    <h4 class="lead dancing-script fw-semibold "> Nuestra esencia y beneficios </h4>
-                </span>
-
-            </div>
-        </div>
-        <div class="conteiner" style="background-color:#8d95ff6d">
-            <div class="row align-items-center">
-                <div class="col">
-                    <!-- Cards de tours -->
-                    <section>
-                        <div class="card" style="width: 18rem;">
-                            <img src="..." class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card’s content.</p>
-                            </div>
+    <div id="contenedorTarjetas" class="container-fluid">
+        <!-- Sub Encabezado -->
+        <div class="container py-5 text-center">
+            <h2 class="display-3 text-white" style="font-size: 5rem;"> Mexotic no solo te lleva a un destino, te conecta
+                con el...
+            </h2>
+            <h3 class="lead dancing-script fw-semibold text-white typewriter"> Nuestra esencia y beneficios </h3>
+            <span></span>
+            <div class="row g-4 justify-content-center">
+                <!-- <--- primera  card-->
+                <div class="col-md-6 col-lg-4 d-flex aling-items-stretch">
+                    <div class="card p-3">
+                        <img src="./assets/Sayulita.jpg" class="card-img-top" alt="Sayulita">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="class card-title">Viajes diseñados con enfoque local</h5>
+                            <p class="card-text flex-grow-1">En Mexotic diseñamos experiencias auténticas, con guías
+                                locales que conocen los rincones más especiales de cada ciudad!</ln>
+                            </p>
                         </div>
-                        <div class="col">
-                            <div class="card" style="width: 18rem;">
-                                <img src="..." class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk of the card’s content.</p>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <!-- Cards de tours -->
-                                <div class="card" style="width: 18rem;">
-                                    <img src="..." class="card-img-top" alt="...">
-                                    <div class="card-body">
-                                        <p class="card-text">Some quick example text to build on the card title and make
-                                            up the
-                                            bulk of the card’s content.</p>
-                                    </div>
-                                </div>
-                    </section>
+                    </div>
+                </div>
+                <!-- <--- segunda  card-->
+                <div class="col-md-6 col-lg-4 d-flex aling-items-stretch">
+                    <div class="card p-3">
+                        <img src="./assets/pexels-jorge-acre-239933086-16625367.jpg" class="card-img-top"
+                            alt="Sayulita,jal.">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Espacios seguros y confiables para todos</h5>
+                            <p class="card-text flex-grow-1">Nos aseguramos de que cada tour sea <strong>cómodo</strong>
+                                y<strong> seguro</strong>. Queremos que explores sintiéndote <strong>segura</strong>s en
+                                cualquier momento! </strong></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- <--- tercera  card-->
+                <div class="col-md-6 col-lg-4 d-flex aling-items-stretch">
+                    <div class="card p-3">
+                        <img src="./assets/Catedral gdl.jpg" alt="Rotonda de los Jaliciences Ilustres.png"
+                            class="card-img-top">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="cord-title">Grupos Pequeños, con atención personalizada</h5>
+                            <p class="card-text flex-grow-1">En Mexotic no somos tours masivos. Creamos grupos reducidos
+                                para que vivas un viaje cercano, humano y sin prisas.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- <--- cuarta card-->
+                <div class="col-md-6 col-lg-4 d-flex aling-items-stretch">
+                    <div class="card p-3">
+                        <img src="./assets/catedral atardecer.jpg" alt="Catedral atardecer." class="card-img-top">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="cord-title">Conectamos cultura con aventura</h5>
+                            <p class="card-text flex-grow-1">No solo visitas un lugar: lo vives. Desde probar comida
+                                típica
+                                con cocineras locales hasta descubrir música o arte con quienes lo crean.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- quinta card -->
+                <div class="col-md-6 col-lg-4 d-flex aling-items-stretch">
+                    <div class="card p-3">
+                        <img src="./assets/dia de muertos.jpg" alt="tradiciones mexicanas" class="card-img-top">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Fácil de reservar, Completa tranquilidad</h5>
+                            <p class="card-text flex-grow-1"> Todo desde tu espacio, con asesoría en tiempo real. Solo
+                                necesitas elegir el destino, y nosotros nos encargamos del resto.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        </section>
-        </main>
     </div>
-    </div>
-    </div>
+    </main>
     <!-- Footer -->
     <div id="footer-container"></div>
 
