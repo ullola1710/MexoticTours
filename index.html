@@ -16,9 +16,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./CSS/tours.css">
     <!-- Bootstrap Iconsk -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body style="text-align: center;">
@@ -40,13 +40,54 @@
             </div>
         </section>
     </header>
+    <br>
+    <!-- Carrusel -->
+            <div id="carouselExampleDark" class="carousel carousel-dark slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                <img src="./assets/expiatorio.jpg" class="d-block w-80" alt="">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Guadalajara "La Perla Tapatía"</h5>
+                    <p>"La ciudad de las rosas te llama a caminar por sus plazas y a brindar por la vida."</p>
+                </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                <img src="./assets/pb.jpg" class="d-block w-80" alt="">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Querétaro "El Tesoro Colonial"</h5>
+                    <p>"Donde la historia se hizo nación, hoy te espera una ciudad para enamorarte."</p>
+                </div>
+                </div>
+                <div class="carousel-item">
+                <img src="./assets/cdmx.jpg" class="d-block w-80" alt="">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>CDMX "El Mosaico Interminable"</h5>
+                    <p>"Donde cada barrio es un mundo y cada calle es un universo por descubrir."</p>
+                </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+            </div>
+
 
     <!-- Contenedor de tarjetas  -->
     <div class="container text-center hero-content">
         <div class="row align-items-center">
-            <div class="col-12 col-md-6 align-items-center">
+            <div class="col-12 col-md-12 align-items-center">
                 <span>
-                    <p class="fs-1 fw-semibold"> Mexotic no solo te lleva a un destino, te conecta
+                    <p class="disfs-1 fw-semibold"> Mexotic no solo te lleva a un destino, te conecta
                         con el...
                     </p>
                 </span>
@@ -56,16 +97,38 @@
 
             </div>
         </div>
-        <div class="conteiner"style="background-color:#8d95ff6d">
+        <div class="conteiner" style="background-color:#8d95ff6d">
             <div class="row align-items-center">
                 <div class="col">
                     <!-- Cards de tours -->
                     <section>
-                        <h3 class="text-center mb-4"></h3>
-                        <div class="cards-wrapper mx-auto">
-                            <div id="tours-container" class="row g-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of the card’s content.</p>
                             </div>
                         </div>
+                        <div class="col">
+                            <div class="card" style="width: 18rem;">
+                                <img src="..." class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the
+                                        bulk of the card’s content.</p>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <!-- Cards de tours -->
+                                <div class="card" style="width: 18rem;">
+                                    <img src="..." class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <p class="card-text">Some quick example text to build on the card title and make
+                                            up the
+                                            bulk of the card’s content.</p>
+                                    </div>
+                                </div>
+                    </section>
                 </div>
             </div>
         </div>
