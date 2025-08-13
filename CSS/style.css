@@ -134,74 +134,36 @@ position: absolute;
         }
 
 
-    .carousel-itemindex img {
-        max-height: 54rem; /* Ajusta este valor (ej. 300px, 500px)*/
-        width: auto; /* Mantiene la proporción */
-        margin: 0 auto;
-        display: block;
-    }
-
-
-        .carousel-innerindex h5{
-            font-size: 5.5rem;
-            color: white;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 5);
-            text-align: center; /* Centra el texto horizontalmente */
-            top: 50%; /* Ajusta la posición vertical al centro */
-            transform: translateY(-90%); /* Centra verticalmente respecto a su posición */
-            color: #fff; /* Asegura que el texto sea visible (ajusta según*/
+        .spot{
+            background-color: #09112e;
         }
+        .ofrecemos-esencia {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 3rem;
+}
 
-        .carousel-innerindex p{
-            font-size: 2.8rem;
-            font-family: 'Dancing Script', cursive;
-            color: white;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 10);
-                        text-align: center; /* Centra el texto horizontalmente */
-            top: 50%; /* Ajusta la posición vertical al centro */
-            transform: translateY(-80%); /* Centra verticalmente respecto a su posición */
-            color: #fff; /* Asegura que el texto sea visible (ajusta según*/
-        }
+.bloque {
+  flex: 1;
+  padding: 0 1rem;
+  border-left: 3px solid #ff8fc1; /* Línea vertical */
+}
 
-        .carouselindex{
-            background-color:#09112E;
-        }
+.bloque:first-child {
+  border-left: none; /* No poner línea en el primero */
+}
 
-        .carousel-control-previndex{
-                        background-color: #8D94FF;
-            border: none;
-            border-radius: 2rem; /* Bordes más redondeados */
-            padding: .09rem 1rem;
-            font-size: 1.25rem;
-            color: white;
-            text-transform: uppercase;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem; /* Espacio entre ícono y texto */
-            text-decoration: none; /* Quitar subrayado del <a> */
-            transition: background-color 0.3s, box-shadow 0.3s;
-            max-width: 10rem;
-            margin: 0 auto;
-        }
+.bloque h2 {
+  color: #ff8fc1;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
 
-            .carousel-control-nextindex{
-                        background-color: #8D94FF;
-            border: none;
-            border-radius: 2rem; /* Bordes más redondeados */
-            padding: .09rem 1rem;
-            font-size: 1.25rem;
-            color: white;
-            text-transform: uppercase;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem; /* Espacio entre ícono y texto */
-            text-decoration: none; /* Quitar subrayado del <a> */
-            transition: background-color 0.3s, box-shadow 0.3s;
-            max-width: 10rem;
-            margin: 0 auto;
-        }
-
+.bloque p {
+  color: #5f5f5f;
+  line-height: 1.6;
+  font-size: 1rem;
+}
