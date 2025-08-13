@@ -111,3 +111,76 @@ position: absolute;
             background-color: #5A64FF; 
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
+
+
+    .carousel-item img {
+        max-height: 54rem; /* Ajusta este valor (ej. 300px, 500px) */
+        width: auto; /* Mantiene la proporción */
+        margin: 0 auto;
+        display: block;
+    }
+
+
+        .carousel-inner h5{
+            font-size: 5.5rem;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 5);
+            text-align: center; /* Centra el texto horizontalmente */
+            top: 50%; /* Ajusta la posición vertical al centro */
+            transform: translateY(-90%); /* Centra verticalmente respecto a su posición */
+            color: #fff; /* Asegura que el texto sea visible (ajusta según*/
+        }
+
+        .carousel-inner p{
+            font-size: 2.8rem;
+            font-family: 'Dancing Script', cursive;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 10);
+                        text-align: center; /* Centra el texto horizontalmente */
+            top: 50%; /* Ajusta la posición vertical al centro */
+            transform: translateY(-80%); /* Centra verticalmente respecto a su posición */
+            color: #fff; /* Asegura que el texto sea visible (ajusta según*/
+        }
+
+        .carousel{
+            background-color:#09112E;
+        }
+
+        .carousel-control-prev{
+                        background-color: #8D94FF;
+            border: none;
+            border-radius: 2rem; /* Bordes más redondeados */
+            padding: .09rem 1rem;
+            font-size: 1.25rem;
+            color: white;
+            text-transform: uppercase;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem; /* Espacio entre ícono y texto */
+            text-decoration: none; /* Quitar subrayado del <a> */
+            transition: background-color 0.3s, box-shadow 0.3s;
+            max-width: 10rem;
+            margin: 0 auto;
+        }
+
+            .carousel-control-next{
+                        background-color: #8D94FF;
+            border: none;
+            border-radius: 2rem; /* Bordes más redondeados */
+            padding: .09rem 1rem;
+            font-size: 1.25rem;
+            color: white;
+            text-transform: uppercase;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem; /* Espacio entre ícono y texto */
+            text-decoration: none; /* Quitar subrayado del <a> */
+            transition: background-color 0.3s, box-shadow 0.3s;
+            max-width: 10rem;
+            margin: 0 auto;
+        }
+
