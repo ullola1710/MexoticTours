@@ -141,3 +141,46 @@ position: absolute;
             transform: translateY(-80%); /* Centra verticalmente respecto a su posición */
             color: #fff; /* Asegura que el texto sea visible (ajusta según*/
         }
+
+        .carousel{
+            background-color:#09112E;
+        }
+
+        .carousel-control-prev{
+                        background-color: #8D94FF;
+            border: none;
+            border-radius: 2rem; /* Bordes más redondeados */
+            padding: .09rem 1rem;
+            font-size: 1.25rem;
+            color: white;
+            text-transform: uppercase;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem; /* Espacio entre ícono y texto */
+            text-decoration: none; /* Quitar subrayado del <a> */
+            transition: background-color 0.3s, box-shadow 0.3s;
+            max-width: 10rem;
+            margin: 0 auto;
+        }
+
+            .carousel-control-next{
+                        background-color: #8D94FF;
+            border: none;
+            border-radius: 2rem; /* Bordes más redondeados */
+            padding: .09rem 1rem;
+            font-size: 1.25rem;
+            color: white;
+            text-transform: uppercase;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem; /* Espacio entre ícono y texto */
+            text-decoration: none; /* Quitar subrayado del <a> */
+            transition: background-color 0.3s, box-shadow 0.3s;
+            max-width: 10rem;
+            margin: 0 auto;
+        }
+
