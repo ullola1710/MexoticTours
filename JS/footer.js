@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const footer = `
-<div class="card" style="background-color: #09112E;">
+<div class="footer-card" style="background-color: #09112E;">
         <div class="card-body">
             <div class="container text-center">
                 <div class="row">
