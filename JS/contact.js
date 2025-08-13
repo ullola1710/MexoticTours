@@ -208,7 +208,7 @@ function limpiarErrores() {
 privacyLink.onclick = function () {
   document.body.insertAdjacentHTML("beforeend",
     `<style>
-    /* Estilos para el fondo del popup */
+    /* Fondo */
     .popup-overlay {
       display: none;
       position: fixed;
@@ -222,14 +222,14 @@ privacyLink.onclick = function () {
       z-index: 999;
     }
 
-    /* Estilos para el contenido del popup */
+    /* Contenido */
     .popup-content {
       background-color: white;
       padding: 20px;
       border-radius: 8px;
       width: 80%;
       max-width: 800px;
-      height: 80%; /* Ajuste para que el iframe ocupe el 80% de la altura */
+      height: 80%;
 
     }
 
@@ -244,8 +244,8 @@ privacyLink.onclick = function () {
 
     /* Estilos para el iframe */
     iframe {
-      width: 100%;
-      height: 100%; /* Ajusta la altura al 100% del contenedor */
+      height: 100%;
+      width: auto;
       border: none;
     }
     </style>
@@ -253,7 +253,7 @@ privacyLink.onclick = function () {
       <div class="popup-content">
         <span class="close-btn" id="closePopup">&times;</span>
         <h2>Política de Privacidad</h2>
-        <iframe src="./docs/PlanEstudiosDesarrolloJava.pdf" frameborder="0"></iframe>
+        <iframe src="./docs/AvisoPrivacidad.pdf" frameborder="0"></iframe>
       </div>
     </div>`
   );
