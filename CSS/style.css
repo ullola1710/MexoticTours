@@ -95,7 +95,7 @@ position: absolute;
             padding: .09rem 1rem;
             font-size: 1.25rem;
             color: white;
-            text-transform: uppercase;
+            text-transform:"";
             text-align: center;
             display: flex;
             align-items: center;
@@ -103,7 +103,7 @@ position: absolute;
             gap: 1rem; /* Espacio entre ícono y texto */
             text-decoration: none; /* Quitar subrayado del <a> */
             transition: background-color 0.3s, box-shadow 0.3s;
-            max-width: 10rem;
+            max-width: 20rem;
             margin: 0 auto;
         }
 
