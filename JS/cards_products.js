@@ -17,13 +17,13 @@ function addItem(tour){
     card.innerHTML= `
     <div class="card h-100 shadow-sm d-flex flex-column">
         <img src="${tour.img}" class="card-img-top" alt="${tour.name}">
-        <div class="card-body
-            <h5 class="card-title">${tour.name}</h5>
+        <div class="card-body d-flex flex-column">
+            <h3 class="card-title clamp-2">${tour.name}</h5>
             <p class="card-category">${tour.category}</p>
             <p class="card-estado">${tour.estado}</p>
-            <p class="card-text">${tour.description}</p>
-            <div class="card-footer b bg-transparent border-0 mt-auto">
-                <a href="${detalleUrl(tour)}"class="btn btn-outline-primary">Más información</a>
+            <p class="card-text mt-2 clamp-5 flex-grow-1">${tour.description}.</p>
+            <div class="card-footer bg-transparent border-0 mt-auto">
+                <a href="${detalleUrl(tour)}"class="btn-custom">Más información</a>
             </div>
         </div>
     </div>
@@ -37,7 +37,7 @@ function loadTour(tour){
 
     document.getElementById('tour-title').textContent = tour.name;
     // document.getElementById('tour-price').textContent = tour.precioExclusivo || tour.precio;
-    document.getElementById('tour-price').textContent = tour.precio;
+    document.getElementById('tour-price').textContent = `$${tour.precio} MXN por persona`;
     document.getElementById('tour-image').src = tour.img;
     document.getElementById('tour-image').alt = tour.name;
 
