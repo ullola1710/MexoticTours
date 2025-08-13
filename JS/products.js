@@ -2,101 +2,149 @@
 // toursData.js
 const tours = [
   {
-    id: 1 ,
+    id: 1, 
     estado: 'CDMX',
     name: 'Palacio Postal',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Palacio_Postal_Mexico.jpg/640px-Palacio_Postal_Mexico.jpg',
+    img: './assets/products/PalacioPostal.jpg',
     description: 'Ícono del Centro Histórico con arquitectura única.',
     category: 'Cultura',
+    horario: '',
+    disponibilidad: '',
     duracion:'',
     precio: '',
-    incluye: '' ,
+    incluye:'', 
+    leyenda:'',
   },
   {
+    id: 2,
     estado: 'Querétaro',
     name: 'Centro Histórico de Querétaro',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Queretaro_centro.jpg',
+    img: './assets/products/CentroHistorico.jpg',
     description: 'Ciudad privilegiada por su arquitectura, música e historia.',
     category: 'Cultura',
+    horario:'' ,
+    disponibilidad:'',
     duracion: '',
     precio: '',
-
+    incluye:'' ,
+    leyenda:'' ,
   },
   {
+    id: 3,
     estado: 'Jalisco',
     name: 'Tour Tequila',
-    img: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fpueblosmagicos.mexicodesconocido.com.mx%2Fjalisco%2Ftequila-jalisco%2F&psig=AOvVaw1U1g87mrBZHE3VOu84y_PD&ust=1754972641768000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCMiy8dj0gY8DFQAAAAAdAAAAABAE',
+    img: './assets/products/tequila.png',
     description: 'Visita guiada a la fábrica de tequila artesanal.',
     category: 'Gastronomía',
-    duracion: '',
+    horario:'' ,
+    disponibilidad:'' ,
+    duracion:'' ,
+    precio:'' ,
+    incluye:'' ,
+    leyenda:'' ,   
     precio:'',
   },
   {
+    id: 4,
     estado: 'CDMX',
     name: 'Ragga by Joy Antara',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/4/47/Nightclub.jpg',
+    img: './assets/products/Ragga.jpg',
     description: 'Escenografía iluminada y ambiente sensacional.',
     category: 'Fiesta',
+    horario:'' ,
+    disponibilidad:'' ,
     duracion:'',
     precio:'',
+    incluye:'' ,
+    leyenda:'' ,
   },
   {
+    id:5,
     estado:'Querétaro',
     name: 'Carranza 50',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/1/18/Restaurant.jpg',
+    img: './assets/products/Carranza.jpg',
     description: 'Restaurante con cocina mexicana en brasas.',
     category: 'Gastronomía',
+    horario:'',
+    disponibilidad:'',
     duracion:'',
     precio: '',
+    incluye:'',
+    leyenda:'',
   },
   {
+    id: 6,
     estado:'Jalisco',
     name: 'Mercado San Juan de Dios',
-    img: './assets/mercado.jpg',
+    img: './assets/products/SanJuandeDios.jpg',
     description: 'Más de 4000 puestos con comida y artesanías.',
     category: 'Gastronomía',
+    horario:'',
+    disponibilidad:'',
     duracion: '2 a 4 horas',
     precio: '',
+    incluye:'',
+    leyenda:'',
   },
   {
+    id: 7,
     estado: 'CDMX',
     name: 'Museo Soumaya',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Museo_Soumaya.jpg',
+    img: './assets/products/MuseoSoumaya.jpg',
     description: 'Museo de arte con arquitectura futurista.',
     category: 'Arte',
+    horario:'',
+    disponibilidad:'',    
     duracion: '',
     precio: '',
+    incluye:'',
+    leyenda:'',
   },
   {
+    id: 8,
     estado:'Jalisco',
     name: 'Catedral de Guadalajara',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/0/0f/Catedral_Guadalajara.jpg',
+    img: './assets/products/CatedralGuadalajara.jpg',
     description: 'Imponente catedral con torres neogóticas.',
     category: 'Cultura',
+    horario:'',
+    disponibilidad:'',
     duracion:'',
     precio:'',
+    incluye:'',
+    leyenda:'',
   },
   {
-    estado:'',
+    id: 9,
+    estado:'Querétaro',
     name: 'Viaje a Bernal y Tequisquiapan',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/d/da/Feria_San_Marcos.jpg',
+    img: './assets/products/Bernal.jpg',
     description: 'Pasea por las hermosas calles de Bernal y Tequisquiapan. Prueba el delicioso vino y queso de la región semidesértica de Querétaro.',
     category: 'Gastronomía, Cultura',
+    horario:'',
+    disponibilidad:'',
     duracion:'',
     precio:'',
+    incluye:'',
+    leyenda:'',
   },
   {
+    id: 10,
     estado:'CDMX',
     name: 'Museo de Arte Moderno',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/6/67/Museo_Arte_Moderno.jpg',
+    img: './assets/products/MuseoModerno.jpg',
     description: 'Obras modernas y contemporáneas en un espacio icónico.',
     category: 'Arte',
+    horario:'',
+    disponibilidad:'',
     duracion:'',
     precio:'',
+    incluye:'',
+    leyenda:'',
   }
 ];
 
-// main.js
+// products.js
 function addItem(tour) {
   const container = document.getElementById('tours-container');
   
@@ -111,16 +159,18 @@ function addItem(tour) {
         <p class="card-category">${tour.category}</p>
         <p class="card-estado">${tour.estado}</p>
         <p class="card-text">${tour.description}</p>
-        <button class="btn-mas-info">Más información</button>
+        <button class="btn-mas-info" id="info">Más información</button>
 
 
       </div>
     </div>
   `;
+   
 
   container.appendChild(card);
 }
 
 // main.js (al final)
 tours.forEach(tour => addItem(tour));
+
 
