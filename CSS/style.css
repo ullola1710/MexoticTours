@@ -137,6 +137,7 @@ position: absolute;
         .spot{
             background-color: #09112e;
         }
+<<<<<<< HEAD
         /* ===== SECCIÓN OFRECEMOS ===== */
 #mx-ofrecemos {
   padding: 3rem 1rem;
@@ -209,4 +210,69 @@ position: absolute;
   .mx-text {
     font-size: 1rem;
   }
+=======
+        
+/* ===== Sección OFRECEMOS para Mexotic ===== */
+.mx-ofrecemos-esencia {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 3rem 1.5rem;
+    max-width: 1200px;
+    margin: auto;
+    background-color: #fff;
+}
+
+.mx-bloque {
+    flex: 1;
+    min-width: 280px;
+    padding: 0 1rem;
+    border-left: 3px solid #ff8fc1;
+}
+
+.mx-bloque:first-child {
+    border-left: none;
+}
+
+.mx-titulo {
+    color: #ff8fc1;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.mx-texto {
+    color: #5f5f5f;
+    line-height: 1.6;
+    font-size: 1rem;
+    text-align: justify;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .mx-ofrecemos-esencia {
+        flex-direction: column;
+        padding: 2rem 1rem;
+    }
+
+    .mx-bloque {
+        border-left: none;
+        border-top: 3px solid #ff8fc1;
+        padding-top: 1rem;
+    }
+
+    .mx-bloque:first-child {
+        border-top: none;
+    }
+
+    .mx-titulo {
+        font-size: 1.5rem;
+    }
+
+    .mx-texto {
+        font-size: 0.95rem;
+    }
+>>>>>>> develop
 }
