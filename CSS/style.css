@@ -116,33 +116,67 @@ position: absolute;
         .spot{
             background-color: #09112e;
         }
-        .ofrecemos-esencia {
-  display: flex;
-  gap: 2rem;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 3rem;
+        
+/* ===== Sección OFRECEMOS para Mexotic ===== */
+.mx-ofrecemos-esencia {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 3rem 1.5rem;
+    max-width: 1200px;
+    margin: auto;
+    background-color: #fff;
 }
 
-.bloque {
-  flex: 1;
-  padding: 0 1rem;
-  border-left: 3px solid #ff8fc1; /* Línea vertical */
+.mx-bloque {
+    flex: 1;
+    min-width: 280px;
+    padding: 0 1rem;
+    border-left: 3px solid #ff8fc1;
 }
 
-.bloque:first-child {
-  border-left: none; /* No poner línea en el primero */
+.mx-bloque:first-child {
+    border-left: none;
 }
 
-.bloque h2 {
-  color: #ff8fc1;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+.mx-titulo {
+    color: #ff8fc1;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
 }
 
-.bloque p {
-  color: #5f5f5f;
-  line-height: 1.6;
-  font-size: 1rem;
+.mx-texto {
+    color: #5f5f5f;
+    line-height: 1.6;
+    font-size: 1rem;
+    text-align: justify;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .mx-ofrecemos-esencia {
+        flex-direction: column;
+        padding: 2rem 1rem;
+    }
+
+    .mx-bloque {
+        border-left: none;
+        border-top: 3px solid #ff8fc1;
+        padding-top: 1rem;
+    }
+
+    .mx-bloque:first-child {
+        border-top: none;
+    }
+
+    .mx-titulo {
+        font-size: 1.5rem;
+    }
+
+    .mx-texto {
+        font-size: 0.95rem;
+    }
 }
