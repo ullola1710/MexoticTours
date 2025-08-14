@@ -210,12 +210,13 @@ privacyLink.onclick = function () {
     `<style>
     /* Fondo */
     .popup-overlay {
-      display: none;
+      display: flex;
       position: fixed;
-      top: 0;
-      left: 0;
+      inset: 0;
+      /* top: 0;
+      left: 0; 
       width: 100%;
-      height: 100%;
+      height: 100%;*/
       background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
       justify-content: center;
       align-items: center;
@@ -224,35 +225,36 @@ privacyLink.onclick = function () {
 
     /* Contenido */
     .popup-content {
+      position: absolute;
       background-color: white;
       padding: 20px;
       border-radius: 8px;
       width: 80%;
       max-width: 800px;
-      height: 80%;
-
+      height: 70%;
     }
 
     /* Cerrar el popup */
     .close-btn {
       position: absolute;
       top: 10px;
-      right: 10px;
-      font-size: 25px;
+      right: 20px;
+      font-size: 2.5rem;
       cursor: pointer;
     }
 
     /* Estilos para el iframe */
     iframe {
-      height: 100%;
-      width: auto;
+      width: 100%;
+      height: 90%;
       border: none;
+      flex: 1;
     }
     </style>
     <div class="popup-overlay" id="popup">
       <div class="popup-content">
         <span class="close-btn" id="closePopup">&times;</span>
-        <h2>Política de Privacidad</h2>
+        <h2 id="privacidadTitle" style="margin:0; padding:1rem;">Política de Privacidad</h2>
         <iframe src="./docs/AvisoPrivacidad.pdf" frameborder="0"></iframe>
       </div>
     </div>`
