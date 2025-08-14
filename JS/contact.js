@@ -208,43 +208,54 @@ function limpiarErrores() {
 privacyLink.onclick = function () {
   document.body.insertAdjacentHTML("beforeend",
     `<style>
-    /* Estilos para el fondo del popup */
+    /* Fondo */
     .popup-overlay {
-      display: none; /* Inicialmente oculto */
+      display: flex;
       position: fixed;
-      top: 0;
-      left: 0;
+      inset: 0;
+      /* top: 0;
+      left: 0; 
       width: 100%;
-      height: 100%;
+      height: 100%;*/
       background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
       justify-content: center;
       align-items: center;
       z-index: 999;
     }
 
-    /* Estilos para el contenido del popup */
+    /* Contenido */
     .popup-content {
+      position: absolute;
       background-color: white;
       padding: 20px;
       border-radius: 8px;
-      width: 70%;
-      max-width: 600px;
-      overflow-y: auto;
+      width: 80%;
+      max-width: 800px;
+      height: 70%;
     }
 
+    /* Cerrar el popup */
     .close-btn {
       position: absolute;
       top: 10px;
-      right: 10px;
-      font-size: 25px;
+      right: 20px;
+      font-size: 2.5rem;
       cursor: pointer;
+    }
+
+    /* Estilos para el iframe */
+    iframe {
+      width: 100%;
+      height: 90%;
+      border: none;
+      flex: 1;
     }
     </style>
     <div class="popup-overlay" id="popup">
       <div class="popup-content">
         <span class="close-btn" id="closePopup">&times;</span>
-        <h2>Política de Privacidad</h2>
-        <iframe src="./docs/PlanEstudiosDesarrolloJava.pdf" width="100%" height="400px" frameborder="0"></iframe>
+        <h2 id="privacidadTitle" style="margin:0; padding:1rem;">Política de Privacidad</h2>
+        <iframe src="./docs/AvisoPrivacidad.pdf" frameborder="0"></iframe>
       </div>
     </div>`
   );

@@ -10,26 +10,185 @@
         integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 
     <link rel="stylesheet" href="./CSS/style.css">
-
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./CSS/tours.css">
     <!-- Bootstrap Iconsk -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"> -->
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        .card-imp-top {
+            height: 200px;
+            object-fit: cover;
+           /* transition: transform 0.3s ease-in-out;/*Transición para la imagen*/
+        }
+
+        .card {
+            transition: box-shadow 0.3s ease-in-out;
+            /*Suaviza transición*/
+            cursor: pointer;
+            overflow: hidden;/*oculta lo que se salga de la tarjeta*/
+        }
+
+        .card:hover {
+           transform: scale(1.05);
+            /*escala la tarjeta cuando el mouse está encima*/
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);/*sombra cursor: pointer;
+            /*Cursor*/
+        }
+        #contenedorTarjetas {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(./assets/bellasartes.png);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        .typewriter {
+            overflow: hidden;
+            /*Oculta texto*/
+            border-right: .15em solid orange;
+            /*cursor*/
+            white-space: nowrap;
+            /*Evita que el texto salte a la sig. linea*/
+            margin: 0 auto;
+            padding: 1.5rem;
+            letter-spacing: .15em;
+            animation:
+                typing 3.5s steps(35, end)forwards,
+                blink-caret .60s step-end 7 forwards;
+            font-family:'Dancing Script', cursive; 
+            font-size: 3rem;
+
+        }
+
+        /* La animación de "escritura" */
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        /* La animación del cursor que parpadea */
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: #fff;
+            }
+        }
+    </style>
 </head>
 
-<body style="text-align: center; padding-top: 50px;">
+<body style="text-align: center;">
     <!-- Navbar -->
     <div id="navbar-container"></div>
 
-    <div style="padding-top:10rem">
-        <h1>Página en construcción</h1>
-        <p>Pronto tendremos más información. Mientras tanto, puedes visitar nuestras páginas de <a
-                href="aboutUs.html">"Nosotras"</a> y <a href="contact.html">"Contacto"</a></p>
-
-        <iframe width="650" height="350" src="https://www.youtube.com/embed/xoKugH6mOo8?autoplay=1&mute=1"
-            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
+    <!-- Hero Section GDL INICIO -->
+    <header>
+        <section class="hero-section" style="position: relative; overflow: hidden; min-height: 100vh;">
+            <div class="hero-overlay">
+                <div class="hero-content text-center">
+                    <p class="lead text-white dancing-script">Explora lo mejor de México con viajes únicos y seguros</p>
+                    <h1 class="display-3 fw-bold text-white">DESCUBRE MÉXICO COMO NUNCA</h1>
+                    <p class="text-white Be-Vietnam-Pro">Viajes únicos en CDMX, Querétaro y Guadalajara</p>
+                    <a href="./products.html" class="custom-btn btn-lg mt-3">
+                        <i class="bi bi-bookmark-heart"></i> Ver Próximas Aventuras <i class="bi bi-bookmark-heart"></i> 
+                        
+                    </a>
+                </div>
+            </div>
+        </section>
+    </header>
+    <!-- Contenedor de tarjetas  -->
+    <div id="contenedorTarjetas" class="container-fluid">
+        <!-- Sub Encabezado -->
+        <div class="container py-5 text-center">
+            <h2 class="display-3 text-white" style="font-size: 5rem;"> Mexotic no solo te lleva a un destino, te conecta
+                con el...
+            </h2>
+            <h3 class="lead dancing-script fw-semibold text-white typewriter"> Nuestra esencia y beneficios </h3>
+            <span></span>
+            <div class="row g-4 justify-content-center">
+                <!-- <--- primera  card-->
+                <div class="col-md-6 col-lg-4 d-flex aling-items-stretch">
+                    <div class="card p-3">
+                        <img src="./assets/Sayulita.jpg" class="card-img-top" alt="Sayulita">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="class card-title">Viajes diseñados con enfoque local</h5>
+                            <p class="card-text flex-grow-1">En Mexotic diseñamos experiencias auténticas, con guías
+                                locales que conocen los rincones más especiales de cada ciudad!</ln>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- <--- segunda  card-->
+                <div class="col-md-6 col-lg-4 d-flex aling-items-stretch">
+                    <div class="card p-3">
+                        <img src="./assets/pexels-jorge-acre-239933086-16625367.jpg" class="card-img-top"
+                            alt="Sayulita,jal.">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Espacios seguros y confiables para todos</h5>
+                            <p class="card-text flex-grow-1">Nos aseguramos de que cada tour sea <strong>cómodo</strong>
+                                y<strong> seguro</strong>. Queremos que explores sintiéndote <strong>segura</strong>s en
+                                cualquier momento! </strong></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- <--- tercera  card-->
+                <div class="col-md-6 col-lg-4 d-flex aling-items-stretch">
+                    <div class="card p-3">
+                        <img src="./assets/Catedral gdl.jpg" alt="Rotonda de los Jaliciences Ilustres.png"
+                            class="card-img-top">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="cord-title">Grupos Pequeños, con atención personalizada</h5>
+                            <p class="card-text flex-grow-1">En Mexotic no somos tours masivos. Creamos grupos reducidos
+                                para que vivas un viaje cercano, humano y sin prisas.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- <--- cuarta card-->
+                <div class="col-md-6 col-lg-4 d-flex aling-items-stretch">
+                    <div class="card p-3">
+                        <img src="./assets/catedral atardecer.jpg" alt="Catedral atardecer." class="card-img-top">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="cord-title">Conectamos cultura con aventura</h5>
+                            <p class="card-text flex-grow-1">No solo visitas un lugar: lo vives. Desde probar comida
+                                típica
+                                con cocineras locales hasta descubrir música o arte con quienes lo crean.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- quinta card -->
+                <div class="col-md-6 col-lg-4 d-flex aling-items-stretch">
+                    <div class="card p-3">
+                        <img src="./assets/dia de muertos.jpg" alt="tradiciones mexicanas" class="card-img-top">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Fácil de reservar, Completa tranquilidad</h5>
+                            <p class="card-text flex-grow-1"> Todo desde tu espacio, con asesoría en tiempo real. Solo
+                                necesitas elegir el destino, y nosotros nos encargamos del resto.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    </main>
+    
+    
+    
+    <!-- Footer -->
     <div id="footer-container"></div>
 
     <!-- Bootstrap JS (bundle incluye Popper necesario para dropdown) -->
@@ -38,11 +197,10 @@
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Tu navbar generado dinámicamente -->
+    <!-- -->
     <script src="./JS/navbar.js"></script>
     <script src="./JS/footer.js"></script>
-
-
+    <script src="./JS/main.js"></script>
 
     <!-- Scripts de Bootstrap y Navbar -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"

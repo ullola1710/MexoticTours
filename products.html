@@ -5,185 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Nuestros Tours</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&display=swap" rel="stylesheet">
-
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&display=swap" rel="stylesheet"> -->
     <link href="./CSS/costum.css" rel="stylesheet">
     <link href="./CSS/style.css" rel="stylesheet">
 </head>
 <body>
 
     <div id="navbar-container"></div>
-
-    <header class="masthead" style="background-image: url('./assets/bellasartes.png'); align-content: cent;">
-        <div class="color-overlay d-flex flex-column justify-content-center align-items-center text-center">
-            <h1>¿Listo para tu próxima aventura?</h1>
-            <h2>¡Elige tu tour ahora!</h2>
-        </div>
-    </header>
-
-
-<!-- Sección de estados -->
-<section class="filtro-tours mb-5 d-none d-lg-block">
-  <div class="filtro-container">
-    <button class="filtro-btn">Estado de México/CDMX</button>
-    <button class="filtro-btn">Querétaro</button>
-    <button class="filtro-btn">Jalisco</button>
-  </div>
-</section>
-
-<!--Estados mobile-->
- <li class="nav-item d-lg-none">
-                       <a class="nav-link text-dark text-center d-flex justify-content-center align-items-center" data-bs-toggle="collapse" href="" role="button"
-                            aria-expanded="false" aria-controls="submenuProductosMobile" id="toggleProductosMobile">
-                            Región
-                             <i class="bi bi-chevron-right ms-2" id="arrowIcon"></i>
-                        </a>
-                        <div class="collapse w-90" id="submenuProductosMobile">
-                            <ul class="navbar-nav w-90">
-                                <li class="nav-item w-90">
-                                    <a class="nav-link text-dark text-center" href="./products.html">Estado de México/CDMX</a>
-                                </li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li class="nav-item w-90">
-                                    <a class="nav-link text-dark text-center" href="./personalized.html">Querétaro</a>
-                                </li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li class="nav-item w-90">
-                                    <a class="nav-link text-dark text-center" href="./personalized.html">Jalisco</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                  
-
-<!-- Sección de categorías -->
- <br>
-    <section class="mb-5 d-none d-lg-block">
-        <div class="row justify-content-center">
-            <div class="col-12 d-flex justify-content-center align-items-center flex-wrap gap-3 gap-md-4 text-center">
-                
-                <span class="category-btn active" role="button">
-                    <i class="bi bi-list-ul"></i> Todo
-                </span>
-                <p class="d-none d-md-block fs-2 m-0">|</p>
-
-                <label class="category-option d-flex align-items-center gap-2">
-                    <input type="checkbox" name="categoria" value="cultura">
-                    <i class="bi bi-bank"></i>
-                    <span>Cultura</span>
-                </label>
-                <p class="d-none d-md-block fs-2 m-0">|</p>
-
-                <label class="category-option d-flex align-items-center gap-2">
-                    <input type="checkbox" name="categoria" value="arte">
-                    <i class="bi bi-palette"></i>
-                    <span>Arte</span>
-                </label>
-                <p class="d-none d-md-block fs-2 m-0">|</p>
-
-                <label class="category-option d-flex align-items-center gap-2">
-                    <input type="checkbox" name="categoria" value="gastronomia">
-                    <i class="bi bi-egg-fried"></i>
-                    <span>Gastronomía</span>
-                </label>
-                <p class="d-none d-md-block fs-2 m-0">|</p>
-
-                <label class="category-option d-flex align-items-center gap-2">
-                    <input type="checkbox" name="categoria" value="fiesta">
-                    <i class="bi bi-music-note-beamed"></i>
-                    <span>Fiesta</span>
-                </label>
-            </div>
-        </div>
-    </section>
-
-    <!--Categorías mobile-->
- <li class="nav-item d-lg-none">
-                       <a class="nav-link text-dark text-center d-flex justify-content-center align-items-center" data-bs-toggle="collapse" href="#submenuProductosMobile" role="button"
-                            aria-expanded="false" aria-controls="categoriaMobile" id="toggleCategoriasMobile">
-                            Categoría
-                             <i class="bi bi-chevron-right ms-2" id="arrowIcon"></i>
-                        </a>
-                        <div class="collapse w-90" id="categoriaMobile">
-                            <ul class="navbar-nav w-90">
-                                <li class="nav-item w-90">
-                                    <a class="nav-link text-dark text-center" href="">Todo</a>
-                                </li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li class="nav-item w-90">
-                                    <a class="nav-link text-dark text-center" href="">Cultura</a>
-                                </li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li class="nav-item w-90">
-                                    <a class="nav-link text-dark text-center" href="">Arte</a>
-                                </li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li class="nav-item w-90">
-                                    <a class="nav-link text-dark text-center" href="">Gastronomía</a>
-                                </li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li class="nav-item w-90">
-                                    <a class="nav-link text-dark text-center" href="">Fiesta</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-
-<!-- Cards de tours -->
-        <section>
-            <h3 class="text-center mb-4"></h3>
-            <div class="cards-wrapper mx-auto">
-            <div id="tours-container" class="row g-4">
-
-                </div>
-                </div>
-        </section>
-    </main>
-        <br>
-
-
-    <div id="footer-container"></div>
-    <script src="./JS/navbar.js"></script>
-    <script src="./JS/footer.js"></script>
     
-   <script src="./JS/products.js"></script>
+    <main>
+        <header class="masthead" style="background-image: url('./assets/bellasartes.png');">
+            <div class="color-overlay d-flex flex-column justify-content-center align-items-center text-center">
+                <h1>¿Listo para tu próxima aventura?</h1>
+                <h2>¡Elige tu tour ahora!</h2>
+            </div>
+        </header>
+        <!-- Sección de estados -->
+        <section class="filtro-tours mb-5">
+        <div class="filtro-container">
+            <button class="filtro-btn">Estado de México/CDMX</button>
+            <button class="filtro-btn">Querétaro</button>
+            <button class="filtro-btn">Jalisco</button>
+        </div>
+        </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+        <!-- Sección de categorías -->
+        <br>
+                <section class="mb-5">
+                    <div class="d-flex justify-content-center align-items-center gap-2 gap-md-4 flex-wrap">
+                        <span class="category-btn active" role="button">
+                            <i class="bi bi-list-ul"></i> Todo
+                        </span>
+                        <p class="d-none d-md-block fs-2 m-0">|</p>
 
-<!-- Script para el icono de productos -->
-        <script>
-        const collapseElement = document.getElementById('submenuProductosMobile');
-        const arrowIcon = document.getElementById('arrowIcon');
+                        <label class="category-option">
+                            <input type="checkbox" name="categoria" value="cultura">
+                            <i class="bi bi-bank"></i>
+                            <span>Cultura</span>
+                        </label>
+                        <p class="d-none d-md-block fs-2 m-0">|</p>
 
-        collapseElement.addEventListener('show.bs.collapse', () => {
-            arrowIcon.classList.remove('bi-chevron-right');
-            arrowIcon.classList.add('bi-chevron-down');
-        });
+                        <label class="category-option">
+                            <input type="checkbox" name="categoria" value="arte">
+                            <i class="bi bi-palette"></i>
+                            <span>Arte</span>
+                        </label>
+                        <p class="d-none d-md-block fs-2 m-0">|</p>
 
-        collapseElement.addEventListener('hide.bs.collapse', () => {
-            arrowIcon.classList.remove('bi-chevron-down');
-            arrowIcon.classList.add('bi-chevron-right');
-        });
-    </script>
+                        <label class="category-option">
+                            <input type="checkbox" name="categoria" value="gastronomia">
+                            <i class="bi bi-egg-fried"></i>
+                            <span>Gastronomía</span>
+                        </label>
+                        <p class="d-none d-md-block fs-2 m-0">|</p>
 
-<!-- Script para el icono de productos -->
-        <script>
-        const collapseElement2 = document.getElementById('submenuProductosMobile');
-        const arrowIcon2 = document.getElementById('arrowIcon');
+                        <label class="category-option">
+                            <input type="checkbox" name="categoria" value="fiesta">
+                            <i class="bi bi-music-note-beamed"></i>
+                            <span>Fiesta</span>
+                        </label>
+                    </div>
+                </section>
+        <!-- Cards de tours -->
+                <section>
+                    <h3 class="text-center mb-4"></h3>
+                    <div class="cards-wrapper mx-auto">
+                    <div id="tours-container" class="row g-4">
 
-        collapseElement2.addEventListener('show.bs.collapse', () => {
-            arrowIcon.classList.remove('bi-chevron-right');
-            arrowIcon.classList.add('bi-chevron-down');
-        });
+                        </div>
+                        </div>
+                </section>
+        </main>
+    <br>
+        <div id="footer-container"></div>
 
-        collapseElement2.addEventListener('hide.bs.collapse', () => {
-            arrowIcon.classList.remove('bi-chevron-down');
-            arrowIcon.classList.add('bi-chevron-right');
-        });
-    </script>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <script src="./JS/navbar.js" defer></script>
+    <script src="./JS/footer.js"></script>
+    <script src="./JS/cards_products.js"></script>
+
 </body>
 </html>

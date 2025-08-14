@@ -21,6 +21,7 @@
     opacity: 60%;
     object-fit: cover;
     object-position: 50% 65%;
+    border-radius: 0;
 }
 
 @media screen and (max-width: 768px) {
