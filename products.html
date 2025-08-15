@@ -26,7 +26,7 @@
         <!-- Sección de estados -->
         <section class="filtro-tours mb-5 d-none d-lg-block">
         <div class="filtro-container">
-            <button class="filtro-btn placeFilter" data-place="CDMX" data-place="Estado de México">Estado de México/CDMX</button>
+            <button class="filtro-btn placeFilter" data-place="CDMX,Estado de México">Estado de México/CDMX</button>
             <button class="filtro-btn placeFilter" data-place="Querétaro">Querétaro</button>
             <button class="filtro-btn placeFilter" data-place="Jalisco">Jalisco</button>
         </div>
@@ -43,7 +43,7 @@
                         <div class="collapse w-90" id="estadosMobile">
                             <ul class="navbar-nav w-90">
                                 <li class="nav-item w-90">
-                                    <a class="nav-link text-dark text-center placeFilter" id="cdmx" data-place="CDMX" data-place="Estado de México">Estado de México/CDMX</a>
+                                    <a class="nav-link text-dark text-center placeFilter" id="cdmx" data-place="CDMX/Estado de México">CDMX/Estado de México</a>
                                 </li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li class="nav-item w-90">
@@ -62,8 +62,8 @@
         <br>
                 <section class="mb-5 d-none d-lg-block">
                     <div class="d-flex justify-content-center align-items-center gap-2 gap-md-4 flex-wrap">
-                        <span class="category-btn active" role="button" class="categoryFilter" data-category="all">
-                            <i class="bi bi-list-ul"></i> Todo
+                        <span class="category-btn active categoryFilter" id = "btnTodos" role="button" data-category="all">
+                            <i class="bi bi-list-ul"></i>Todo
                         </span>
                         <p class="d-none d-md-block fs-2 m-0">|</p>
 
@@ -95,8 +95,6 @@
                         </label>
                     </div>
                 </section>
-
-
                 <!--Categorías mobile-->
                 <br>
  <li class="nav-item d-lg-none" style="list-style: none;">
@@ -108,23 +106,23 @@
                         <div class="collapse w-90" id="categoriaMobile">
                             <ul class="navbar-nav w-90">
                                 <li class="nav-item w-90">
-                                    <a class="nav-link text-dark text-center categoryFilter" id="todo">Todo</a>
+                                    <a class="nav-link text-dark text-center categoryFilter active" id="todo" data-category="all">Todo</a>
                                 </li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li class="nav-item w-90">
-                                    <a class="nav-link text-dark text-center categoryFilter" id="cultura">Cultura</a>
+                                    <a class="nav-link text-dark text-center categoryFilter" id="cultura" data-category="Cultura">Cultura</a>
                                 </li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li class="nav-item w-90">
-                                    <a class="nav-link text-dark text-center categoryFilter" id="arte">Arte</a>
+                                    <a class="nav-link text-dark text-center categoryFilter" id="arte" data-category="Arte">Arte</a>
                                 </li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li class="nav-item w-90">
-                                    <a class="nav-link text-dark text-center categoryFilter" id="gastronomia">Gastronomía</a>
+                                    <a class="nav-link text-dark text-center categoryFilter" id="gastronomia" data-category="Gastronomía">Gastronomía</a>
                                 </li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li class="nav-item w-90">
-                                    <a class="nav-link text-dark text-center categoryFilter" id="fiesta">Fiesta</a>
+                                    <a class="nav-link text-dark text-center categoryFilter" id="fiesta" data-category="Fiesta">Fiesta</a>
                                 </li>
                             </ul>
                         </div>

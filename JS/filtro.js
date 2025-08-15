@@ -2,14 +2,16 @@
 const detalleUrl = (tour) => `tours.html?place=${tour.place}`;
 let allTours = [];
 
-// Agregar card
+// Función para agregar la tarjeta de un tour al DOM
 function addItem(tour) {
     const container = document.getElementById('tours-container');
     const card = document.createElement('div');
     
     card.classList.add("col-md-4");
+    // Se corrigen los dataset, usando `tour.estado` y `tour.category` del JSON.
+    // Esto es crucial para que los filtros funcionen.
     card.dataset.place = tour.estado;
-    card.dataset.category = tour.category;
+    card.dataset.category = tour.category.toLowerCase(); // Convertir a minúsculas para consistencia
 
     card.innerHTML = `
         <div class="card h-100 shadow-sm d-flex flex-column">
@@ -30,20 +32,42 @@ function addItem(tour) {
 
 // Función para filtrar tours
 function filterTours() {
-    const selectedPlace = document.querySelector('.placeFilter.active')?.dataset.place || 'all';
-    const selectedCategories = document.querySelector ('.categoryFilter.active')?.dataset.category || 'all';
-    //Array.from(document.querySelectorAll('.category-option input:checked')).map(checkbox => checkbox.value);
+    const activePlaceButton = document.querySelector('.placeFilter.active');
+    const activeCategoryButton = document.querySelector('.category-btn.active');
+
+    let selectedPlaces = [];
+    if (activePlaceButton) {
+        // CORRECCIÓN: Se remueve el espacio extra en el split
+        selectedPlaces = activePlaceButton.dataset.place.split(',');
+    }
+
+    // CORRECCIÓN: Se usa `querySelectorAll` para obtener todos los checkboxes
+    let selectedCategories = Array.from(document.querySelectorAll('.category-option input:checked')).map(checkbox => checkbox.dataset.category.toLowerCase());
+    
+    if (activeCategoryButton && activeCategoryButton.dataset.category === 'all') {
+        selectedCategories = ['all'];
+    } else if (selectedCategories.length === 0) {
+        // Si no hay checkboxes de categoría seleccionados y no está activo el botón 'Todo',
+        // entonces no hay categorías para filtrar, por lo que se mostrará 'no hay tours'
+        selectedCategories = [];
+    }
 
     let filteredTours = allTours;
 
-    // Filtrar por lugar
-    if (selectedPlace !== 'all') {
-        filteredTours = filteredTours.filter(tour => tour.estado === selectedPlace);
+    // Filtrar por lugar si hay un lugar activo
+    if (selectedPlaces.length > 0) {
+        // CORRECCIÓN: Se filtra sobre la variable `filteredTours`
+        filteredTours = filteredTours.filter(tour => selectedPlaces.includes(tour.estado));
     }
 
-    // Filtrar por categorías
-    if (selectedCategories !== 'all') {
-        filteredTours = filteredTours.filter(tour => selectedCategories.includes(tour.category));
+    // Filtrar por categorías si hay categorías seleccionadas y no es el filtro 'all'
+    if (selectedCategories.length > 0 && !selectedCategories.includes('all')) {
+        filteredTours = filteredTours.filter(tour => {
+            // El `tour.category` de tu JSON puede tener múltiples categorías
+            const tourCategories = tour.category.split(' y ').map(c => c.trim().toLowerCase());
+            // Se verifica si alguna de las categorías del tour está en las categorías seleccionadas
+            return tourCategories.some(tc => selectedCategories.includes(tc));
+        });
     }
 
     return filteredTours;
@@ -64,28 +88,19 @@ function renderTours() {
     toursToRender.forEach(tour => addItem(tour));
 }
 
-// Cargar productos
+// Cargar productos y gestionar eventos al cargar el DOM
 document.addEventListener("DOMContentLoaded", () => {
-    // Leer JSON
+    // Leer JSON de manera asíncrona
     fetch("products.json")
         .then(res => res.json())
         .then(data => {
-            allTours = data; // Guardar los tours en la variable global
-            const placeParam = getParam("place");
-
-            if (placeParam) {
-                const tour = allTours.find(t => t.place === placeParam);
-                if (tour) {
-                    loadTour(tour); // Cargar tour específico
-                } else {
-                    document.body.innerHTML = "<h2>Tour no encontrado</h2>";
-                }
-            } else {
-                renderTours(); // Renderizar todos los tours o los filtrados
-            }
+            allTours = data; // Guardar todos los tours en la variable global
+            renderTours(); // Muestra todos los tours al cargar la página.
         })
         .catch(err => {
             console.error("Error al cargar producto ", err);
+            const container = document.getElementById('tours-container');
+            container.innerHTML = '<p class="text-center w-100">Error al cargar los tours. Por favor, inténtalo de nuevo más tarde.</p>';
         });
 
     // Event Listeners para filtros de lugar
@@ -100,64 +115,27 @@ document.addEventListener("DOMContentLoaded", () => {
     // Event Listeners para filtros de categoría
     document.querySelectorAll('.category-option input[type="checkbox"]').forEach(checkbox => {
         checkbox.addEventListener('change', () => {
+            // Se corrige la lógica para que el botón "Todo" se desactive
+            const allButton = document.querySelector('.category-btn[data-category="all"]');
             if (checkbox.checked) {
-                document.querySelector('.category-btn[data-category="all"]')?.classList.remove('active');
-            }
-            const anyChecked = document.querySelectorAll('.category-option input:checked').length > 0;
-            if (!anyChecked) {
-                document.querySelector('.category-btn[data-category="all"]')?.classList.add('active');
+                allButton?.classList.remove('active');
+            } else {
+                const anyChecked = document.querySelectorAll('.category-option input:checked').length > 0;
+                if (!anyChecked) {
+                    allButton?.classList.add('active');
+                }
             }
             renderTours();
         });
     });
-
-    // Event Listener para el botón "Todos"
+    
+    // Event Listener para el botón "Todo"
     document.querySelector('.category-btn[data-category="all"]')?.addEventListener('click', () => {
         document.querySelectorAll('.category-option input[type="checkbox"]').forEach(checkbox => {
             checkbox.checked = false;
         });
+        document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
         document.querySelector('.category-btn[data-category="all"]')?.classList.add('active');
         renderTours();
     });
 });
-
-// Obtener parámetros de la URL
-function getParam(param) {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(param);
-}
-
-// Cargar detalles de un tour específico
-function loadTour(tour) {
-    const title = document.getElementById('tour-title');
-    if (!title) return;
-
-    document.getElementById('tour-title').textContent = tour.name;
-    document.getElementById('tour-price').textContent = `$${tour.precio} MXN por persona`;
-    document.getElementById('tour-image').src = tour.img;
-    document.getElementById('tour-image').alt = tour.name;
-
-    if (tour.img_portada) {
-        document.getElementById('tour-header').style.backgroundImage = `url("${tour.img_portada}")`;
-    }
-
-    const includesList = document.getElementById('tour-includes');
-    includesList.innerHTML = "";
-
-    const ul = document.createElement('ul');
-    ul.classList.add('list-includes');
-
-    (tour.incluye || []).forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = item;
-        ul.appendChild(li);
-    });
-    includesList.appendChild(ul);
-
-    const infoHTML = `
-        <p><i class="bi bi-alarm" style="margin-right: 0.5rem;"></i>Salida: ${tour.informacionTour?.salida || "-"}<br>Regreso aproximado: ${tour.informacionTour?.regresoAprox || "-"}</p>
-        <p><i class="bi bi-calendar-event" style="margin-right: 0.5rem;"></i>${tour.informacionTour?.frecuencia || "-"}</p>
-        <p><i class="bi bi-people" style="margin-right: 0.5rem;"></i>${tour.informacionTour?.grupos || "-"}</p>
-    `;
-    document.getElementById("tour-info").innerHTML = infoHTML;
-}
