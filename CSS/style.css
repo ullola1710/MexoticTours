@@ -20,30 +20,12 @@ body, p, a, button{
 /* Estilo para separadores */
 .estiloHr{
     border-top: 5px solid #FFC2DD; 
-    width: 80%; 
+    width: 90%; 
     margin: 2ch auto;
 }
 
 /* Botones */
-button {
-    padding: 0.5em 1em;
-    background-color: #8D94FF;
-    color: white;
-    border: none;
-    border-radius: 1vh;
-    cursor: pointer;
-    align-self: center;
-    font-size: 1rem;
-    text-align: center;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #5A64FF;
-}
-
-/* En caso de que sean botones por medio de <a>*/
-.btn-custom{
+button, .btn-custom {
     padding: 0.5em 1em;
     background-color: #8D94FF;
     color: white;
@@ -57,7 +39,7 @@ button:hover {
     text-decoration: none;
 }
 
-.btn-custom:hover {
+button:hover, .btn-custom:hover {
     background-color: #5A64FF;
 }
 
