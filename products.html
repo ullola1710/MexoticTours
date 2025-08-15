@@ -24,51 +24,112 @@
             </div>
         </header>
         <!-- Sección de estados -->
-        <section class="filtro-tours mb-5">
+        <section class="filtro-tours mb-5 d-none d-lg-block">
         <div class="filtro-container">
-            <button class="filtro-btn">Estado de México/CDMX</button>
-            <button class="filtro-btn">Querétaro</button>
-            <button class="filtro-btn">Jalisco</button>
+            <button class="filtro-btn placeFilter" data-place="CDMX" data-place="Estado de México">Estado de México/CDMX</button>
+            <button class="filtro-btn placeFilter" data-place="Querétaro">Querétaro</button>
+            <button class="filtro-btn placeFilter" data-place="Jalisco">Jalisco</button>
         </div>
         </section>
 
+        <!--Estados mobile-->
+        <br>
+ <li class="nav-item d-lg-none" style="list-style: none;">
+                       <a class="nav-link text-dark text-center d-flex justify-content-center align-items-center" data-bs-toggle="collapse" href="#estadosMobile" role="button"
+                            aria-expanded="false" aria-controls="estadosMobile" id="toggleEstadosMobile">
+                            Región
+                             <i class="bi bi-chevron-right ms-2" id="arrowIcon"></i>
+                        </a>
+                        <div class="collapse w-90" id="estadosMobile">
+                            <ul class="navbar-nav w-90">
+                                <li class="nav-item w-90">
+                                    <a class="nav-link text-dark text-center placeFilter" id="cdmx" data-place="CDMX" data-place="Estado de México">Estado de México/CDMX</a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li class="nav-item w-90">
+                                    <a class="nav-link text-dark text-center placeFilter" id="queretaro" data-place="Querétaro">Querétaro</a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li class="nav-item w-90">
+                                    <a class="nav-link text-dark text-center placeFilter" id="jalisco" data-place="Jalisco">Jalisco</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+
         <!-- Sección de categorías -->
         <br>
-                <section class="mb-5">
+                <section class="mb-5 d-none d-lg-block">
                     <div class="d-flex justify-content-center align-items-center gap-2 gap-md-4 flex-wrap">
-                        <span class="category-btn active" role="button">
+                        <span class="category-btn active" role="button" class="categoryFilter" data-category="all">
                             <i class="bi bi-list-ul"></i> Todo
                         </span>
                         <p class="d-none d-md-block fs-2 m-0">|</p>
 
                         <label class="category-option">
-                            <input type="checkbox" name="categoria" value="cultura">
+                            <input type="checkbox" name="categoria" value="cultura" class="categoryFilter" data-category="Cultura">
                             <i class="bi bi-bank"></i>
                             <span>Cultura</span>
                         </label>
                         <p class="d-none d-md-block fs-2 m-0">|</p>
 
                         <label class="category-option">
-                            <input type="checkbox" name="categoria" value="arte">
+                            <input type="checkbox" name="categoria" value="arte" class="categoryFilter" data-category="Arte">
                             <i class="bi bi-palette"></i>
                             <span>Arte</span>
                         </label>
                         <p class="d-none d-md-block fs-2 m-0">|</p>
 
                         <label class="category-option">
-                            <input type="checkbox" name="categoria" value="gastronomia">
+                            <input type="checkbox" name="categoria" value="gastronomia" class="categoryFilter" data-category="Gastronomía">
                             <i class="bi bi-egg-fried"></i>
                             <span>Gastronomía</span>
                         </label>
                         <p class="d-none d-md-block fs-2 m-0">|</p>
 
                         <label class="category-option">
-                            <input type="checkbox" name="categoria" value="fiesta">
+                            <input type="checkbox" name="categoria" value="fiesta" class="categoryFilter" data-category="Fiesta">
                             <i class="bi bi-music-note-beamed"></i>
                             <span>Fiesta</span>
                         </label>
                     </div>
                 </section>
+
+
+                <!--Categorías mobile-->
+                <br>
+ <li class="nav-item d-lg-none" style="list-style: none;">
+                       <a class="nav-link text-dark text-center d-flex justify-content-center align-items-center" data-bs-toggle="collapse" href="#categoriaMobile" role="button"
+                            aria-expanded="false" aria-controls="categoriaMobile" id="toggleCategoriasMobile">
+                            Categoría
+                             <i class="bi bi-chevron-right ms-2" id="arrowIcon2"></i>
+                        </a>
+                        <div class="collapse w-90" id="categoriaMobile">
+                            <ul class="navbar-nav w-90">
+                                <li class="nav-item w-90">
+                                    <a class="nav-link text-dark text-center categoryFilter" id="todo">Todo</a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li class="nav-item w-90">
+                                    <a class="nav-link text-dark text-center categoryFilter" id="cultura">Cultura</a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li class="nav-item w-90">
+                                    <a class="nav-link text-dark text-center categoryFilter" id="arte">Arte</a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li class="nav-item w-90">
+                                    <a class="nav-link text-dark text-center categoryFilter" id="gastronomia">Gastronomía</a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li class="nav-item w-90">
+                                    <a class="nav-link text-dark text-center categoryFilter" id="fiesta">Fiesta</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+<br>
         <!-- Cards de tours -->
                 <section>
                     <h3 class="text-center mb-4"></h3>
@@ -88,7 +149,40 @@
         crossorigin="anonymous"></script>
     <script src="./JS/navbar.js" defer></script>
     <script src="./JS/footer.js"></script>
-    <script src="./JS/cards_products.js"></script>
+    <!-- <script src="./JS/cards_products.js"></script> -->
+    <script src="./JS/filtro.js"></script>
+
+    <!-- Script para el icono de región -->
+        <script>
+        const collapseElement = document.getElementById('estadosMobile');
+        const arrowIcon = document.getElementById('arrowIcon');
+
+        collapseElement.addEventListener('show.bs.collapse', () => {
+            arrowIcon.classList.remove('bi-chevron-right');
+            arrowIcon.classList.add('bi-chevron-down');
+        });
+
+        collapseElement.addEventListener('hide.bs.collapse', () => {
+            arrowIcon.classList.remove('bi-chevron-down');
+            arrowIcon.classList.add('bi-chevron-right');
+        });
+    </script>
+
+<!-- Script para el icono de categorías -->
+        <script>
+        const collapseElement2 = document.getElementById('categoriaMobile');
+        const arrowIcon2 = document.getElementById('arrowIcon2');
+
+        collapseElement2.addEventListener('show.bs.collapse', () => {
+            arrowIcon2.classList.remove('bi-chevron-right');
+            arrowIcon2.classList.add('bi-chevron-down');
+        });
+
+        collapseElement2.addEventListener('hide.bs.collapse', () => {
+            arrowIcon2.classList.remove('bi-chevron-down');
+            arrowIcon2.classList.add('bi-chevron-right');
+        });
+    </script>
 
 </body>
 </html>
