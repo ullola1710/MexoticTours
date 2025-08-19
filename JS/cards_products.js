@@ -1,5 +1,5 @@
 // Variables
-const detalleUrl = (tour) => `tours.html?place=${tour.place}`;
+const detalleUrl = (tour) => `tours.html?id=${tour.id}`;
 
 function getParam(param){
     const urlParams = new URLSearchParams(window.location.search);
@@ -10,7 +10,7 @@ function getParam(param){
 function addItem(tour){
     const container = document.getElementById('tours-container');
     const card = document.createElement('div');
-    // const detalleUrl = `tour.html?{tour.place}`;
+    // const detalleUrl = `tour.html?{tour.id}`;
     
     card.classList.add("col-md-4");
 
@@ -49,11 +49,14 @@ function loadTour(tour){
     const includesList = document.getElementById('tour-includes');
     includesList.innerHTML= "";
 
+    // Convertir incluye en un array si es string
+    const includes = typeof tour.incluye === 'string' ? tour.incluye.split('\n').filter(item => item.trim() !== '') : tour.incluye || [];
+
     // Tabla
     const ul = document.createElement('ul');
     ul.classList.add('list-includes');
 
-    (tour.incluye || []).forEach(item => {
+    includes.forEach(item => {
         const li = document.createElement('li');
         li.textContent = item;
         ul.appendChild(li);
@@ -68,24 +71,43 @@ function loadTour(tour){
     document.getElementById("tour-info").innerHTML = infoHTML;
 }
 
+// Promesa
+function loadProducts(){
+    return new Promise((resolve, reject) => {
+        const stored = localStorage.getItem("products");
+        if(stored){
+            resolve (JSON.parse(stored));
+        } // if
+        else{
+            fetch ("products.json")
+            .then(res => res.json())
+            .then(resolve)
+            .catch(reject);
+        } // else
+    }); // return load Products
+} // loadProducts
 
 // Cargar productos
 document.addEventListener("DOMContentLoaded", () =>{
-    // Leer JSON
-    fetch("products.json")
-    .then(res => res.json())
-    .then(data =>{
-        const tours = data;
-        const placeParam = getParam("place"); 
+    // Leer JSON - Se leía JSON anteriormente, pero se agrega en el método loadProducts()
+    // fetch("products.json")
+    // .then(res => res.json())
+    // .then(data =>{
+    //     const tours = data;
+    //     const placeParam = getParam("place"); 
 
-        if(placeParam){
-            const tour = tours.find(t => t.place === placeParam);
+    loadProducts()
+    .then(tours => {
+        const idParam = getParam("id");
+
+        if(idParam){
+            const tour = tours.find(t => t.id == idParam);
             if (tour){
                 loadTour(tour); // Busca y trae el tour correspondiente
             } else {
                 document.body.innerHTML = "<h2>Tour no encontrado</h2>";
             }
-        } // if(placeParam)
+        } // if(idParam)
         else {
             tours.forEach(tour => addItem(tour));
         } // else
@@ -94,15 +116,3 @@ document.addEventListener("DOMContentLoaded", () =>{
         console.error("Error al cargar producto ", err);
     });
 }); // DOM
-
-
-
-
-
-
-
-
-
-
-
-
