@@ -234,3 +234,27 @@ position: absolute;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             color: white;
 }
+
+.login-panel {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 10px;
+    width: 300px;
+    margin: 2rem;
+    margin-right: 5rem;
+    color: #1a2a44;
+    text-align: left;
+}
+.login-panel button {
+    background-color: #a78bfa;
+    border: none;
+    padding: 0.5rem 1rem;
+    color: white;
+    border-radius: 5px;
+}
+
+.mt-image{
+  background-position: left;
+  height: 100%;
+  width: 100%;
+}

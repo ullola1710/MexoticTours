@@ -17,15 +17,34 @@
     <!-- Navbar -->
     <div id="navbar-container"></div>
 
-    <div style="padding-top:10rem">
-        <h1>Página en construcción</h1>
-        <p>Pronto tendremos más información. Mientras tanto, puedes visitar nuestras páginas de <a
-                href="aboutUs.html">"Nosotras"</a> y <a href="contact.html">"Contacto"</a></p>
-
-        <iframe width="650" height="350" src="https://www.youtube.com/embed/xoKugH6mOo8?autoplay=1&mute=1"
-            frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
+<!-- Main Content with Image and Login Panel -->
+    <div class="mt-main-container container-fluid" style="padding-top: 5rem;">
+        <div class="row">
+            <div class="mt-image-col col-md-6">
+                <img src="./assets/AngelI.jpg" alt="Angel of Independence" class="mt-image">
+            </div>
+            <div class="mt-login-col col-md-6">
+                <div class="mt-login-panel login-panel">
+                    <h2>BIENVENIDO A MEXOTIC TOURS</h2>
+                    <p style="color: #fa89cf; text-align: center;">Inicia sesión para seguir explorando México</p>
+                    <form>
+                        <div class="mt-form-group mb-3">
+                            <label for="mt-email" class="form-label">Correo electrónico</label>
+                            <input type="email" class="mt-form-control form-control" id="mt-email" placeholder="Correo electrónico">
+                        </div>
+                        <div class="mt-form-group mb-3">
+                            <label for="mt-password" class="form-label">Contraseña de sesión</label>
+                            <input type="password" class="mt-form-control form-control" id="mt-password" placeholder="Contraseña de sesión">
+                        </div>
+                        <button type="submit" class="mt-btn-submit btn btn-purple">Inicia de sesión</button>
+                    </form>
+                    <p><a href="#">¿Olvidaste tu contraseña?</a></p>
+                    <p>¿No tienes cuenta? <a href="#">Regístrate</a></p>
+                </div>
+            </div>
+        </div>
     </div>
+
     <div id="footer-container"></div>
 
     <!-- Scripts -->
