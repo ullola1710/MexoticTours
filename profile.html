@@ -4,8 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #fff;
+      font-family: Arial, sans-serif;
+    }
+    .sidebar {
+      min-height: 100vh;
+      border-right: 1px solid #eee;
+    }
+    .sidebar .nav-link {
+      font-size: 1rem;
+      margin: 15px 0;
+    }
+    .profile-box {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 25px;
+      background: #fff;
+    }
+    .profile-label {
+      font-weight: bold;
+    }
+    .profile-text {
+      color: #999;
+    }
+  </style>
+
+
+
 </head>
 <body>
+            <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 col-lg-2 d-flex flex-column align-items-center justify-content-start sidebar p-4">
+            <div class="text-center mb-4">
+                <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" 
+                    alt="user" width="80" class="rounded-circle mb-2">
+                <p class="mb-0">Hola!</p>
+            </div>
+            <nav class="nav flex-column text-center w-100">
+                <a class="nav-link active border-bottom" href="#">Perfil</a>
+                <a class="nav-link border-bottom mt-auto" href="#">
+                Log out <i class="bi bi-box-arrow-right"></i>
+                </a>
+            </nav>
+            </div>
+            <!-- Main Content -->
+            <div class="col-md-9 col-lg-10 p-5">
+            <div class="profile-box">
+                <div class="row mb-3">
+                <div class="col-md-6">
+                    <p class="profile-label">Nombre</p>
+                    <p class="profile-text">Nombre usuario</p>
+                </div>
+                <div class="col-md-6">
+                    <p class="profile-label">Apellido</p>
+                    <p class="profile-text">Apellido usuario</p>
+                </div>
+                </div>
+                <div class="row mb-3">
+                <div class="col-12">
+                    <p class="profile-label">e-mail</p>
+                    <p class="profile-text">Correo usuario</p>
+                </div>
+                </div>
+                <div class="row mb-3">
+                <div class="col-12">
+                    <p class="profile-label">Teléfono</p>
+                    <p class="profile-text">Teléfono usuario</p>
+                </div>
+                </div>
+                <div class="text-end">
+                <a href="#" class="btn btn-link">Editar</a>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+
+
+
+    <script src="./JS/navbar.js" defer></script>
+    <script src="./JS/footer.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+<script src=""></script>
     
 </body>
 </html>
