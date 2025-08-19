@@ -69,7 +69,13 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
 
         <div class="d-flex gap-2 align-items-center">
-            <a class="nav-link" href="./cart.html"><i class="bi bi-cart2 fs-2"></i></a>
+            <!--<a class="nav-link" href="./cart.html"><i class="bi bi-cart2 fs-2"></i></a>-->
+            <button class="btn position-relative p-0" data-bs-toggle="offcanvas" data-bs-target="#cartDrawer" aria-controls="cartDrawer"
+                    style="background: transparent;">
+              <i class="bi bi-cart2 fs-1"></i>
+              <span id="cartBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill"
+                    style="background:#8D94FF">2</span>
+            </button>
             <a class="btn btn-login rounded-pill d-none d-lg-inline-block" href="./logIn.html">Log in</a>
             <a class="btn btn-signin rounded-pill d-none d-lg-inline-block" href="./signIn.html">Sign in</a>
         </div>
