@@ -13,11 +13,11 @@
         "precio": 350,
         "precioExclusivo": 250 ,
         "incluye" :["Recorrerás los pasillos del edificion con un guía que explica su historia, arquitectura y crecretos",
-                  "Exposiciones permanentes y temporales: Relacionada con el correo de México ",
-                  "Acceso a la biblioteca: Un rincón poco conocido dentro del palacio",
-                  "Historia del edificio: Construido en 1907 por el ingeniero Gonzalo Garita y el arquitecto Adamo Boari",
-                  "Museo Postal:Desde 1920, el edificio alberga un museo con piezas historicas del servivio postal mexicano",
-                  "Kit de bienvenida (agua embotellada y un aperitivo)"
+                    "Exposiciones permanentes y temporales: Relacionada con el correo de México ",
+                    "Acceso a la biblioteca: Un rincón poco conocido dentro del palacio",
+                    "Historia del edificio: Construido en 1907 por el ingeniero Gonzalo Garita y el arquitecto Adamo Boari",
+                    "Museo Postal:Desde 1920, el edificio alberga un museo con piezas historicas del servivio postal mexicano",
+                    "Kit de bienvenida (agua embotellada y un aperitivo)"
         ],
         "informacionTour":{
             "salida": "11:00 pm" ,
@@ -42,9 +42,9 @@
         "precio": 225,
         "precioExclusivo": 125,
         "incluye" :["Las más aterradoras historias que han sucedido en Querétaro te serán relatadas.",
-                   "El tour comenzara aproximadamente a las 8:45.",
-                   "Kit de bienvenida.",
-                   "Tansporte de ida y regreso del punto medio."
+                    "El tour comenzara aproximadamente a las 8:45.",
+                    "Kit de bienvenida.",
+                    "Tansporte de ida y regreso del punto medio."
                 ] ,
         "informacionTour":{
             "salida": "7:30 pm" ,
@@ -69,15 +69,15 @@
         "precio": 2000,
         "precioExclusivo": 1500,
         "incluye":["Viaje redondo",
-                  "Box Lunch",
-                  "Seguro de Viajero a bordo de la unidad",
-                  "Coordinador de viaje",
-                  "Conociendo la elaboración y proceso de esta gran bebida. cava y capilla subterránea, campos de agave",
-                  "Degustación de Tequilas",
-                  "Visita Pueblo Mágico de Tequila",
-                  "Visita a Cantaritos de Amatitlan",
-                  "Comida tradicional jalisciense",
-                  "Fotógrafo durante el viaje"
+                    "Box Lunch",
+                    "Seguro de Viajero a bordo de la unidad",
+                    "Coordinador de viaje",
+                    "Conociendo la elaboración y proceso de esta gran bebida. cava y capilla subterránea, campos de agave",
+                    "Degustación de Tequilas",
+                    "Visita Pueblo Mágico de Tequila",
+                    "Visita a Cantaritos de Amatitlan",
+                    "Comida tradicional jalisciense",
+                    "Fotógrafo durante el viaje"
                 ] ,
         "informacionTour":{
             "salida": "9:00 am" ,
@@ -101,10 +101,10 @@
         "precio": 650,
         "precioExclusivo": 550,
         "incluye" :["Transportación en Turibus",
-                  "Guía turístico",
-                  "Visita 3 cervecerías en la CDMX",
-                  "Seguro viajero",
-                  "Punto de partida Reforma 222"
+                    "Guía turístico",
+                    "Visita 3 cervecerías en la CDMX",
+                    "Seguro viajero",
+                    "Punto de partida Reforma 222"
                 ] ,
         "informacionTour":{
             "salida": "6:30 pm" ,
@@ -129,17 +129,17 @@
         "precio": 1800,
         "precioExclusivo": 1700,
         "incluye" :["Transporte redondo desde nuestro punto de partida que sera el Museo Regional de Querétaro",
-                  "Tour guiado en Finca Sala Vivé",
-                  "En tu visita estará guiada por el viñedo a bordo de un tranvía",
-                  "Recorrido por la cava que se encuentra a 25 metros de profundidad con la explicación de la elaboracion de los vinos espumosos y tranquilos",
-                  "Al finalizar se realizará una cata de tres vinos en un salón con puerta cerrada acompañados de tapas",
-                  "Después visitaremos el Viñedo Azteca",
-                  "Incluirá recorrido por la bodega",
-                  "Explicación de como se elaboran los vinos artesanales",
-                  "Copa grabada",
-                  "Tres degustaciones con cata guiada de nuestros vinos tintos premiados en Baja Califonrnia y Bruselas",
-                  "Maridaje con quesos, carnes frías, y frutas",
-                  "Seguro de viajero"
+                    "Tour guiado en Finca Sala Vivé",
+                    "En tu visita estará guiada por el viñedo a bordo de un tranvía",
+                    "Recorrido por la cava que se encuentra a 25 metros de profundidad con la explicación de la elaboracion de los vinos espumosos y tranquilos",
+                    "Al finalizar se realizará una cata de tres vinos en un salón con puerta cerrada acompañados de tapas",
+                    "Después visitaremos el Viñedo Azteca",
+                    "Incluirá recorrido por la bodega",
+                    "Explicación de como se elaboran los vinos artesanales",
+                    "Copa grabada",
+                    "Tres degustaciones con cata guiada de nuestros vinos tintos premiados en Baja Califonrnia y Bruselas",
+                    "Maridaje con quesos, carnes frías, y frutas",
+                    "Seguro de viajero"
 
                 ] ,
         "informacionTour":{

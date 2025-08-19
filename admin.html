@@ -143,10 +143,10 @@ function renderProductos() {
   productos.forEach((p, index) => {
     tabla.innerHTML += `
       <tr>
-        <td>${p.nombre}</td>
+        <td>${p.name}</td>
         <td>$${p.precio}</td>
-        <td>${p.categoria}</td>
-        <td><img src="${p.imagen}" style="width:60px; height:60px; object-fit:cover; border-radius:5px;"></td>
+        <td>${p.category}</td>
+        <td><img src="${p.img}" style="width:60px; height:60px; object-fit:cover; border-radius:5px;"></td>
         <td>
           <button class="btn btn-warning btn-sm" onclick="editarProducto(${index})">Editar</button>
           <button class="btn btn-danger btn-sm" onclick="eliminarProducto(${index})">Eliminar</button>
@@ -158,9 +158,9 @@ function renderProductos() {
 
 function editarProducto(i) {
   const p = productos[i];
-  document.getElementById("nombre").value = p.nombre;
+  document.getElementById("nombre").value = p.name;
   document.getElementById("precio").value = p.precio;
-  document.getElementById("categoria").value = p.categoria;
+  document.getElementById("categoria").value = p.category;
   document.getElementById("descripcion").value = p.descripcion;
   editIndex = i;
 }
