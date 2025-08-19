@@ -129,13 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
     
-    // Event Listener para el botón "Todo"
-    document.querySelector('.category-btn[data-category="all"]')?.addEventListener('click', () => {
-        document.querySelectorAll('.category-option input[type="checkbox"]').forEach(checkbox => {
-            checkbox.checked = false;
-        });
-        document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
-        document.querySelector('.category-btn[data-category="all"]')?.classList.add('active');
-        renderTours();
-    });
+   
 });
+
+
