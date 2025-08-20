@@ -274,6 +274,7 @@
                 .then(res => res.json())
                 .then(data => {
                     document.getElementById(targetField).value = data.secure_url;
+                    const previewId = targetField === 'img_portada' ? 'previewPortada' : 'previewMain';
                     showImagePreview(data.secure_url, previewId)
                     //showImagePreview(data.secure_url, targetField === 'img_portada' ? 'previewPortada' : 'previewMain');
                 })
@@ -309,7 +310,7 @@
                 })
                 .catch(err => {
                     console.error("Error subiendo imagen desde URL:", err);
-                    document.getElementById(targetField).value = imageUrl;
+                    document.getElementById(targetField).value = imagenUrl;
                 })
 
         }

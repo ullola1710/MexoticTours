@@ -2,77 +2,94 @@
 import { validarTexto, validarTelefono, validarEmail, validarPassword, validarConfirmacionPassword, validarPrivacidad, limpiarErrores } from "./validaciones.js";
 
 // Variables
-const form = document.getElementById("form");
-const validationNombre = document.getElementById("validationNombre");
-const validationTelefono = document.getElementById("validationTelefono");
-const email = document.getElementById("email");
-const password = document.getElementById("password");
-const confirmPwd = document.getElementById("confirmPassword");
-const privacyCheck = document.getElementById("privacyCheck");
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById("form");
+  const validationNombre = document.getElementById("validationNombre");
+  const validationTelefono = document.getElementById("validationTelefono");
+  const email = document.getElementById("email");
+  const password = document.getElementById("password");
+  const confirmPwd = document.getElementById("confirmPassword");
+  const privacyCheck = document.getElementById("privacyCheck");
+  const privacyLink = document.getElementById("privacyLink");
 
 
-// Alertas bootstrap
-const nombreFeedback = document.getElementById("nombreFeedback");
-const telefonoFeedback = document.getElementById("telefonoFeedback");
-const emailFeedback = document.getElementById("emailFeedback");
-const passwordFeedback = document.getElementById("passwordFeedback");
-const confirmPasswordFeedback = document.getElementById("confirmPasswordFeedback");
-const privacyCheckFeedback = document.getElementById("privacyCheckFeedback");
+  // Alertas bootstrap
+  const nombreFeedback = document.getElementById("nombreFeedback");
+  const telefonoFeedback = document.getElementById("telefonoFeedback");
+  const emailFeedback = document.getElementById("emailFeedback");
+  const passwordFeedback = document.getElementById("passwordFeedback");
+  const confirmPasswordFeedback = document.getElementById("confirmPasswordFeedback");
+  const privacyCheckFeedback = document.getElementById("privacyCheckFeedback");
 
-let isValid = true; 
+  let isValid = true;
+
+  // Los campos deben existir antes de continuar
+  const elements = [form, validationNombre, validationTelefono, email, password, confirmPwd, privacyCheck, privacyLink];
+  const allElementsExist = elements.every(element => {
+    if (!element) {
+      console.error("Elemento no encontrado:", element);
+      return false;
+    }
+    return true;
+  });
+
+  if (!allElementsExist) {
+    console.error("Uno o más elementos del formulario no se encontraron en el DOM");
+    return;
+  }
 
 
-// Se ocuparan las validaciones importadas de validaciones.js - Especificando sus características de c/u
-function validarNombreRegistro(){
+  // Se ocuparan las validaciones importadas de validaciones.js - Especificando sus características de c/u
+  function validarNombreRegistro() {
     return validarTexto(validationNombre.value.trim(), 3, nombreFeedback, validationNombre, "nombre");
-} // valirNombreRegistro
+  } // valirNombreRegistro
 
-function validarTelefonoRegistro(){
+  function validarTelefonoRegistro() {
     return validarTelefono(validationTelefono.value.trim(), telefonoFeedback, validationTelefono);
-} // validarTelefonoRegistro
+  } // validarTelefonoRegistro
 
-function validarEmailRegistro(){
+  function validarEmailRegistro() {
     return validarEmail(email.value.trim(), emailFeedback, email);
-} // validarEmailRegistro
+  } // validarEmailRegistro
 
-function validarPasswordRegistro(){
+  function validarPasswordRegistro() {
     return validarPassword(password.value.trim(), passwordFeedback, password);
-} // validarPasswordRegistro
+  } // validarPasswordRegistro
 
-function validarConfirmacionPasswordRegistro(){
+  function validarConfirmacionPasswordRegistro() {
     return validarConfirmacionPassword(password.value.trim(), confirmPwd.value.trim(), confirmPasswordFeedback, confirmPwd);
-} // validarConfirmacionPasswordRegistro
+  } // validarConfirmacionPasswordRegistro
 
-function validarPrivacidadRegistro(){
+  function validarPrivacidadRegistro() {
     return validarPrivacidad(privacyCheck, privacyCheckFeedback);
-} // validarPrivacidadRegistro
+  } // validarPrivacidadRegistro
 
 
-// Validaciones propias del registro
-function validarFormularioCompleto(){
+  // Validaciones propias del registro
+  function validarFormularioCompleto() {
     const nameOk = validarNombreRegistro();
     const telefonoOk = validarTelefonoRegistro();
     const emailOk = validarEmailRegistro();
     const pwdOk = validarPasswordRegistro();
     const confirmPwdOk = validarConfirmacionPasswordRegistro();
     const privacyOk = validarPrivacidadRegistro();
-    
+
     return nameOk && telefonoOk && emailOk && pwdOk && confirmPwdOk && privacyOk;
-} // validarFormularioCompleto // validarFormularioCompleto
+  } // validarFormularioCompleto // validarFormularioCompleto
 
 
-// Orejas
-validationNombre.addEventListener("blur", validarNombreRegistro);
-validationTelefono.addEventListener("blur", validarTelefonoRegistro);
-email.addEventListener("blur", validarEmailRegistro);
-password.addEventListener("blur", validarPasswordRegistro);
-confirmPwd.addEventListener("blur", validarConfirmacionPasswordRegistro);
-privacyCheck.addEventListener("change", validarPrivacidadRegistro);
+  // Orejas
+  validationNombre.addEventListener("blur", validarNombreRegistro);
+  validationTelefono.addEventListener("blur", validarTelefonoRegistro);
+  email.addEventListener("blur", validarEmailRegistro);
+  password.addEventListener("blur", validarPasswordRegistro);
+  confirmPwd.addEventListener("blur", validarConfirmacionPasswordRegistro);
+  privacyCheck.addEventListener("change", validarPrivacidadRegistro);
 
-// Pop-up
-privacyLink.onclick = function () {
-  document.body.insertAdjacentHTML("beforeend",
-    `<style>
+  // Pop-up
+  privacyLink.onclick = function () {
+    document.body.insertAdjacentHTML("beforeend",
+      `<style>
     /* Fondo */
     .popup-overlay {
       display: flex;
@@ -123,51 +140,73 @@ privacyLink.onclick = function () {
         <iframe src="./docs/Terminos_y_Condiciones.pdf" frameborder="0"></iframe>
       </div>
     </div>`
-  );
+    );
 
-  // Variables
-  const popup = document.getElementById("popup");
-  const closePopup = document.getElementById("closePopup");
+    // Variables
+    const popup = document.getElementById("popup");
+    const closePopup = document.getElementById("closePopup");
 
-  popup.style.display = "flex";
+    popup.style.display = "flex";
 
-  closePopup.onclick = function(){
-    popup.style.displau = "none"; 
-    popup.remove();
-  } // closePopup.onclick
-
-  // ventana del popup
-  window.onclick = function(event) {
-    if(event.target === popup){
+    closePopup.onclick = function () {
       popup.style.display = "none";
       popup.remove();
+    } // closePopup.onclick
+
+    // ventana del popup
+    window.onclick = function (event) {
+      if (event.target === popup) {
+        popup.style.display = "none";
+        popup.remove();
+      }
     }
+
   }
 
-}
-
-
-
-// Envío de todos los datos - Forms completo
-form.addEventListener("submit", function(event){
+  // Envío de todos los datos - Forms completo
+  form.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    if(validarFormularioCompleto()){
-       alert("Registro enviado correctamente.")
-       form.requestFullscreen();
-       limpiarErrores([
+    if (validarFormularioCompleto()) {
+      // Register.js
+      const nombre = validationNombre.value;
+      const telefono = validationTelefono.value;
+      const correo = email.value;
+      const pass = password.value;
+      const confirmPass = confirmPwd.value;
+      const terminos = privacyCheck.checked;
+
+      // Crear el objeto JSON 
+      const usuario = {
+        nombre: nombre,
+        telefono: telefono,
+        correo: correo,
+        password: pass,
+        confirmPassword: confirmPass,
+        terminos: terminos
+      };
+
+      // Recuperar arreglo de localStorage (si no existe, se crea vacío)
+      let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+      // Agregar el nuevo usuario
+      usuarios.push(usuario);
+
+      // Guardar el arreglo actualizado en localStorage
+      localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+      alert("Registro exitoso y usuario guardado en localStorage.");
+      form.reset();
+      limpiarErrores([
         validationNombre,
-        validationTelefono, 
+        validationTelefono,
         email,
         password,
         confirmPwd,
         privacyCheck,
-       ]);
+      ]);
     } else {
-        console.log("El registro es inválido. Favor de corregir los errores.")
+      console.log("El registro es inválido. Favor de corregir los errores.");
     }
-
-}); // submit 
-
-
-
+  });// submit 
+});
