@@ -143,8 +143,22 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
     crossorigin="anonymous"></script>
+
+  <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <!-- Inicialización de EmailJS -->
+    <script>
+    (function () {
+        emailjs.init("GNnB5jB5JcNSpPcEb"); // Tu User ID público
+    })();
+    </script>
+
+    <!-- Tu script del footer que usa EmailJS -->
+    <script src="./JS/footer.js"></script>
+  
   <script src="./JS/navbar.js" defer></script>
-  <script src="./JS/footer.js"></script>
+  <!-- <script src="./JS/footer.js"></script> -->
   <script type="module" src="./JS/registro.js"></script>
 </body>
 
