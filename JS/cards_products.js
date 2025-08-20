@@ -2,21 +2,21 @@
 const detalleUrl = (tour) => `tours.html?id=${tour.id}`;
 let allTours = [];
 
-function getParam(param){
+function getParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
 }
 
 // Agregar card
-function addItem(tour){
+function addItem(tour) {
     const container = document.getElementById('tours-container');
     const card = document.createElement('div');
-    
+
     card.classList.add("col-md-4");
     card.dataset.place = tour.estado;
     card.dataset.category = tour.category.toLowerCase();
 
-    card.innerHTML= `
+    card.innerHTML = `
     <div class="card h-100 shadow-sm d-flex flex-column">
         <img src="${tour.img}" class="card-img-top" alt="${tour.name}">
         <div class="card-body d-flex flex-column">
@@ -44,7 +44,7 @@ function filterTours() {
     }
 
     let selectedCategories = Array.from(document.querySelectorAll('.category-option input:checked')).map(checkbox => checkbox.dataset.category.toLowerCase());
-    
+
     if (activeCategoryButton && activeCategoryButton.dataset.category === 'all') {
         selectedCategories = ['all'];
     } else if (selectedCategories.length === 0) {
@@ -84,21 +84,21 @@ function renderTours() {
     toursToRender.forEach(tour => addItem(tour));
 }
 
-function loadTour(tour){
+function loadTour(tour) {
     const title = document.getElementById('tour-title');
-    if(!title) return;
+    if (!title) return;
 
     document.getElementById('tour-title').textContent = tour.name;
     document.getElementById('tour-price').textContent = `$${tour.precio} MXN por persona`;
     document.getElementById('tour-image').src = tour.img;
     document.getElementById('tour-image').alt = tour.name;
 
-    if(tour.img_portada){
+    if (tour.img_portada) {
         document.getElementById('tour-header').style.backgroundImage = `url("${tour.img_portada}")`;
     }
 
     const includesList = document.getElementById('tour-includes');
-    includesList.innerHTML= "";
+    includesList.innerHTML = "";
 
     // Convertir incluye en un array si es string
     const includes = typeof tour.incluye === 'string' ? tour.incluye.split('\n').filter(item => item.trim() !== '') : tour.incluye || [];
@@ -113,20 +113,34 @@ function loadTour(tour){
         ul.appendChild(li);
     });
     includesList.appendChild(ul);
-    
+
     const infoHTML = `
         <p><i class="bi bi-alarm" style="margin-right: 0.5rem;"></i>Salida: ${tour.informacionTour?.salida || "-"}<br>Regreso aproximado: ${tour.informacionTour?.regresoAprox || "-"}</p>
         <p><i class="bi bi-calendar-event" style="margin-right: 0.5rem;"></i>${tour.informacionTour?.frecuencia || "-"}</p>
         <p><i class="bi bi-people" style="margin-right: 0.5rem;"></i>${tour.informacionTour?.grupos || "-"}</p>
     `;
     document.getElementById("tour-info").innerHTML = infoHTML;
+
+    // Para carrito
+    const btnReserva = document.getElementById('btn-reserva');
+    if (btnReserva) {
+        btnReserva.onclick = function () {
+            addToCart({
+                id: tour.id,
+                name: tour.name,
+                price: parseFloat(tour.precio)
+            });
+            alert(`¡${tour.name} agregado al carrito!`);
+        };
+    } // if (btnReserva)
 }
 
+
 // Promesa para cargar productos
-function loadProducts(){
+function loadProducts() {
     return new Promise((resolve, reject) => {
         const stored = localStorage.getItem("products");
-        if(stored){
+        if (stored) {
             resolve(JSON.parse(stored));
         } else {
             fetch("products.json")
@@ -145,18 +159,18 @@ document.addEventListener("DOMContentLoaded", () => {
             const idParam = getParam("id");
 
             // Si hay un ID en la URL, estamos en la página de detalle
-            if(idParam){
+            if (idParam) {
                 const tour = tours.find(t => t.id == idParam);
-                if (tour){
+                if (tour) {
                     loadTour(tour);
                 } else {
                     document.body.innerHTML = "<h2>Tour no encontrado</h2>";
                 }
-            } 
+            }
             // Si no hay ID, estamos en la página de listado
             else {
                 renderTours();
-                
+
                 // Event Listeners para filtros de lugar
                 document.querySelectorAll('.placeFilter').forEach(button => {
                     button.addEventListener('click', () => {
@@ -186,7 +200,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch(err => {
             console.error("Error al cargar producto ", err);
             const container = document.getElementById('tours-container');
-            if(container) {
+            if (container) {
                 container.innerHTML = '<p class="text-center w-100">Error al cargar los tours. Por favor, inténtalo de nuevo más tarde.</p>';
             }
         });

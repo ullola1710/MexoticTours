@@ -181,24 +181,22 @@
         </div>
     </div>
     <div id="footer-container"></div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-        crossorigin="anonymous"></script>
-    <script src="./JS/navbar.js" defer></script>
 
+        <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <script src="./JS/cart.js"></script>
+    <script src="./JS/navbar.js"></script>
     <!-- EmailJS -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-
-    <!-- Inicialización de EmailJS -->
     <script>
-    (function () {
-        emailjs.init("GNnB5jB5JcNSpPcEb"); // Tu User ID público
-    })();
+        (function () {
+            emailjs.init("GNnB5jB5JcNSpPcEb"); // Tu User ID público
+        })();
     </script>
-
-    <!-- Tu script del footer que usa EmailJS -->
     <script src="./JS/footer.js"></script>
-
-    <!-- <script src="./JS/footer.js"></script> -->
+    
     <script>
         const CLOUD_NAME = "dwkhgnoac";
         const UPLOAD_PRESET = "MexoticTours";

@@ -6,7 +6,7 @@
         "ciudad": "Ciudad de México",
         "name": "Palacio Postal (La Quinta Casa de correo)" ,
         "img_portada":"https://revistaaventurero.com.mx/wp-content/uploads/2020/06/PALACIO-DE-CORREOS-2-1280x720.jpg",
-        "img": "https://movimientomimexico.org/wp-content/uploads/2018/08/Palacio-Postal_MG_9395-1200x900.png",
+        "img": "./assets/PalacioPostal.jpeg",
         "description": "Es ícono emblemático del Centro Histórico dadas sus características y cualidades artísticas, además de continuar con su propósito original de ser la Administración #1 del servicio de Correos en nuestro país",
         "category": "Cultura",
         "duracion":"2-3 horas" ,

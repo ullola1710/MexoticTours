@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     style="background: transparent;">
               <i class="bi bi-cart2 fs-1"></i>
               <span id="cartBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill"
-                    style="background:#8D94FF">2</span>
+                    style="background:#8D94FF; display: none;">0</span>
             </button>
             <a class="btn btn-login rounded-pill d-none d-lg-inline-block" href="./logIn.html">Log in</a>
             <a class="btn btn-signin rounded-pill d-none d-lg-inline-block" href="./registro.html">Sign in</a>
@@ -107,6 +107,27 @@ document.addEventListener("DOMContentLoaded", () => {
           </ul>
         </div>
     </div>
+    <!--Carrito-->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartDrawer" aria-labelledby="cartDrawerLabel">
+      <div class="offcanvas-header" style="background-color: #8D94FF; color: white;">
+        <h5 class="offcanvas-title" id="cartDrawerLabel">Carrito de Compras</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div id="cartItemsContainer">
+          <div class="empty-cart-message">
+            <i class="bi bi-cart-x" style="font-size: 3rem;"></i>
+            <p>Tu carrito está vacío</p>
+          </div>
+        </div>
+        <div class="cart-total text-end mt-3" id="cartTotal" style="display: none;">
+          Total: $<span id="totalAmount">0.00</span>
+        </div>
+        <div class="d-grid gap-2 mt-3" id="checkoutButton" style="display: none;">
+          <button class="btn btn-primary" style="background-color: #8D94FF; border: none;">Finalizar Compra</button>
+        </div>
+      </div>
+    </div>
     `;
 
   document.getElementById("navbar-container").innerHTML = navbar;
@@ -131,40 +152,55 @@ document.addEventListener("DOMContentLoaded", () => {
   //   });
   // }
 
-// Script para el icono de productos
+  // Script para el icono de productos
   const collapseElement = document.getElementById('submenuProductosMobile');
   const arrowIcon = document.getElementById('arrowIcon');
 
-  collapseElement.addEventListener('show.bs.collapse', () => {
-    arrowIcon.classList.remove('bi-chevron-right');
-    arrowIcon.classList.add('bi-chevron-down');
-  });
+  if (collapseElement && arrowIcon) {
+    collapseElement.addEventListener('show.bs.collapse', () => {
+      arrowIcon.classList.remove('bi-chevron-right');
+      arrowIcon.classList.add('bi-chevron-down');
+    });
 
-  collapseElement.addEventListener('hide.bs.collapse', () => {
-    arrowIcon.classList.remove('bi-chevron-down');
-    arrowIcon.classList.add('bi-chevron-right');
-  });
+    collapseElement.addEventListener('hide.bs.collapse', () => {
+      arrowIcon.classList.remove('bi-chevron-down');
+      arrowIcon.classList.add('bi-chevron-right');
+    });
+  }
 
   // Lógica para ocultar/mostrar navbar al hacer scroll
   const nav = document.getElementById("navbar-custom");
-  let scroll = window.pageYOffset;
+  if (nav) {
+    let scroll = window.pageYOffset;
 
-  window.addEventListener("scroll", () => {
-    const currentScroll = window.pageYOffset;
+    window.addEventListener("scroll", () => {
+      const currentScroll = window.pageYOffset;
 
-    if (currentScroll <= 0) {
-      nav.classList.remove("nav--hidden");
-      scroll = 0;
-      return;
-    }
+      if (currentScroll <= 0) {
+        nav.classList.remove("nav--hidden");
+        scroll = 0;
+        return;
+      }
 
-    if (currentScroll > scroll || !nav.classList.contains("nav--hidden")) {
-      nav.classList.add("nav--hidden");
-    } else if (currentScroll < scroll || nav.classList.contains("nav--hidden")) {
-      nav.classList.remove("nav--hidden");
-    }
+      if (currentScroll > scroll || !nav.classList.contains("nav--hidden")) {
+        nav.classList.add("nav--hidden");
+      } else if (currentScroll < scroll || nav.classList.contains("nav--hidden")) {
+        nav.classList.remove("nav--hidden");
+      }
 
-    scroll = currentScroll;
-  });
+      scroll = currentScroll;
+    });
+  }
+
+  // Al abrir el carrito
+  const cartDrawer = document.getElementById('cartDrawer');
+  if (cartDrawer) {
+    cartDrawer.addEventListener('show.bs.offcanvas', function () {
+      renderCartItems();
+    });
+  }
+
+  // Actualizar carrito 
+  updateCartBadge();
 });
 
