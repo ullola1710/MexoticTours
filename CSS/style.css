@@ -234,3 +234,76 @@ position: absolute;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             color: white;
 }
+
+.mt-image-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mt-image {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.mt-login-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.mt-login-panel {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+    text-align: left;
+    color: #292B4B;
+}
+
+.mt-form-group .mt-form-control {
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+.mt-btn-submit {
+    background-color: #8D94FF;
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    width: 100%;
+}
+.mt-btn-submit:hover{
+  background-color: #5A64FF; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: white;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .mt-image-col,
+    .mt-login-col {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .mt-image {
+        max-height: 50vh; /* Limit image height on small screens */
+    }
+
+    .mt-login-panel {
+        margin: 1rem;
+        width: 90%;
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 769px) {
+    .mt-login-panel {
+        margin-right: 1rem;
+    }
+}
