@@ -1,180 +1,227 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gestión de Productos</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Gestión de Productos - Mexotic Tours</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./CSS/style.css" />
+    <style>
+        .img-preview {
+            max-width: 100px;
+            max-height: 100px;
+            object-fit: cover;
+        }
+
+        .thead-custom th {
+            background-color: #0d1944;
+
+        }
+    </style>
 </head>
+
 <body class="bg-light">
+    <div id="navbar-container"></div>
+    <div class="container" style="margin-top: 7.7rem">
+        <h1 class="mb-4 text-center" style="font-size: 2.5rem;">Gestión de Productos - Mexotic Tours</h1>
+        <div id="alertContainer"></div>
+        <!-- Formulario -->
+        <form id="productForm" class="card p-4">
+            <input type="hidden" id="productId">
 
-<div class="container py-4">
-  <h1 class="mb-4 text-center">Gestión de Productos</h1>
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label>Lugar</label>
+                    <input type="text" id="place" class="form-control">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label mb-0">Estado</label>
+                    <select id="estado" class="form-select">
+                        <option value="">Seleccione</option>
+                        <option>EDOMEX</option>
+                        <option>CDMX</option>
+                        <option>Jalisco</option>
+                        <option>Querétaro</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label>Ciudad</label>
+                    <input type="text" id="ciudad" class="form-control">
+                </div>
+            </div>
 
-  <!-- Formulario -->
-  <div class="card p-3 mb-4">
-    <div id="alertas"></div>
-    <form id="formProducto" class="row g-3">
-      <div class="col-md-6">
-        <label class="form-label">Nombre</label>
-        <input type="text" id="nombre" class="form-control">
-      </div>
-      <div class="col-md-3">
-        <label class="form-label">Precio</label>
-        <input type="number" id="precio" class="form-control" step="0.01">
-      </div>
-      <div class="col-md-3">
-        <label class="form-label">Categoría</label>
-        <select id="categoria" class="form-select">
-          <option value="">Seleccione</option>
-          <option>Arte</option>
-          <option>Cultura</option>
-          <option>Cultura y Gastronomía</option>
-          <option>Fiesta</option>
-          <option>Gastronomía</option>
-        </select>
-      </div>
-      <div class="col-md-12">
-        <label class="form-label">Descripción</label>
-        <textarea id="descripcion" class="form-control"></textarea>
-      </div>
-      <div class="col-md-12">
-        <label class="form-label">Imagen</label>
-        <input type="file" id="imagen" class="form-control" accept="image/*">
-      </div>
-      <div class="col-12 text-end">
-        <button type="submit" class="btn btn-primary">Guardar Producto</button>
-      </div>
-    </form>
-  </div>
+            <div class="mb-3">
+                <label>Nombre</label>
+                <input type="text" id="name" class="form-control">
+            </div>
 
-  <!-- Tabla -->
-  <table class="table table-bordered table-striped">
-    <thead class="table-dark">
-      <tr>
-        <th>Nombre</th>
-        <th>Precio</th>
-        <th>Categoría</th>
-        <th>Imagen</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody id="tabla"></tbody>
-  </table>
-</div>
+            <hr class="estiloHr" style="width: 100%;">
 
-<script>
-const CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/dwkhgnoac/image/upload";
-const CLOUDINARY_UPLOAD_PRESET = "MexoticTours";
+            <div class="row mb-3">
+                <h4 style="font-size: 2rem;">Imágenes</h4>
+                <div class="col-md-6">
+                    <label>Imagen de portada (subir desde PC)</label>
+                    <input type="file" id="img_portada_file" class="form-control">
+                </div>
+                <div class="col-md-6">
+                    <label>o URL de imagen de portada</label>
+                    <input type="url" id="img_portada" class="form-control">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label>Imagen (subir desde PC)</label>
+                    <input type="file" id="img_file" class="form-control">
+                </div>
+                <div class="col-md-6">
+                    <label>o URL de imagen</label>
+                    <input type="url" id="img" class="form-control">
+                </div>
+            </div>
 
-let productos = [];
-let editIndex = null;
-const tabla = document.getElementById("tabla");
-const form = document.getElementById("formProducto");
-const alertas = document.getElementById("alertas");
+            <div class="preview-container mb-3">
+                <div class="preview-card">
+                    <div class="preview-label">Vista previa portada</div>
+                    <img id="previewPortada" class="img-preview d-none" alt="Vista previa portada">
+                    <div class="preview-card">
+                        <div class="preview-label">Vista previa imagen tour</div>
+                        <img id="previewMain" class="img-preview d-none" alt="Vista previa tour">
+                    </div>
+                </div>
+            </div>
 
-document.addEventListener("DOMContentLoaded", () => {
-  const almacenados = localStorage.getItem("productos");
-  if (almacenados) {
-    productos = JSON.parse(almacenados);
-    renderProductos();
-  } else {
-    fetch("products.json")
-      .then(res => res.json())
-      .then(data => {
-        productos = data;
-        guardarLocal();
-        renderProductos();
-      })
-      .catch(err => console.error("Error cargando JSON:", err));
-  }
-});
+            <hr class="estiloHr" style="width: 100%;">
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  alertas.innerHTML = "";
+            <h4 style="font-size: 2rem;">Detalles</h4>
+            <div class="mb-3">
+                <label>Descripción:</label>
+                <textarea id="description" class="form-control"></textarea>
+            </div>
 
-  const nombre = document.getElementById("nombre").value.trim();
-  const precio = document.getElementById("precio").value.trim();
-  const categoria = document.getElementById("categoria").value.trim();
-  const descripcion = document.getElementById("descripcion").value.trim();
-  const imagenFile = document.getElementById("imagen").files[0];
+            <div class="row mb-4 align-items-end">
+                <div class="col-md-3">
+                    <label class="form-label mb-0">Categoría</label>
+                    <select id="category" class="form-select">
+                        <option value="">Seleccione....</option>
+                        <option> Arte</option>
+                        <option> Cultura </option>
+                        <option> Fiesta</option>
+                        <option> Gastronomía</option>
+                    </select>
+                </div>
 
-  if (!nombre || !precio || !categoria || !descripcion) {
-    mostrarAlerta("Todos los campos son obligatorios", "danger");
-    return;
-  }
+                <div class="col-md-3">
+                    <label>Duración</label>
+                    <input type="text" id="duracion" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <label>Precio</label>
+                    <input type="number" id="precio" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <label>Precio exclusivo</label>
+                    <input type="number" id="precioExclusivo" class="form-control">
+                </div>
+            </div>
 
-  let imagenUrl = "";
-  if (imagenFile) {
-    try {
-      const formData = new FormData();
-      formData.append("file", imagenFile);
-      formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
-      const res = await fetch(CLOUDINARY_URL, { method: "POST", body: formData });
-      const data = await res.json();
-      imagenUrl = data.secure_url;
-    } catch (error) {
-      mostrarAlerta("Error al subir la imagen", "danger");
-      return;
-    }
-  } else if (editIndex !== null) {
-    imagenUrl = productos[editIndex].imagen; // Mantener la anterior
-  }
+            <div class="mb-3">
+                <label>Incluye:</label>
+                <textarea id="incluye" class="form-control"></textarea>
+            </div>
 
-  const nuevoProducto = { nombre, precio, categoria, descripcion, imagen: imagenUrl };
+            <hr class="estiloHr" style="width: 100%;">
 
-  if (editIndex !== null) {
-    productos[editIndex] = nuevoProducto;
-    editIndex = null;
-    mostrarAlerta("Producto editado correctamente", "success");
-  } else {
-    productos.push(nuevoProducto);
-    mostrarAlerta("Producto agregado correctamente", "success");
-  }
+            <h4 style="font-size: 2rem;">Información del Tour</h4>
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <label>Salida</label>
+                    <input type="text" id="salida" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <label>Regreso aproximado</label>
+                    <input type="text" id="regresoAprox" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <label>Frecuencia</label>
+                    <input type="text" id="frecuencia" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <label>Grupos</label>
+                    <input type="text" id="grupos" class="form-control">
+                </div>
+            </div>
 
-  guardarLocal();
-  renderProductos();
-  form.reset();
-});
+            <button type="submit" class="custom">Guardar Producto</button>
+        </form>
+        <!-- Tabla -->
+        <h2 class="mt-5 text-center">Listado de Productos</h2>
+        <div class="table-responsive sm-6">
+            <table class="table table-bordered mt-3">
+                <thead class="table-dark">
+                    <tr class="thead-custom">
+                        <th>ID</th>
+                        <!-- <th>Lugar</th> -->
+                        <th>Estado</th>
+                        <th>Ciudad</th>
+                        <th>Nombre</th>
+                        <!-- <th>Imagen portada</th> -->
+                        <th>Imagen principal</th>
+                        <th>Categoría</th>
+                        <!-- <th>Duración</th> -->
+                        <th>Precio</th>
+                        <th>Precio exclusivo</th>
+                        <th>Acciones</th>
 
-function renderProductos() {
-  tabla.innerHTML = "";
-  productos.forEach((p, index) => {
-    tabla.innerHTML += `
-      <tr>
-        <td>${p.name}</td>
-        <td>$${p.precio}</td>
-        <td>${p.category}</td>
-        <td><img src="${p.img}" style="width:60px; height:60px; object-fit:cover; border-radius:5px;"></td>
-        <td>
-          <button class="btn btn-warning btn-sm" onclick="editarProducto(${index})">Editar</button>
-          <button class="btn btn-danger btn-sm" onclick="eliminarProducto(${index})">Eliminar</button>
-        </td>
-      </tr>
-    `;
-  });
-}
+                    </tr>
+                </thead>
+                <tbody id="productTable"></tbody>
+            </table>
+        </div>
+    </div>
+    <div id="footer-container"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="./JS/navbar.js" defer></script>
 
-function editarProducto(i) {
-  const p = productos[i];
-  document.getElementById("nombre").value = p.name;
-  document.getElementById("precio").value = p.precio;
-  document.getElementById("categoria").value = p.category;
-  document.getElementById("descripcion").value = p.descripcion;
-  editIndex = i;
-}
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
-function eliminarProducto(i) {
-  if (confirm("¿Seguro que quieres eliminar este producto?")) {
-    productos.splice(i, 1);
-    guardarLocal();
-    renderProductos();
-    mostrarAlerta("Producto eliminado", "warning");
-  }
-}
+    <!-- Inicialización de EmailJS -->
+    <script>
+    (function () {
+        emailjs.init("GNnB5jB5JcNSpPcEb"); // Tu User ID público
+    })();
+    </script>
 
-<<<<<<< HEAD
+    <!-- Tu script del footer que usa EmailJS -->
+    <script src="./JS/footer.js"></script>
+
+    <!-- <script src="./JS/footer.js"></script> -->
+    <script>
+        const CLOUD_NAME = "dwkhgnoac";
+        const UPLOAD_PRESET = "MexoticTours";
+        let products = [];
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const stored = localStorage.getItem("products");
+            if (stored) {
+                products = JSON.parse(stored);
+                renderTable();
+            } else {
+                fetch("products.json")
+                    .then(res => res.json())
+                    .then(data => {
+                        products = data;
+                        saveToLocal();
+                        renderTable();
+                    });
+
+                saveToLocal();
+                renderTable();
+            }
+
         // Obtener productos del localStorage
         //let products = JSON.parse(localStorage.getItem("products")) || [];
 
@@ -461,15 +508,7 @@ function eliminarProducto(i) {
             localStorage.setItem("products", JSON.stringify(products));
         }
     </script>
-=======
-function guardarLocal() {
-  localStorage.setItem("productos", JSON.stringify(productos));
-}
->>>>>>> IRN
 
-function mostrarAlerta(mensaje, tipo) {
-  alertas.innerHTML = `<div class="alert alert-${tipo}">${mensaje}</div>`;
-}
-</script>
 </body>
+
 </html>
