@@ -76,8 +76,8 @@ document.addEventListener("DOMContentLoaded", () => {
               <span id="cartBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill"
                     style="background:#8D94FF">2</span>
             </button>
-            <a class="btn btn-login rounded-pill d-none d-lg-inline-block" href="./registro.html">Log in</a>
-            <a class="btn btn-signin rounded-pill d-none d-lg-inline-block" href="./signIn.html">Sign in</a>
+            <a class="btn btn-login rounded-pill d-none d-lg-inline-block" href="./logIn.html">Log in</a>
+            <a class="btn btn-signin rounded-pill d-none d-lg-inline-block" href="./registro.html">Sign in</a>
         </div>
         </div>
     </nav>   
@@ -101,8 +101,8 @@ document.addEventListener("DOMContentLoaded", () => {
             </li>
               <li class="nav-item">
                 <a class="nav-link text-dark text-center" href="./experiences.html">Experiencias</a>
-                <a  class="nav-link text-dark text-center" href="./registro.html">Log in</a>
-                <a class="nav-link text-dark text-center" href="./signIn.html">Sign in</a>
+                <a  class="nav-link text-dark text-center" href="./logIn.html">Log in</a>
+                <a class="nav-link text-dark text-center" href="./registro.html">Sign in</a>
               </li>
           </ul>
         </div>
