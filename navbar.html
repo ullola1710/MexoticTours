@@ -187,6 +187,14 @@
                     <a class="btn btn-signin rounded-pill d-none d-lg-inline-block" role="button" href="./signIn.html">Sign in</a>
                 </div>
             </div>
+        
+            <!-- se agrega apartado para el login del usuario -->
+
+                <a href="index.html" id="login-link">Home</a>
+                <a href="registro.html" id="register-link">Registro</a>
+                <span id="welcomeMessage" class="nav-item"></span>
+                <a href="signOut.html" id="logout-link" style="display:none;">Cerrar sesión</a>
+        
         </nav>
         <!-- Menú mobile -->
         <div class="offcanvas offcanvas-start" tabindex="-1" id="menuLateral" aria-labelledby="menuLateralLabel"style="width: 100vw; max-width: 100vw; height: 100vh;">
@@ -257,6 +265,7 @@
             arrowIcon.classList.add('bi-chevron-right');
         });
         </script>
+        
     <!-- <script>
         document.addEventListener('DOMContentLoaded', () => {
             const nav = document.getElementById('navbar-custom');
