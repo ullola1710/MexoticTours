@@ -224,7 +224,3 @@ document.addEventListener("DOMContentLoaded", () => {
     
    
 });
-<<<<<<< HEAD
-
-=======
->>>>>>> develop
