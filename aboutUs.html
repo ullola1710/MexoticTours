@@ -11,9 +11,6 @@
     <link rel="stylesheet" href="./CSS/style.css" />
     <link rel="stylesheet" href="./CSS/aboutUs.css">
 
-    <!-- Bootstrap CSS -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
-
 </head>
 
 <body>
@@ -180,7 +177,7 @@
                                         </div>
                                         <div class="text-md-start text-center">
                                             <h5>Brandy Berlin Medina Cadena</h5>
-                                            <p>24/Jun/2001</p>
+                                            <p>24/Jul/2001</p>
                                             <p>Guadalajara, Jal.</p>
                                             <p>Full Stack Jr</p>
                                         </div>
@@ -546,14 +543,21 @@
     </main>
     <div id="footer-container"></div>
 
-    <!-- Scripts -->
+        <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
-    <script src="./JS/navbar.js" defer></script>
-    <script src="./JS/footer.js"></script>
     <script src="./JS/cart.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
+    <script src="./JS/navbar.js"></script>
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function () {
+            emailjs.init("GNnB5jB5JcNSpPcEb"); // Tu User ID público
+        })();
+    </script>
+    <script src="./JS/footer.js"></script>
+    
 </body>
 
 </html>

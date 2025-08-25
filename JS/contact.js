@@ -267,7 +267,7 @@ privacyLink.onclick = function () {
   popup.style.display = "flex";
 
   closePopup.onclick = function(){
-    popup.style.displau = "none"; 
+    popup.style.display = "none"; 
     popup.remove();
   } // closePopup.onclick
 
