@@ -62,6 +62,12 @@ document.addEventListener('DOMContentLoaded', function () {
             
     });// submit 
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+}); 
+=======
+>>>>>>> backup-MTH
 }); 
 
 
@@ -190,3 +196,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Ejecutar la función para mostrar el nombre del usuario al cargar la página
     showUserNameOnPage();
 });
+<<<<<<< HEAD
+=======
+>>>>>>> cf0256e (Implementar autenticación verificando usuarios pre almacenados en el local storage.)
+>>>>>>> backup-MTH
