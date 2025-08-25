@@ -34,10 +34,10 @@ document.addEventListener("DOMContentLoaded", () => {
                         <ol style="list-style: none; padding-top: 3rem;">
                             <li style="color:#FF8FC1; font-size:1.6rem;text-align: left; font-family: Bebas Neue, sans-serif;"><strong>¡SUSCRÍBETE Y RECIBE OFERTAS EXCLUSIVAS! </strong> </li>
                             <li>
-                                <form class="row" style="margin-top: 2rem;">
+                                <form class="row" id="footerForm" style="margin-top: 2rem;">
                                     <div class="col-auto">
                                         <label for="inputPassword2" class="visually-hidden">correo</label>
-                                        <input type="email" class="form-control" id="inputPassword2"
+                                        <input type="email" class="form-control" id="footerEmail"
                                             placeholder="correo@ejemplo.com">
                                     </div>
                                     <div class="col-auto">
@@ -56,3 +56,43 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("footer-container").innerHTML = footer;
   document.body.classList.add("footer");
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("emailjs en window:", window.emailjs);
+    
+    const footerForm = document.getElementById("footerForm");
+    const footerEmail = document.getElementById("footerEmail");
+
+    footerForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const email = footerEmail.value.trim();
+
+        if (email === "") {
+        alert("⚠️ Por favor ingresa un correo válido.");
+        return;
+        }
+
+        // Creamos un objeto con la data que espera tu template en EmailJS
+        const templateParams = {
+        email: email, // El email que escribió el usuario en el footer
+        time: new Date().toLocaleString()
+        };
+
+        // Enviar con EmailJS
+        emailjs.send("service_pi5sznp", "template_7qr2tqv", templateParams)
+        .then(
+            function (response) {
+            console.log("✅ Correo enviado con éxito", response.status, response.text);
+            alert("Te has suscrito correctamente 🎉");
+            footerForm.reset();
+            },
+            function (error) {
+            console.error("❌ Error al enviar el correo", error);
+            alert("Hubo un error, intenta más tarde.");
+            }
+        );
+    });
+});
+
