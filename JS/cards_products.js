@@ -223,4 +223,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     
    
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> MTH
