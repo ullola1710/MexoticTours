@@ -32,13 +32,15 @@
                             <label for="mt-email" class="form-label">Correo electrónico</label>
                             <input type="email" class="mt-form-control form-control" id="mt-email"
                                 placeholder="Correo electrónico">
+                            <div id="emailFeedback" class="invalid-feedback"></div>
                         </div>
                         <div class="mt-form-group mb-3">
                             <label for="mt-password" class="form-label">Contraseña de sesión</label>
                             <input type="password" class="mt-form-control form-control" id="mt-password"
                                 placeholder="Contraseña de sesión">
+                            <div id="passwordFeedback" class="invalid-feedback"></div>
                         </div>
-                        <button type="submit" class="mt-btn-submit btn btn-purple">Inicia de sesión</button>
+                        <button type="submit" class="mt-btn-submit btn btn-purple">Inicio de sesión</button>
                     </form>
                     <br>
                     <p style="text-align: center;"><a href="#">¿Olvidaste tu contraseña?</a></p>
@@ -64,6 +66,7 @@
         })();
     </script>
     <script src="./JS/footer.js"></script>
+    <script type="module" src="./JS/login.js"></script>
 
 </body>
 
