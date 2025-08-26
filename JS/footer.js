@@ -17,8 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
                             <li style="color: #FFFFFF; text-align: left; font-size: 1.3rem; font-family: Bebas Neue, sans-serif;"><strong>EXPLORA</strong></li>
                            <a href="./index.html" style="text-decoration: none;"><li style="color: #5A64FF; text-align: left; font-size: 0.9rem; margin-top: 1rem; font-family: Be Vietnam Pro, sans-serif;">Inicio</li></a>
                            <a href="./aboutUs.html" style="text-decoration: none;"><li style="color: #5A64FF; text-align: left; font-size: 0.9rem; margin-top: 0.3rem; font-family: Be Vietnam Pro, sans-serif;">Nosotras</li></a>
+                           <a href="./contact.html" style="text-decoration: none;"><li style="color: #5A64FF; text-align: left; font-size: 0.9rem; margin-top: 0.3rem; font-family: Be Vietnam Pro, sans-serif;">Contáctanos</li></a>
                            <a href="./products.html" style="text-decoration: none;"><li style="color: #5A64FF; text-align: left; font-size: 0.9rem; margin-top: 0.3rem; font-family: Be Vietnam Pro, sans-serif;">Productos</li></a>
-                          <a href="./signIn.html" style="text-decoration: none;"><li style="color: #5A64FF; text-align: left; font-size: 0.9rem; margin-top: 0.3rem; font-family: Be Vietnam Pro, sans-serif;">Inicio de sesión</li></a>
+                          <a href="./signIn.html" style="text-decoration: none;"><li style="color: #5A64FF; text-align: left; font-size: 0.9rem; margin-top: 0.3rem; font-family: Be Vietnam Pro, sans-serif;">Inicia sesión</li></a>
                            <a href="./experiences.html" style="text-decoration: none;"><li style="color: #5A64FF; text-align: left; font-size: 0.9rem; margin-top: 0.3rem; font-family: Be Vietnam Pro, sans-serif;">Experiencias</li></a> 
                         </ol>
                     </div>
@@ -41,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                             placeholder="correo@ejemplo.com">
                                     </div>
                                     <div class="col-auto">
-                                        <button type="submit" class="btn btn-primary mb-3">Enviar</button>
+                                        <button type="submit" class="btn mb-3 btn-custom">Enviar</button>
                                     </div>
                                 </form>
                             </li>

@@ -135,18 +135,58 @@ function validarTelefono() {
 }
 
 // Validar mensaje
+
+// function validarMensaje() {
+//   const mensaje = document.getElementById("inputMensaje").value.trim(); // elimina espacios
+//   const feedback = document.getElementById("validationServerMessage");
+//   // if (mensaje.value.trim() === "") {
+//   //   mostrarError(mensaje, validationServerMessage, "El mensaje no puede ir vacío.");
+//   //   return false;
+//   // } else if (mensaje.value.trim().length < 20) {
+//   //   mostrarError(mensaje, validationServerMessage, "El mensaje debe contener al menos 20 caracteres.");
+//   //   return false;
+//   // } else {
+//   //   ocultarError(mensaje, validationServerMessage);
+//   //   return true;
+//   // }
+// if (mensaje === "") {
+//     feedback.textContent = "El mensaje no puede estar vacío ni contener sólo espacios"
+//     feedback.style.display ="block";  
+//     return false;
+//   } else {
+//     feedback.style.display= "none";
+//     return true;
+//   }
+// }
+
 function validarMensaje() {
-  if (mensaje.value.trim() === "") {
-    mostrarError(mensaje, validationServerMessage, "El mensaje no puede ir vacío.");
+  const mensajeValor = mensaje.value.trim();
+  const feedback = document.getElementById("validationServerMessage");
+
+  // 1. Mensaje vacío
+  if (mensajeValor === "") {
+    mostrarError(mensaje, feedback, "El mensaje no puede ir vacío.");
     return false;
-  } else if (mensaje.value.trim().length < 20) {
-    mostrarError(mensaje, validationServerMessage, "El mensaje debe contener al menos 20 caracteres.");
-    return false;
-  } else {
-    ocultarError(mensaje, validationServerMessage);
-    return true;
   }
+
+  // 2. Múltiples espacios seguidos
+  if (mensajeValor.includes("  ")) {
+    mostrarError(mensaje, feedback, "El mensaje no puede contener múltiples espacios seguidos.");
+    return false;
+  }
+
+  // 3. Longitud mínima (después de validaciones)
+  if (mensajeValor.length < 20) {
+    mostrarError(mensaje, feedback, "El mensaje debe contener al menos 20 caracteres.");
+    return false;
+  }
+
+  ocultarError(mensaje, feedback);
+  return true;
 }
+
+
+
 
 // Validar política de privacidad
 function validarPrivacidad() {
@@ -295,19 +335,39 @@ form.addEventListener("submit", function (event) {
             response.status,
             response.text
           );
-          alert("✅ Formulario enviado correctamente.");
+          // alert("✅ Formulario enviado correctamente.");
+           
+          Swal.fire({ //SweetAlert
+            icon: "success",
+            title: "Formulario enviado",
+            text: "✅ Tu mensaje se envió correctamente.",
+            confirmButtonColor: "#8D94FF"
+          });
           form.reset();
           limpiarErrores();
         },
         function (error) {
           console.error("Error al enviar el correo", error);
-          alert(
-            "❌ Ocurrió un error al enviar el formulario. Intenta más tarde."
-          );
+          // alert(
+          //   "❌ Ocurrió un error al enviar el formulario. Intenta más tarde."
+          // );
+          
+          Swal.fire({ //SweetAlert
+            icon: "error",
+            title: "Error al enviar",
+            text: "❌ Ocurrió un error al enviar el formulario. Intenta más tarde.",
+            confirmButtonColor: "#8D94FF"
+          });
         }
       );
 
   } else {
     console.log("El formulario no es válido. Por favor, corrige los errores.");
+    Swal.fire({
+      icon: "warning",
+      title: "Formulario incompleto",
+      text: "Por favor, corrige los errores antes de enviar.",
+      confirmButtonColor: "#8D94FF"
+    });
   }
 });
