@@ -1,328 +1,51 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-// Validaciones - Modulo
-import { validarTexto, validarTelefono, validarEmail, validarPassword, validarConfirmacionPassword, validarPrivacidad, limpiarErrores } from "./validaciones.js";
-
-// Variables
-document.addEventListener('DOMContentLoaded', function () {
-  const form = document.getElementById("form");
-  const validationNombre = document.getElementById("validationNombre");
-  const validationTelefono = document.getElementById("validationTelefono");
-  const email = document.getElementById("email");
-  const password = document.getElementById("password");
-  const confirmPwd = document.getElementById("confirmPassword");
-  const privacyCheck = document.getElementById("privacyCheck");
-  const privacyLink = document.getElementById("privacyLink");
-
-
-  // Alertas bootstrap
-  const nombreFeedback = document.getElementById("nombreFeedback");
-  const telefonoFeedback = document.getElementById("telefonoFeedback");
-  const emailFeedback = document.getElementById("emailFeedback");
-  const passwordFeedback = document.getElementById("passwordFeedback");
-  const confirmPasswordFeedback = document.getElementById("confirmPasswordFeedback");
-  const privacyCheckFeedback = document.getElementById("privacyCheckFeedback");
-
-  let isValid = true;
-
-  // Los campos deben existir antes de continuar
-  const elements = [form, validationNombre, validationTelefono, email, password, confirmPwd, privacyCheck, privacyLink];
-  const allElementsExist = elements.every(element => {
-    if (!element) {
-      console.error("Elemento no encontrado:", element);
-      return false;
-    }
-    return true;
-  });
-
-  if (!allElementsExist) {
-    console.error("Uno o más elementos del formulario no se encontraron en el DOM");
-    return;
-  }
-
-
-  // Se ocuparan las validaciones importadas de validaciones.js - Especificando sus características de c/u
-  function validarNombreRegistro() {
-    return validarTexto(validationNombre.value.trim(), 3, nombreFeedback, validationNombre, "nombre");
-  } // valirNombreRegistro
-
-  function validarTelefonoRegistro() {
-    return validarTelefono(validationTelefono.value.trim(), telefonoFeedback, validationTelefono);
-  } // validarTelefonoRegistro
-
-  function validarEmailRegistro() {
-    return validarEmail(email.value.trim(), emailFeedback, email);
-  } // validarEmailRegistro
-
-  function validarPasswordRegistro() {
-    return validarPassword(password.value.trim(), passwordFeedback, password);
-  } // validarPasswordRegistro
-
-  function validarConfirmacionPasswordRegistro() {
-    return validarConfirmacionPassword(password.value.trim(), confirmPwd.value.trim(), confirmPasswordFeedback, confirmPwd);
-  } // validarConfirmacionPasswordRegistro
-
-  function validarPrivacidadRegistro() {
-    return validarPrivacidad(privacyCheck, privacyCheckFeedback);
-  } // validarPrivacidadRegistro
-
-
-  // Validaciones propias del registro
-  function validarFormularioCompleto() {
-    const nameOk = validarNombreRegistro();
-    const telefonoOk = validarTelefonoRegistro();
-    const emailOk = validarEmailRegistro();
-    const pwdOk = validarPasswordRegistro();
-    const confirmPwdOk = validarConfirmacionPasswordRegistro();
-    const privacyOk = validarPrivacidadRegistro();
-
-    return nameOk && telefonoOk && emailOk && pwdOk && confirmPwdOk && privacyOk;
-  } // validarFormularioCompleto // validarFormularioCompleto
-
-
-  // Orejas
-  validationNombre.addEventListener("blur", validarNombreRegistro);
-  validationTelefono.addEventListener("blur", validarTelefonoRegistro);
-  email.addEventListener("blur", validarEmailRegistro);
-  password.addEventListener("blur", validarPasswordRegistro);
-  confirmPwd.addEventListener("blur", validarConfirmacionPasswordRegistro);
-  privacyCheck.addEventListener("change", validarPrivacidadRegistro);
-
-  // Pop-up
-  privacyLink.onclick = function () {
-    document.body.insertAdjacentHTML("beforeend",
-      `<style>
-    /* Fondo */
-    .popup-overlay {
-      display: flex;
-      position: fixed;
-      inset: 0;
-      /* top: 0;
-      left: 0; 
-      width: 100%;
-      height: 100%;*/
-      background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-    }
-
-    /* Contenido */
-    .popup-content {
-      position: absolute;
-      background-color: white;
-      padding: 20px;
-      border-radius: 8px;
-      width: 80%;
-      max-width: 800px;
-      height: 70%;
-    }
-
-    /* Cerrar el popup */
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      font-size: 2.5rem;
-      cursor: pointer;
-    }
-
-    /* Estilos para el iframe */
-    iframe {
-      width: 100%;
-      height: 90%;
-      border: none;
-      flex: 1;
-    }
-    </style>
-    <div class="popup-overlay" id="popup">
-      <div class="popup-content">
-        <span class="close-btn" id="closePopup">&times;</span>
-        <h2 id="privacidadTitle" style="margin:0; padding:1rem;">Términos y condiciones</h2>
-        <iframe src="./docs/Terminos_y_Condiciones.pdf" frameborder="0"></iframe>
-      </div>
-    </div>`
-    );
-
-    // Variables
-    const popup = document.getElementById("popup");
-    const closePopup = document.getElementById("closePopup");
-
-    popup.style.display = "flex";
-
-    closePopup.onclick = function () {
-      popup.style.display = "none";
-      popup.remove();
-    } // closePopup.onclick
-
-    // ventana del popup
-    window.onclick = function (event) {
-      if (event.target === popup) {
-        popup.style.display = "none";
-        popup.remove();
-      }
-    }
-
-  }
-
-  // Envío de todos los datos - Forms completo
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    if (validarFormularioCompleto()) {
-      // Register.js
-      const nombre = validationNombre.value;
-      const telefono = validationTelefono.value;
-      const correo = email.value;
-      const pass = password.value;
-      const confirmPass = confirmPwd.value;
-      const terminos = privacyCheck.checked;
-
-      // Crear el objeto JSON 
-      const usuario = {
-        nombre: nombre,
-        telefono: telefono,
-        correo: correo,
-        password: pass,
-        confirmPassword: confirmPass,
-        terminos: terminos
-      };
-
-      // Recuperar arreglo de localStorage (si no existe, se crea vacío)
-      let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-
-      // Agregar el nuevo usuario
-      usuarios.push(usuario);
-
-      // Guardar el arreglo actualizado en localStorage
-      localStorage.setItem("usuarios", JSON.stringify(usuarios));
-
-      alert("Registro exitoso y usuario guardado en localStorage.");
-      form.reset();
-      limpiarErrores([
-        validationNombre,
-        validationTelefono,
-        email,
-        password,
-        confirmPwd,
-        privacyCheck,
-      ]);
-    } else {
-      console.log("El registro es inválido. Favor de corregir los errores.");
-    }
-  });// submit 
-=======
->>>>>>> backup-MTH
 // Archivo: registro.js
-// Importaciones de validaciones.js
-import { validarTexto, validarTelefono, validarEmail, validarPassword, validarConfirmacionPassword, validarPrivacidad, limpiarErrores } from "./validaciones.js";
+// Lógica para el formulario de registro.
+import {
+    validarTexto,
+    validarTelefono,
+    validarEmail,
+    validarPassword,
+    validarConfirmacionPassword,
+    validarPrivacidad,
+    limpiarErrores
+} from "./validaciones.js";
 
 document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById("registerForm");
+    const form = document.getElementById("registroForm");
     const validationNombre = document.getElementById("validationNombre");
-    const telefono = document.getElementById("telefono");
+    const telefono = document.getElementById("validationTelefono");
     const email = document.getElementById("email");
     const password = document.getElementById("password");
     const confirmPwd = document.getElementById("confirmPassword");
     const privacyCheck = document.getElementById("privacyCheck");
     const privacyLink = document.getElementById("privacyLink");
+    const statusMessage = document.getElementById("statusMessage");
 
-    // Alertas bootstrap
-    const telefonoFeedback = document.getElementById("telefonoFeedback");
-    const emailFeedback = document.getElementById("emailFeedback");
-    const privacyCheckFeedback = document.getElementById("privacyCheckFeedback");
-
-    // Validaciones
-    function validarNombreRegistro() {
-        return validarTexto(validationNombre.value.trim(), 3, validationNombre.nextElementSibling, validationNombre, "nombre");
-    }
-
-    function validarTelefonoRegistro() {
-        return validarTelefono(telefono.value.trim(), telefonoFeedback, telefono);
-    }
-
-    function validarEmailRegistro() {
-        return validarEmail(email.value.trim(), emailFeedback, email);
-    }
-
-    function validarPasswordRegistro() {
-        return validarPassword(password.value.trim(), password.nextElementSibling, password);
-    }
-
-    function validarConfirmacionPasswordRegistro() {
-        return validarConfirmacionPassword(password.value.trim(), confirmPwd.value.trim(), confirmPwd.nextElementSibling, confirmPwd);
-    }
-
-    function validarPrivacidadRegistro() {
-        return validarPrivacidad(privacyCheck, privacyCheckFeedback);
-    }
-
-    function validarFormularioCompleto() {
-        const nameOk = validarNombreRegistro();
-        const telefonoOk = validarTelefonoRegistro();
-        const emailOk = validarEmailRegistro();
-        const pwdOk = validarPasswordRegistro();
-        const confirmPwdOk = validarConfirmacionPasswordRegistro();
-        const privacyOk = validarPrivacidadRegistro();
-        return nameOk && telefonoOk && emailOk && pwdOk && confirmPwdOk && privacyOk;
-    }
-
-    // Event listeners
-    if (validationNombre) validationNombre.addEventListener("blur", validarNombreRegistro);
-    if (telefono) telefono.addEventListener("blur", validarTelefonoRegistro);
-    if (email) email.addEventListener("blur", validarEmailRegistro);
-    if (password) password.addEventListener("blur", validarPasswordRegistro);
-    if (confirmPwd) confirmPwd.addEventListener("blur", validarConfirmacionPasswordRegistro);
-    if (privacyCheck) privacyCheck.addEventListener("change", validarPrivacidadRegistro);
-
-    // Pop-up para términos y condiciones
+    // Event listeners para las validaciones en tiempo real
+    if (validationNombre) validationNombre.addEventListener("blur", () => validarTexto(validationNombre.value.trim(), 3, document.getElementById("nombreFeedback"), validationNombre, "nombre"));
+    if (telefono) telefono.addEventListener("blur", () => validarTelefono(telefono.value.trim(), document.getElementById("telefonoFeedback"), telefono));
+    if (email) email.addEventListener("blur", () => validarEmail(email.value.trim(), document.getElementById("emailFeedback"), email));
+    if (password) password.addEventListener("blur", () => validarPassword(password.value.trim(), document.getElementById("passwordFeedback"), password));
+    if (confirmPwd) confirmPwd.addEventListener("blur", () => validarConfirmacionPassword(password.value.trim(), confirmPwd.value.trim(), document.getElementById("confirmPasswordFeedback"), confirmPwd));
+    if (privacyCheck) privacyCheck.addEventListener("change", () => validarPrivacidad(privacyCheck, document.getElementById("privacyCheckFeedback")));
+    
+    // Lógica para el pop-up de términos y condiciones
     if (privacyLink) {
         privacyLink.addEventListener("click", function (event) {
             event.preventDefault();
-            document.body.insertAdjacentHTML("beforeend",
-                `<style>
-                    .popup-overlay {
-                        display: flex;
-                        position: fixed;
-                        inset: 0;
-                        background-color: rgba(0, 0, 0, 0.5);
-                        justify-content: center;
-                        align-items: center;
-                        z-index: 999;
-                    }
-                    .popup-content {
-                        position: absolute;
-                        background-color: white;
-                        padding: 20px;
-                        border-radius: 8px;
-                        width: 80%;
-                        max-width: 800px;
-                        height: 70%;
-                    }
-                    .close-btn {
-                        position: absolute;
-                        top: 10px;
-                        right: 20px;
-                        font-size: 2.5rem;
-                        cursor: pointer;
-                    }
-                    iframe {
-                        width: 100%;
-                        height: 90%;
-                        border: none;
-                        flex: 1;
-                    }
-                </style>
-                <div class="popup-overlay" id="popup">
-                    <div class="popup-content">
-                        <span class="close-btn" id="closePopup">&times;</span>
-                        <h2 id="privacidadTitle" style="margin:0; padding:1rem;">Términos y condiciones</h2>
-                        <iframe src="./docs/Terminos_y_Condiciones.pdf" frameborder="0"></iframe>
-                    </div>
-                </div>`
-            );
-
+            
+            // Revisa si el pop-up ya existe para evitar duplicados
+            if (!document.getElementById("popup")) {
+                document.body.insertAdjacentHTML("beforeend", `
+                    <div class="popup-overlay" id="popup">
+                        <div class="popup-content">
+                            <span class="close-btn" id="closePopup">&times;</span>
+                            <h2 style="margin:0; padding:1rem;">Términos y condiciones</h2>
+                            <iframe src="https://example.com/terminos-y-condiciones.pdf" frameborder="0"></iframe>
+                        </div>
+                    </div>`);
+            }
+            
             const popup = document.getElementById("popup");
             const closePopup = document.getElementById("closePopup");
 
@@ -330,13 +53,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 popup.style.display = "flex";
                 if (closePopup) {
                     closePopup.onclick = function () {
-                        popup.style.display = "none";
                         popup.remove();
                     };
                 }
                 window.onclick = function (event) {
                     if (event.target === popup) {
-                        popup.style.display = "none";
                         popup.remove();
                     }
                 };
@@ -344,55 +65,64 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Lógica para validar el formulario completo al enviarlo
+    function validarFormularioCompleto() {
+        const nameOk = validarTexto(validationNombre.value.trim(), 3, document.getElementById("nombreFeedback"), validationNombre, "nombre");
+        const telefonoOk = validarTelefono(telefono.value.trim(), document.getElementById("telefonoFeedback"), telefono);
+        const emailOk = validarEmail(email.value.trim(), document.getElementById("emailFeedback"), email);
+        const pwdOk = validarPassword(password.value.trim(), document.getElementById("passwordFeedback"), password);
+        const confirmPwdOk = validarConfirmacionPassword(password.value.trim(), confirmPwd.value.trim(), document.getElementById("confirmPasswordFeedback"), confirmPwd);
+        const privacyOk = validarPrivacidad(privacyCheck, document.getElementById("privacyCheckFeedback"));
+        return nameOk && telefonoOk && emailOk && pwdOk && confirmPwdOk && privacyOk;
+    }
+
     // Envío del formulario
     if (form) {
         form.addEventListener("submit", function (event) {
             event.preventDefault();
-
+            
+            // Ocultar mensajes de estado anteriores
+            statusMessage.style.display = 'none';
+            statusMessage.textContent = '';
+            
             if (validarFormularioCompleto()) {
-                const nombre = validationNombre.value.trim();
-                const telefonoValue = telefono.value.trim();
-                const correo = email.value.trim();
-                const passwordValue = password.value.trim();
-
-                // Verificar si el correo ya está registrado
+                const usuario = {
+                    nombre: validationNombre.value.trim(),
+                    telefono: telefono.value.trim(),
+                    correo: email.value.trim(),
+                    password: password.value.trim(),
+                };
+                
                 let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-                if (usuarios.some(user => user.correo === correo)) {
-                    if (email && email.nextElementSibling) {
-                        email.classList.add("is-invalid");
-                        email.nextElementSibling.textContent = "El correo ya está registrado.";
-                    }
+                
+                // Verificar si el correo ya está registrado
+                if (usuarios.some(user => user.correo === usuario.correo)) {
+                    statusMessage.textContent = "El correo ya está registrado.";
+                    statusMessage.style.color = '#dc3545';
+                    statusMessage.style.display = 'block';
+                    document.getElementById("emailFeedback").textContent = "El correo ya está registrado.";
+                    email.classList.add('is-invalid');
+                    email.classList.remove('is-valid');
                     return;
                 }
-
-                // Crear el objeto usuario
-                const usuario = { nombre, telefono: telefonoValue, correo, password: passwordValue };
-
-                // Agregar el nuevo usuario
+                
                 usuarios.push(usuario);
                 localStorage.setItem("usuarios", JSON.stringify(usuarios));
-
-                // Limpiar formulario y errores
-                form.reset();
-                limpiarErrores([validationNombre, telefono, email, password, confirmPwd, privacyCheck]);
-                form.classList.remove("was-validated");
-
-                // Mostrar mensaje de éxito y redirigir
-                const successMessage = document.createElement('div');
-                successMessage.className = 'alert alert-success mt-3';
-                successMessage.textContent = 'Registro exitoso. Serás redirigido al inicio de sesión.';
-                form.parentNode.insertBefore(successMessage, form);
-
+                
+                statusMessage.textContent = "¡Registro exitoso! Redirigiendo a la página de inicio de sesión...";
+                statusMessage.style.color = '#198754';
+                statusMessage.style.display = 'block';
+                
                 setTimeout(() => {
                     window.location.href = "login.html";
                 }, 2000);
+                
+                limpiarErrores([validationNombre, telefono, email, password, confirmPwd, privacyCheck]);
             } else {
-                form.classList.add("was-validated");
+                statusMessage.textContent = "Hay errores en el formulario. Por favor, revisa los campos.";
+                statusMessage.style.color = '#dc3545';
+                statusMessage.style.display = 'block';
             }
         });
     }
-<<<<<<< HEAD
-=======
->>>>>>> cf0256e (Implementar autenticación verificando usuarios pre almacenados en el local storage.)
->>>>>>> backup-MTH
 });

@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-<<<<<<< HEAD
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Registro</title>
@@ -74,23 +73,17 @@
       }
     }
   </style>
-=======
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="./CSS/style.css">
-<<<<<<< HEAD
-=======
->>>>>>> cf0256e (Implementar autenticación verificando usuarios pre almacenados en el local storage.)
->>>>>>> backup-MTH
+
 </head>
 
 <body>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
   <div id="navbar-container"></div>
 
   <main>
@@ -98,46 +91,47 @@
       <div class="form-container p-4 rounded shadow">
         <!-- Nombre -->
         <h1 style="text-align: center">REGISTRO</h1>
-        <form id="form" novalidate>
+       <!-- se agrega método post -->
+        <form id="registroForm" method="POST" class="needs-validation" novalidate>
           <div class="mb-2">
             <label for="validationNombre" class="form-label">Nombre(s) :</label>
             <input type="text" class="form-control" id="validationNombre" name="nombre"
-              placeholder="Ingresa tu nombre completo" />
-            <div id="nombreFeedback" class="invalid-feedback"></div>
+              placeholder="Ingresa tu nombre completo" required />
+            <div id="nombreFeedback" class="invalid-feedback-custom"></div>
           </div>
           <!-- Teléfono -->
           <div class="mb-2">
             <label for="validationTelefono" class="form-label">Número de Teléfono</label>
-            <input type="text" class="form-control" id="validationTelefono" name="validationTelefono"
-              placeholder="Teléfono" />
-            <div id="telefonoFeedback" class="invalid-feedback"></div>
+            <input type="tel" class="form-control" id="validationTelefono" name="Telefono"
+              placeholder="Teléfono" required/>
+            <div id="telefonoFeedback" class="invalid-feedback-custom"></div>
           </div>
           <!-- Correo -->
           <div class="mb-2">
             <label for="email" class="form-label">E-mail</label>
-            <input type="email" class="form-control" id="email" name="correo" placeholder="E-mail" />
-            <div id="emailFeedback" class="invalid-feedback"></div>
+            <input type="email" class="form-control" id="email" name="correo" placeholder="E-mail" required />
+            <div id="emailFeedback" class="invalid-feedback-custom"></div>
           </div>
           <!-- Contraseña -->
           <div class="mb-2">
             <label for="password" class="form-label">Contraseña</label>
             <input type="password" class="form-control" id="password" name="password"
-              placeholder="Ingresa contraseña" />
-            <div id="passwordFeedback" class="invalid-feedback"></div>
+              placeholder="Ingresa contraseña" required />
+            <div id="passwordFeedback" class="invalid-feedback-custom"></div>
           </div>
 
           <!-- Confirmar contraseña -->
           <div class="mb-2">
             <label for="confirmPassword" class="form-label">Confirma Contraseña</label>
             <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
-              placeholder="Confirma contraseña" autocomplete="new-password" />
-            <div id="confirmPasswordFeedback" class="invalid-feedback"></div>
+              placeholder="Confirma contraseña" autocomplete="new-password" required />
+            <div id="confirmPasswordFeedback" class="invalid-feedback-custom"></div>
           </div>
 
           <!-- Términos y Condiciones -->
           <div class="mb-3">
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="privacyCheck" name="checkTerminos" />
+              <input class="form-check-input" type="checkbox" id="privacyCheck" name="checkTerminos" required/>
               <label class="form-check-label" for="privacyCheck">
                 <a href="#" id="privacyLink">Acepto términos y condiciones</a>
               </label>
@@ -150,7 +144,7 @@
             </button>
           </div>
         </form>
-      </div>
+      <div id="statusMessage" class="mt-3 text-center" style="display: none;"></div>     </div>
     </div>
   </main>
 
@@ -170,8 +164,7 @@
   </script>
   <script src="./JS/footer.js"></script>
   <script type="module" src="./JS/registro.js"></script>
-=======
->>>>>>> backup-MTH
+
     <div id="navbar-container"></div>
     <header class="mxreg-masthead">
         <div class="overlay d-flex justify-content-center align-items-center">
@@ -229,10 +222,100 @@
     <script src="./JS/footer.js"></script>
     <script src="./JS/registro.js" type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<<<<<<< HEAD
-=======
->>>>>>> cf0256e (Implementar autenticación verificando usuarios pre almacenados en el local storage.)
->>>>>>> backup-MTH
+
+
+<script>
+        document.getElementById("registroForm").addEventListener("submit", function(event) {
+            // Evita el envío por defecto para manejarlo con JS
+            event.preventDefault();
+            
+            const form = event.target;
+            const statusMessage = document.getElementById("statusMessage");
+
+            // Limpia mensajes anteriores
+            statusMessage.style.display = 'none';
+            statusMessage.textContent = '';
+            
+            // Revisa la validez del formulario
+            if (!form.checkValidity()) {
+                form.classList.add('was-validated');
+                return;
+            }
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Validaciones personalizadas
+            const password = data.password;
+            const confirmPassword = data.confirmPassword;
+            const privacyCheck = form.querySelector('#privacyCheck').checked;
+
+            let isValid = true;
+
+            // Validar contraseñas
+            const passwordFeedback = document.getElementById('confirmPasswordFeedback');
+            if (password !== confirmPassword) {
+                passwordFeedback.textContent = "Las contraseñas no coinciden.";
+                passwordFeedback.style.display = 'block';
+                isValid = false;
+            } else {
+                passwordFeedback.style.display = 'none';
+            }
+            
+            // Validar términos y condiciones
+            const privacyFeedback = document.getElementById('privacyCheckFeedback');
+            if (!privacyCheck) {
+                privacyFeedback.style.display = 'block';
+                isValid = false;
+            } else {
+                privacyFeedback.style.display = 'none';
+            }
+
+            if (!isValid) {
+                return;
+            }
+            
+            // Si las validaciones pasan, se simula el envío por POST
+            console.log("Datos a enviar de forma segura por POST:", data);
+            
+            statusMessage.style.display = 'block';
+            statusMessage.textContent = "¡Registro exitoso! Los datos se han procesado de forma segura.";
+            statusMessage.style.color = '#198754'; // Color de éxito
+
+            // Aquí es donde se usaría la función fetch para enviar los datos al servidor
+            // Ejemplo (comentado):
+            /*
+            fetch('/registro', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Success:', data);
+                statusMessage.textContent = "¡Registro exitoso! Los datos se han procesado de forma segura.";
+                statusMessage.style.color = '#198754';
+                statusMessage.style.display = 'block';
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                statusMessage.textContent = "Hubo un error en el registro. Por favor, intenta de nuevo.";
+                statusMessage.style.color = '#dc3545';
+                statusMessage.style.display = 'block';
+            });
+            */
+        });
+    </script>
+
+
+
 </body>
 
 </html>
