@@ -68,3 +68,19 @@
     }
 }
 
+.carousel-control-prev,
+.carousel-control-next {
+    background-color: #8D94FF;
+    /* border-radius: 50%;
+    padding: 15px; */
+    opacity: 1 !important;    /* Siempre visibles */
+    transition: none !important;    /* Quita animación de opacidad */
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+
+  opacity: 1 !important; /* Evita cambios al pasar el mouse */
+  /* transition: 0.3s ease-in-out; */
+}
+

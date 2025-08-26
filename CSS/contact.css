@@ -1,3 +1,5 @@
+/* import sweetalert2/src/sweetalert2.scss */
+
 /* Estilos card */
 .card {
     height: 40vh;
@@ -52,8 +54,8 @@
 #boton-enviar {
     display: block;
     margin: auto;
-    background-color: #C0C4FF;
-    color: black;
+    background-color: #5A64FF;
+    color: white;
     border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -65,6 +67,10 @@
 }
 
 /* Cambio de letra del checkbox */
+.form-check {
+    font-size: 0.7rem;
+}
+
 .form-check {
     font-size: 0.7rem;
 }

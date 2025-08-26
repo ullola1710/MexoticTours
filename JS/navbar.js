@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <ul class="navbar-nav mb-2 mb-lg-0 d-flex gap-3">
             <li class="nav-item"><a class="nav-link active" aria-current="page" href="./index.html">Inicio</a></li>
             <li class="nav-item"><a class="nav-link active" href="./aboutUs.html">Nosotras</a></li>
+            <li class="nav-item"><a class="nav-link active" href="./contact.html">Contáctanos</a></li>
             <li class="nav-item dropdown d-none d-lg-block">
                 <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                 aria-expanded="true">
@@ -76,8 +77,8 @@ document.addEventListener("DOMContentLoaded", () => {
               <span id="cartBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill"
                     style="background:#8D94FF; display: none;">0</span>
             </button>
-            <a class="btn btn-login rounded-pill d-none d-lg-inline-block" href="./logIn.html">Log in</a>
-            <a class="btn btn-signin rounded-pill d-none d-lg-inline-block" href="./registro.html">Sign in</a>
+            <a class="btn btn-login rounded-pill d-none d-lg-inline-block" href="./logIn.html">Inicia Sesión</a>
+            <a class="btn btn-signin rounded-pill d-none d-lg-inline-block" href="./registro.html">Regístrate</a>
         </div>
         </div>
     </nav>   
@@ -89,6 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <ul class="navbar-nav gap-3 w-100">
             <li class="nav-item"><a class="nav-link nav-link text-dark text-center" href="./index.html">Inicio</a></li>
             <li class="nav-item"><a class="nav-link nav-link text-dark text-center" href="./aboutUs.html">Nosotras</a></li>
+            <li class="nav-item"><a class="nav-link nav-link text-dark text-center" href="./contact.html">Contáctanos</a></li>
             <li class="nav-item d-lg-none"><a class="nav-link text-dark text-center d-flex justify-content-center align-items-center" data-bs-toggle="collapse" href="#submenuProductosMobile" role="button"
                       aria-expanded="false" aria-controls="submenuProductosMobile" id="toggleProductosMobile">
                       Productos<i class="bi bi-chevron-right ms-2 rotate-icon" id="arrowIcon"></i></a>
@@ -101,8 +103,8 @@ document.addEventListener("DOMContentLoaded", () => {
             </li>
               <li class="nav-item">
                 <a class="nav-link text-dark text-center" href="./experiences.html">Experiencias</a>
-                <a  class="nav-link text-dark text-center" href="./logIn.html">Log in</a>
-                <a class="nav-link text-dark text-center" href="./registro.html">Sign in</a>
+                <a  class="nav-link text-dark text-center" href="./logIn.html">Inicia sesión</a>
+                <a class="nav-link text-dark text-center" href="./registro.html">Regístrate</a>
               </li>
           </ul>
         </div>
