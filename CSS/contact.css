@@ -1,3 +1,6 @@
+
+/* import sweetalert2/src/sweetalert2.scss */
+
 /* Estilos card */
 .card {
     height: 40vh;
@@ -52,8 +55,9 @@
 #boton-enviar {
     display: block;
     margin: auto;
-    background-color: #C0C4FF;
-    color: black;
+    background-color: #5A64FF;
+    /* #C0C4FF; */
+    color: white;
     border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -62,6 +66,17 @@
 #boton-enviar:hover {
     background-color: #5A64FF;
     color: blanchedalmond;
+}
+
+div.form-contact{
+    background-color: #ced4da;
+/* #292B4B */
+/* #8D94FF */
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 40px auto; 
+
 }
 
 /* Cambio de letra del checkbox */
