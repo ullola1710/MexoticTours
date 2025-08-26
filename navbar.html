@@ -240,8 +240,8 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark text-center" href="./experiences.html">Experiencias</a>
-                        <a  class="nav-link text-dark text-center" href="./logIn.html">Log in</a>
-                        <a class="nav-link text-dark text-center" href="./signIn.html">Sign in</a>
+                        <a  class="nav-link text-dark text-center" href="./logIn.html">Ingresar</a>
+                        <a class="nav-link text-dark text-center" href="./signIn.html">Registrarte</a>
                     </li>
                 </ul>
             </div>
@@ -267,36 +267,25 @@
             arrowIcon.classList.remove('bi-chevron-down');
             arrowIcon.classList.add('bi-chevron-right');
         });
-        </script>
-        
-    <!-- <script>
+    </script>
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const nav = document.getElementById('navbar-custom');
-            let lastScrollY = window.pageYOffset;
+            const collapseElement = document.getElementById('navbarNavDropdown');
+            const arrowIcon = document.querySelector('#navbarDropdownMenuLink .bi-chevron-right');
 
-            window.addEventListener('scroll', () => {
-                const currentScrollY = window.pageYOffset;
-
-                // 1) Si estás en el tope de la página, siempre mostrar
-                if (currentScrollY <= 0) {
-                    nav.classList.remove('nav--hidden');
-                    lastScrollY = 0;
-                    return;
-                }
-
-                // 2) Si scroll hacia abajo y aún no está oculto, oculta
-                if (currentScrollY > lastScrollY || !nav.classList.contains('nav--hidden')) {
-                    nav.classList.add('nav--hidden');
-                }
-                // 3) Si scroll hacia arriba y está oculto, muestra
-                else if (currentScrollY < lastScrollY || nav.classList.contains('nav--hidden')) {
-                    nav.classList.remove('nav--hidden');
-                }
-
-                lastScrollY = currentScrollY;
-            });
+            if (collapseElement && arrowIcon) {
+                collapseElement.addEventListener('show.bs.collapse', () => {
+                    arrowIcon.classList.remove('bi-chevron-right');
+                    arrowIcon.classList.add('bi-chevron-down');
+                });
+                collapseElement.addEventListener('hide.bs.collapse', () => {
+                    arrowIcon.classList.remove('bi-chevron-down');
+                    arrowIcon.classList.add('bi-chevron-right');
+                });
+            }
         });
-    </script> -->
+    </script>
 </body>
 
 </html>
+
