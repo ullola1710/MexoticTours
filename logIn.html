@@ -1,3 +1,5 @@
+Login.html
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +29,7 @@
                 <div class="mt-login-panel login-panel">
                     <h2 style="text-align: center;">BIENVENIDO A MEXOTIC TOURS</h2>
                     <p style="color: #fa89cf; text-align: center;">Inicia sesión para seguir explorando México</p>
-                    <form>
+                    <form id="loginForm" class="needs-validation" novalidate>
                         <div class="mt-form-group mb-3">
                             <label for="mt-email" class="form-label">Correo electrónico</label>
                             <input type="email" class="mt-form-control form-control" id="mt-email"
@@ -40,10 +42,12 @@
                                 placeholder="Contraseña de sesión">
                             <div id="passwordFeedback" class="invalid-feedback"></div>
                         </div>
+                        <!-- Mensaje de error general -->
+                        <div id="loginError" class="text-danger text-center mb-3" style="display: none;"></div>
                         <button type="submit" class="mt-btn-submit btn btn-purple">Inicio de sesión</button>
                     </form>
                     <br>
-                    <p style="text-align: center;"><a href="#">¿Olvidaste tu contraseña?</a></p>
+                    <p style="text-align: center;"><a href="#" id="resetPassword">¿Olvidaste tu contraseña?</a></p>
                     <p style="text-align: center;">¿No tienes cuenta? <a href="./registro.html">Regístrate</a></p>
                 </div>
             </div>
@@ -60,12 +64,9 @@
     <script src="./JS/navbar.js"></script>
     <!-- EmailJS -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script>
-        (function () {
-            emailjs.init("GNnB5jB5JcNSpPcEb"); // Tu User ID público
-        })();
-    </script>
+    
     <script src="./JS/footer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
     <script type="module" src="./JS/login.js"></script>
 
 </body>

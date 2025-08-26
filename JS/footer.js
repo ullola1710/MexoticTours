@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const footer = `
+    const footer = `
 <div class="footer-card" style="background-color: #09112E;">
         <div class="card-body">
             <div class="container text-center">
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
                            <a href="./aboutUs.html" style="text-decoration: none;"><li style="color: #5A64FF; text-align: left; font-size: 0.9rem; margin-top: 0.3rem; font-family: Be Vietnam Pro, sans-serif;">Nosotras</li></a>
                            <a href="./contact.html" style="text-decoration: none;"><li style="color: #5A64FF; text-align: left; font-size: 0.9rem; margin-top: 0.3rem; font-family: Be Vietnam Pro, sans-serif;">Contáctanos</li></a>
                            <a href="./products.html" style="text-decoration: none;"><li style="color: #5A64FF; text-align: left; font-size: 0.9rem; margin-top: 0.3rem; font-family: Be Vietnam Pro, sans-serif;">Productos</li></a>
-                          <a href="./signIn.html" style="text-decoration: none;"><li style="color: #5A64FF; text-align: left; font-size: 0.9rem; margin-top: 0.3rem; font-family: Be Vietnam Pro, sans-serif;">Inicio de sesión</li></a>
+                          <a href="./signIn.html" style="text-decoration: none;"><li style="color: #5A64FF; text-align: left; font-size: 0.9rem; margin-top: 0.3rem; font-family: Be Vietnam Pro, sans-serif;">Inicia sesión</li></a>
                            <a href="./experiences.html" style="text-decoration: none;"><li style="color: #5A64FF; text-align: left; font-size: 0.9rem; margin-top: 0.3rem; font-family: Be Vietnam Pro, sans-serif;">Experiencias</li></a> 
                         </ol>
                     </div>
@@ -54,14 +54,14 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
     </div>
   `;
-  document.getElementById("footer-container").innerHTML = footer;
-  document.body.classList.add("footer");
+    document.getElementById("footer-container").innerHTML = footer;
+    document.body.classList.add("footer");
 });
 
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log("emailjs en window:", window.emailjs);
-    
+
     const footerForm = document.getElementById("footerForm");
     const footerEmail = document.getElementById("footerEmail");
 
@@ -71,29 +71,35 @@ document.addEventListener("DOMContentLoaded", () => {
         const email = footerEmail.value.trim();
 
         if (email === "") {
-        alert("⚠️ Por favor ingresa un correo válido.");
-        return;
+            alert("⚠️ Por favor ingresa un correo válido.");
+            return;
         }
 
         // Creamos un objeto con la data que espera tu template en EmailJS
         const templateParams = {
-        email: email, // El email que escribió el usuario en el footer
-        time: new Date().toLocaleString()
+            to_email: email, // 
+            subject: "Nueva suscripción de " + email,
+            from_email: email, // El email que escribió el usuario en el footer
+            type: "suscripcion", //t = type
+            time: new Date().toLocaleString(),
+            show_contacto: "none",
+            show_suscripcion: "block"
         };
 
         // Enviar con EmailJS
-        emailjs.send("service_pi5sznp", "template_7qr2tqv", templateParams)
-        .then(
-            function (response) {
-            console.log("✅ Correo enviado con éxito", response.status, response.text);
-            alert("Te has suscrito correctamente 🎉");
-            footerForm.reset();
-            },
-            function (error) {
-            console.error("❌ Error al enviar el correo", error);
-            alert("Hubo un error, intenta más tarde.");
-            }
-        );
+        emailjs.send("service_pi5sznp", "template_xd5aaoa", templateParams) // antes template_7qr2tqv
+            .then(
+                function (response) {
+                    console.log("✅ Correo enviado con éxito", response.status, response.text);
+                    alert("Te has suscrito correctamente 🎉");
+                    footerForm.reset();
+                },
+                function (error) {
+                    console.error("❌ Error al enviar el correo", error);
+                    alert("Hubo un error, intenta más tarde.");
+                }
+            );
     });
 });
+
 

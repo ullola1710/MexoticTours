@@ -140,22 +140,22 @@ function validarMensaje() {
   const feedback = document.getElementById("validationServerMessage");
   // 1. Mensaje vacío
   if (mensajeValor === "") {
-    mostrarError(mensaje, feedback, "El mensaje no puede ir vacío.");      return false;
+    mostrarError(mensaje, feedback, "El mensaje no puede ir vacío."); return false;
   }
   //2. Múltiples espacios libres 
   if (mensajeValor.includes("  ")) {
     mostrarError(mensaje, feedback, "El mensaje no puede contener múltiples espacios seguidos.");
     return false;
   }
-    
+
   //3.Longitud minima
   if (mensajeValor.length < 20) {
     mostrarError(mensaje, feedback, "El mensaje debe contener al menos 20 caracteres.");
     return false;
   }
-    ocultarError(mensaje, feedback);
-    return true;
-  }
+  ocultarError(mensaje, feedback);
+  return true;
+}
 
 
 // Validar política de privacidad
@@ -276,14 +276,14 @@ privacyLink.onclick = function () {
 
   popup.style.display = "flex";
 
-  closePopup.onclick = function(){
-    popup.style.display = "none"; 
+  closePopup.onclick = function () {
+    popup.style.display = "none";
     popup.remove();
   } // closePopup.onclick
 
   // ventana del popup
-  window.onclick = function(event) {
-    if(event.target === popup){
+  window.onclick = function (event) {
+    if (event.target === popup) {
       popup.style.display = "none";
       popup.remove();
     }
@@ -296,8 +296,22 @@ form.addEventListener("submit", function (event) {
   event.preventDefault(); // Evita el envío por defecto
 
   if (validarFormularioCompleto()) {
+    // Enviar con EmailJS - NUEVO
+    const templateParams = {
+      to_email: "mexotictours@gmail.com",
+      subject: "Contacto de " + validationNombre.value.trim() + " " + validationApellido.value.trim(),
+      from_name: validationNombre.value.trim() + " " + validationApellido.value.trim(),
+      from_email: email.value.trim(),
+      phone: inputTelefono.value.trim(),
+      message: mensaje.value.trim(),
+      type: "contacto", // t = type
+      time: new Date().toLocaleString(),
+      show_contatcto: "block",
+      show_suscripcion: "none"
+    };
+
     // Enviar con EmailJS
-    emailjs.sendForm("service_pi5sznp", "template_xd5aaoa", form)
+    emailjs.send("service_pi5sznp", "template_xd5aaoa", templateParams) // antes form
       .then(
         function (response) {
           console.log(

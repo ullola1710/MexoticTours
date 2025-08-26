@@ -195,7 +195,14 @@ document.addEventListener('DOMContentLoaded', function () {
       // Guardar el arreglo actualizado en localStorage
       localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
-      alert("Registro exitoso y usuario guardado en localStorage.");
+      // alert("Registro exitoso y usuario guardado en localStorage.");
+      Swal.fire({
+        icon: 'success',
+        title: 'Registro Exitoso!',
+        text: 'Tu usuario ha sido guardado',
+        confirmButtonText: 'Aceptar'
+      });
+
       form.reset();
       limpiarErrores([
         validationNombre,
