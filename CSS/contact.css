@@ -8,12 +8,11 @@
 
 .card-title {
     font-family: 'Dancing Script', 'sans-cursive';
-    font-size: clamp(1.3rem, 4.5vw, 4rem);
+    font-size: clamp(1.3rem, 4.5vw, 5vm);
     font-weight: bold;
-    line-height: 0;
 }
 .card-text {
-    font-size: clamp(2rem, 5vw, 5rem);
+    font-size: clamp(2rem, 5vw, 3rem);
     font-weight: bold;
     line-height: 1.5;
 }
@@ -67,10 +66,15 @@
 }
 
 /* Cambio de letra del checkbox */
-.form-check {
+/* .form-check {
     font-size: 0.7rem;
-}
+} */
 
-.form-check {
+/* .form-check {
     font-size: 0.7rem;
-}
+} */
+.form-check-label,
+    #privacyLink {
+      font-size: 0.7rem;
+      color: black;
+    }

@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Redirigir después de 2 segundos
             setTimeout(() => {
-                window.location.href = "index.html";
+                window.location.href = "./index.html";
             }, 2000);
         } else {
             showError("Correo o contraseña incorrectos. Por favor, intente de nuevo.");
@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Función para cerrar sesión
     function logoutUser() {
         localStorage.removeItem("sesionIniciada");
-        window.location.href = "index.html";
+        window.location.href = "./index.html";
     }
 
     // Event listener para cerrar sesión

@@ -70,17 +70,40 @@
 
 .carousel-control-prev,
 .carousel-control-next {
-    background-color: #8D94FF;
-    /* border-radius: 50%;
-    padding: 15px; */
-    opacity: 1 !important;    /* Siempre visibles */
-    transition: none !important;    /* Quita animación de opacidad */
+    background-color: none; 
+    position: absolute;
+    z-index: 1;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
+    background-color: #6e60ff;
+}
 
-  opacity: 1 !important; /* Evita cambios al pasar el mouse */
-  /* transition: 0.3s ease-in-out; */
+.carousel-control-prev i,
+.carousel-control-next i {
+    font-weight: bold;
+    font-size: 2rem; 
+    color: #8D94FF;
+    filter: drop-shadow(2px 4px 3px #000000);
+}
+
+@media (max-width: 768px) {
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 40px;
+        height: 40px;
+    }
+
+    .carousel-control-prev i,
+    .carousel-control-next i {
+        font-size: 1.5rem;
+    }
 }
 

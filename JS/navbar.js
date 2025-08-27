@@ -51,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <div class="collapse navbar-collapse justify-content-center d-none d-lg-flex" id="navbarSupportedContent">
             <ul class="navbar-nav mb-2 mb-lg-0 d-flex gap-3">
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="./index.html">Inicio</a></li>
             <li class="nav-item"><a class="nav-link active" href="./aboutUs.html">Nosotras</a></li>
             <li class="nav-item"><a class="nav-link active" href="./contact.html">Contáctanos</a></li>
             <li class="nav-item dropdown d-none d-lg-block">
