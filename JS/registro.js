@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', function () {
       ]);
 
       setTimeout(() => {
-        window.location.href = "./login.html";
+        window.location.href = "./logIn.html";
       }, 2000);
     } else {
       // Mostrar mensaje de error general
