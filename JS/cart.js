@@ -11,7 +11,8 @@ function addToCart(product) {
       id: product.id,
       name: product.name,
       price: product.price,
-      quantity: 1
+      quantity: 1,
+      img: product.img,
     });
   }
   saveCart();
@@ -69,11 +70,14 @@ function renderCartItems() {
   
   if (cart.length === 0) {
     container.innerHTML = `
-      <div class="empty-cart-message">
+      <div class="empty-cart-message text-center">
         <i class="bi bi-cart-x" style="font-size: 3rem;"></i>
         <p>Tu carrito está vacío</p>
       </div>`;
-    if (totalElement) totalElement.style.display = 'none';
+    if (totalElement){ 
+      //totalElement.style.display = 'none';
+      totalElement.querySelector('#totalAmount').textContent = '0.00';
+    }
     if (checkoutButton) checkoutButton.style.display = 'none';
   } else {
     let html = '';
@@ -82,30 +86,35 @@ function renderCartItems() {
       const itemTotal = item.price * item.quantity;
       total += itemTotal;
       html += `
-        <div class="cart-item">
+        <div class="cart-item mb-4">
           <div class="d-flex justify-content-between align-items-center">
-            <div>
+            <div style="position: relative; display: inline-block;">
+              <div style="height: 100px; width: 100px; border-radius: 20px; overflow: hidden;">
+              <img style="height: 100%; width: 100%; object-fit: cover;" src="${item.img}" alt="${item.name}" />
+            </div>
+              <button class="btn btn-sm" onclick="removeFromCart(${item.id})" style="position: absolute; bottom: 5px; left: 5px; border-radius: 2rem; background-color: white;">
+                <i class="bi bi-trash" style="color: red;"></i>
+              </button>
+            </div>
+            <div style="width: 12rem; padding: 0 20px 0 20px; gap: 20px;">
               <h5>${item.name}</h5>
-              <p class="mb-0">$${item.price.toFixed(2)} c/u</p>
+              <div>
+                <p class="mb-0">Total: $${itemTotal.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 })}</p>
+                <p class="mb-0" style="font-size: 12px;">$${item.price.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 })} c/u</p>
+              </div>
             </div>
-            <div class="quantity-controls">
-              <button class="btn btn-sm btn-outline-secondary quantity-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
-              <span class="mx-2">${item.quantity}</span>
-              <button class="btn btn-sm btn-outline-secondary quantity-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
+            <div class="quantity-controls" style="display: flex; align-items: center; gap: 0px;">
+              <button class="btn btn-sm btn-outline-secondary quantity-btn" style="border-radius: 1rem; width: 25px; height: 25px; border-color: red; color: red; display: flex; justify-content: center; align-items: center;" onclick="updateQuantity(${item.id}, -1)">-</button>
+              <span class="mx-1 px-2 py-1" style="background-color: #8D94FF; color: white; border-radius: 5px;">${item.quantity}</span>
+              <button class="btn btn-sm btn-outline-secondary quantity-btn" style="border-radius: 1rem; width: 25px; height: 25px; border-color: red; color: red; display: flex; justify-content: center; align-items: center;" onclick="updateQuantity(${item.id}, 1)">+</button>
             </div>
-          </div>
-          <div class="d-flex justify-content-between align-items-center mt-2">
-            <span>Total: $${itemTotal.toFixed(2)}</span>
-            <button class="btn btn-sm btn-danger" onclick="removeFromCart(${item.id})">
-              <i class="bi bi-trash"></i>
-            </button>
           </div>
         </div>`;
     });
     container.innerHTML = html;
     if (totalElement) {
       totalElement.style.display = 'block';
-      totalElement.querySelector('#totalAmount').textContent = total.toFixed(2);
+      totalElement.querySelector('#totalAmount').textContent = total.toLocaleString('es-MX', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
     }
     if (checkoutButton) checkoutButton.style.display = 'block';
   }

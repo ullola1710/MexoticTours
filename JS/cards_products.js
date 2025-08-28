@@ -128,9 +128,15 @@ function loadTour(tour) {
             addToCart({
                 id: tour.id,
                 name: tour.name,
-                price: parseFloat(tour.precio)
+                price: parseFloat(tour.precio),
+                img: tour.img,
             });
-            alert(`¡${tour.name} agregado al carrito!`);
+            Swal.fire({
+                icon: 'success',
+                title: '¡Genial!',
+                text: `¡${tour.name} agregado al carrito!`,
+                confirmButtonText: 'Aceptar'
+            });
         };
     } // if (btnReserva)
 }

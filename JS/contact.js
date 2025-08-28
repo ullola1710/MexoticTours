@@ -162,6 +162,7 @@ function validarTelefono() {
 function validarMensaje() {
   const mensajeValor = mensaje.value.trim();
   const feedback = document.getElementById("validationServerMessage");
+<<<<<<< HEAD
 
   // 1. Mensaje vacío
   if (mensajeValor === "") {
@@ -170,24 +171,41 @@ function validarMensaje() {
   }
 
   // 2. Múltiples espacios seguidos
+=======
+  // 1. Mensaje vacío
+  if (mensajeValor === "") {
+    mostrarError(mensaje, feedback, "El mensaje no puede ir vacío."); return false;
+  }
+  //2. Múltiples espacios libres 
+>>>>>>> 3f63cbd7cb6b3fd83be531aa2c4ac40690bf3f8a
   if (mensajeValor.includes("  ")) {
     mostrarError(mensaje, feedback, "El mensaje no puede contener múltiples espacios seguidos.");
     return false;
   }
 
+<<<<<<< HEAD
   // 3. Longitud mínima (después de validaciones)
+=======
+  //3.Longitud minima
+>>>>>>> 3f63cbd7cb6b3fd83be531aa2c4ac40690bf3f8a
   if (mensajeValor.length < 20) {
     mostrarError(mensaje, feedback, "El mensaje debe contener al menos 20 caracteres.");
     return false;
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3f63cbd7cb6b3fd83be531aa2c4ac40690bf3f8a
   ocultarError(mensaje, feedback);
   return true;
 }
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 3f63cbd7cb6b3fd83be531aa2c4ac40690bf3f8a
 // Validar política de privacidad
 function validarPrivacidad() {
   if (!privacyCheck.checked) {
@@ -306,14 +324,14 @@ privacyLink.onclick = function () {
 
   popup.style.display = "flex";
 
-  closePopup.onclick = function(){
-    popup.style.display = "none"; 
+  closePopup.onclick = function () {
+    popup.style.display = "none";
     popup.remove();
   } // closePopup.onclick
 
   // ventana del popup
-  window.onclick = function(event) {
-    if(event.target === popup){
+  window.onclick = function (event) {
+    if (event.target === popup) {
       popup.style.display = "none";
       popup.remove();
     }
@@ -326,8 +344,22 @@ form.addEventListener("submit", function (event) {
   event.preventDefault(); // Evita el envío por defecto
 
   if (validarFormularioCompleto()) {
+    // Enviar con EmailJS - NUEVO
+    const templateParams = {
+      to_email: "mexotictours@gmail.com",
+      subject: "Contacto de " + validationNombre.value.trim() + " " + validationApellido.value.trim(),
+      from_name: validationNombre.value.trim() + " " + validationApellido.value.trim(),
+      from_email: email.value.trim(),
+      phone: inputTelefono.value.trim(),
+      message: mensaje.value.trim(),
+      type: "contacto", // t = type
+      time: new Date().toLocaleString(),
+      show_contatcto: "block",
+      show_suscripcion: "none"
+    };
+
     // Enviar con EmailJS
-    emailjs.sendForm("service_pi5sznp", "template_xd5aaoa", form)
+    emailjs.send("service_pi5sznp", "template_xd5aaoa", templateParams) // antes form
       .then(
         function (response) {
           console.log(
@@ -335,8 +367,11 @@ form.addEventListener("submit", function (event) {
             response.status,
             response.text
           );
+<<<<<<< HEAD
           // alert("✅ Formulario enviado correctamente.");
            
+=======
+>>>>>>> 3f63cbd7cb6b3fd83be531aa2c4ac40690bf3f8a
           Swal.fire({ //SweetAlert
             icon: "success",
             title: "Formulario enviado",
@@ -348,10 +383,13 @@ form.addEventListener("submit", function (event) {
         },
         function (error) {
           console.error("Error al enviar el correo", error);
+<<<<<<< HEAD
           // alert(
           //   "❌ Ocurrió un error al enviar el formulario. Intenta más tarde."
           // );
           
+=======
+>>>>>>> 3f63cbd7cb6b3fd83be531aa2c4ac40690bf3f8a
           Swal.fire({ //SweetAlert
             icon: "error",
             title: "Error al enviar",

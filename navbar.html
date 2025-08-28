@@ -187,17 +187,9 @@
                         <i class="bi bi-cart2 fs-2"></i>
                     </a>
                     <a class="btn btn-login rounded-pill d-none d-lg-inline-block" role="button" href="./logIn.html">Inicia sesión</a>
-                    <a class="btn btn-signin rounded-pill d-none d-lg-inline-block" role="button" href="./signIn.html">Sign in</a>
+                    <a class="btn btn-signin rounded-pill d-none d-lg-inline-block" role="button" href="./regitro.html">Registrate</a>
                 </div>
             </div>
-        
-            <!-- se agrega apartado para el login del usuario -->
-
-                <a href="index.html" id="login-link">Home</a>
-                <a href="registro.html" id="register-link">Registro</a>
-                <span id="welcomeMessage" class="nav-item"></span>
-                <a href="signOut.html" id="logout-link" style="display:none;">Cerrar sesión</a>
-        
         </nav>
         <!-- Menú mobile -->
         <div class="offcanvas offcanvas-start" tabindex="-1" id="menuLateral" aria-labelledby="menuLateralLabel"style="width: 100vw; max-width: 100vw; height: 100vh;">
@@ -240,8 +232,8 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-dark text-center" href="./experiences.html">Experiencias</a>
-                        <a  class="nav-link text-dark text-center" href="./logIn.html">Ingresar</a>
-                        <a class="nav-link text-dark text-center" href="./signIn.html">Registrarte</a>
+                        <a  class="nav-link text-dark text-center" href="./logIn.html">Inicia sesión</a>
+                        <a class="nav-link text-dark text-center" href="./signIn.html">Registrarse</a>
                     </li>
                 </ul>
             </div>
@@ -267,25 +259,35 @@
             arrowIcon.classList.remove('bi-chevron-down');
             arrowIcon.classList.add('bi-chevron-right');
         });
-    </script>
-    <script>
+        </script>
+    <!-- <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const collapseElement = document.getElementById('navbarNavDropdown');
-            const arrowIcon = document.querySelector('#navbarDropdownMenuLink .bi-chevron-right');
+            const nav = document.getElementById('navbar-custom');
+            let lastScrollY = window.pageYOffset;
 
-            if (collapseElement && arrowIcon) {
-                collapseElement.addEventListener('show.bs.collapse', () => {
-                    arrowIcon.classList.remove('bi-chevron-right');
-                    arrowIcon.classList.add('bi-chevron-down');
-                });
-                collapseElement.addEventListener('hide.bs.collapse', () => {
-                    arrowIcon.classList.remove('bi-chevron-down');
-                    arrowIcon.classList.add('bi-chevron-right');
-                });
-            }
+            window.addEventListener('scroll', () => {
+                const currentScrollY = window.pageYOffset;
+
+                // 1) Si estás en el tope de la página, siempre mostrar
+                if (currentScrollY <= 0) {
+                    nav.classList.remove('nav--hidden');
+                    lastScrollY = 0;
+                    return;
+                }
+
+                // 2) Si scroll hacia abajo y aún no está oculto, oculta
+                if (currentScrollY > lastScrollY || !nav.classList.contains('nav--hidden')) {
+                    nav.classList.add('nav--hidden');
+                }
+                // 3) Si scroll hacia arriba y está oculto, muestra
+                else if (currentScrollY < lastScrollY || nav.classList.contains('nav--hidden')) {
+                    nav.classList.remove('nav--hidden');
+                }
+
+                lastScrollY = currentScrollY;
+            });
         });
-    </script>
+    </script> -->
 </body>
 
 </html>
-
