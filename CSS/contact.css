@@ -1,4 +1,3 @@
-
 /* import sweetalert2/src/sweetalert2.scss */
 
 /* Estilos card */
@@ -9,12 +8,11 @@
 
 .card-title {
     font-family: 'Dancing Script', 'sans-cursive';
-    font-size: clamp(1.3rem, 4.5vw, 4rem);
+    font-size: clamp(1.3rem, 4.5vw, 5vm);
     font-weight: bold;
-    line-height: 0;
 }
 .card-text {
-    font-size: clamp(2rem, 5vw, 5rem);
+    font-size: clamp(2rem, 5vw, 3rem);
     font-weight: bold;
     line-height: 1.5;
 }
@@ -56,7 +54,6 @@
     display: block;
     margin: auto;
     background-color: #5A64FF;
-    /* #C0C4FF; */
     color: white;
     border-radius: 15px;
     cursor: pointer;
@@ -68,18 +65,16 @@
     color: blanchedalmond;
 }
 
-div.form-contact{
-    background-color: #ced4da;
-/* #292B4B */
-/* #8D94FF */
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 600px;
-    margin: 40px auto; 
-
-}
-
 /* Cambio de letra del checkbox */
-.form-check {
+/* .form-check {
     font-size: 0.7rem;
-}
+} */
+
+/* .form-check {
+    font-size: 0.7rem;
+} */
+.form-check-label,
+    #privacyLink {
+      font-size: 0.7rem;
+      color: black;
+    }
