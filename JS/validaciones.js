@@ -103,7 +103,7 @@ export function validarPassword(value, feedbackElement, element) {
   if (!/[0-9]/.test(pwd)) {
     return mostrarError(element, feedbackElement, "Incluye al menos un número.");
   }
-  if (!/[!@#$%^&*(),.?":{}|<>]/.test(pwd)) {
+  if (!/[!@#$%^&*_\-(),.?":{}|<>\\.]/.test(pwd)) {
     return mostrarError(element, feedbackElement, "Incluye al menos un carácter especial.");
   }
   return ocultarError(element, feedbackElement);

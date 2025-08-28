@@ -51,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <div class="collapse navbar-collapse justify-content-center d-none d-lg-flex" id="navbarSupportedContent">
             <ul class="navbar-nav mb-2 mb-lg-0 d-flex gap-3">
-            <li class="nav-item"><a class="nav-link active" aria-current="page" href="./index.html">Inicio</a></li>
             <li class="nav-item"><a class="nav-link active" href="./aboutUs.html">Nosotras</a></li>
             <li class="nav-item"><a class="nav-link active" href="./contact.html">Contáctanos</a></li>
             <li class="nav-item dropdown d-none d-lg-block">
@@ -90,6 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <ul class="navbar-nav gap-3 w-100">
             <li class="nav-item"><a class="nav-link nav-link text-dark text-center" href="./index.html">Inicio</a></li>
             <li class="nav-item"><a class="nav-link nav-link text-dark text-center" href="./aboutUs.html">Nosotras</a></li>
+            <li class="nav-item"><a class="nav-link nav-link text-dark text-center" href="./contact.html">Contáctanos</a></li>
             <li class="nav-item d-lg-none"><a class="nav-link text-dark text-center d-flex justify-content-center align-items-center" data-bs-toggle="collapse" href="#submenuProductosMobile" role="button"
                       aria-expanded="false" aria-controls="submenuProductosMobile" id="toggleProductosMobile">
                       Productos<i class="bi bi-chevron-right ms-2 rotate-icon" id="arrowIcon"></i></a>
@@ -110,8 +110,9 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
     <!--Carrito-->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="cartDrawer" aria-labelledby="cartDrawerLabel">
-      <div class="offcanvas-header" style="background-color: #8D94FF; color: white;">
-        <h5 class="offcanvas-title" id="cartDrawerLabel">Carrito de Compras</h5>
+      <div class="offcanvas-header" style="background-color: #09112E; color: white">
+        <p class="offcanvas-title" id="cartDrawerLabel" style="text-decoration: bolder; font-weight: bold; font-size: 20px;">Mi carrito<i class="bi bi-cart2 fs-4" style="margin-left: 10px; color: white;"></i></p>
+
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
@@ -121,11 +122,13 @@ document.addEventListener("DOMContentLoaded", () => {
             <p>Tu carrito está vacío</p>
           </div>
         </div>
-        <div class="cart-total text-end mt-3" id="cartTotal" style="display: none;">
-          Total: $<span id="totalAmount">0.00</span>
-        </div>
-        <div class="d-grid gap-2 mt-3" id="checkoutButton" style="display: none;">
-          <button class="btn btn-primary" style="background-color: #8D94FF; border: none;">Finalizar Compra</button>
+        <div class="mt-3" style="position: absolute; bottom: 0; left: 0; right: 0; background-color: #e3e3e3ff; padding: 10px 20px; box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);">
+            <div class="cart-total d-flex justify-content-between align-items-center" id="cartTotal" style="display: none;">
+              <span><strong>Total: $<span id="totalAmount">0.00</span> MXN</strong></span>
+              <div id="checkoutButton" style="display: none;">
+                <button class="btn btn-custom" style="border-radius: 8px; width: 150px;">Pagar</button>
+              </div>
+            </div>
         </div>
       </div>
     </div>

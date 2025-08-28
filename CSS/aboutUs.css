@@ -1,21 +1,20 @@
 /* Responsivo Seccion 1 */
 
 @media (min-width: 768px) {
-    .container {
-        flex-direction: column;
-        align-items: center;
-    }
+  .container {
+    flex-direction: column;
+    align-items: center;} 
+  
+  .subtitles{
+    text-align: center;    
+  } 
 
-    .subtitles {
-        text-align: center;
-    }
 
-
-    .intro {
-        text-align: center;
-        text-justify: auto;
-        font-size: 12px;
-    }
+ .intro {
+    text-align: center;
+    text-justify: auto;
+    font-size: 12px;
+  } 
 }
 
 
@@ -24,8 +23,7 @@
 
 .custom-border {
     border: 5px solid #8D94FF;
-    border-radius: 0.5rem;
-    /* opcional: para esquinas redondeadas */
+    border-radius: 0.5rem; /* opcional: para esquinas redondeadas */
 }
 
 
@@ -36,38 +34,35 @@
 }
 
 .logoCirculo {
-    width: 30%;
-    height: auto;
+    width: 30%; 
+    height: auto; 
     margin-bottom: 20px;
 }
 
 @media screen and (max-width: 768px) {
     .logoCirculo {
-        width: 70%;
-        height: auto;
+        width: 70%; 
+        height: auto; 
         margin-bottom: 10px;
     }
 }
 
 /* Animación de imagen */
 .logoCirculo {
-    transition: transform 0.3s ease, filter 0.3s ease;
-    /* Segundos para la transición*/
-    opacity: 0;
+    transition: transform 0.3s ease, filter 0.3s ease; /* Segundos para la transición*/
+    opacity: 0; 
     animation: fadeIn 2s ease-in forwards;
 }
 
 .logoCirculo:hover {
-    transform: scale(1.1);
-    filter: brightness(1.2);
-    /* ++Brillo */
+    transform: scale(1.1); 
+    filter: brightness(1.2); /* ++Brillo */
 }
 
 @keyframes fadeIn {
     0% {
         opacity: 0;
     }
-
     100% {
         opacity: 1;
     }
@@ -75,16 +70,39 @@
 
 .carousel-control-prev,
 .carousel-control-next {
-    background-color: #8D94FF;
-    /* border-radius: 50%;
-    padding: 15px; */
-    opacity: 1 !important;    /* Siempre visibles */
-    transition: none !important;    /* Quita animación de opacidad */
+    background-color: none; 
+    position: absolute;
+    z-index: 1;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
+    background-color: #6e60ff;
+}
 
-  opacity: 1 !important; /* Evita cambios al pasar el mouse */
-  /* transition: 0.3s ease-in-out; */
+.carousel-control-prev i,
+.carousel-control-next i {
+    font-weight: bold;
+    font-size: 2rem; 
+    color: #8D94FF;
+    filter: drop-shadow(2px 4px 3px #000000);
+}
+
+@media (max-width: 768px) {
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 40px;
+        height: 40px;
+    }
+
+    .carousel-control-prev i,
+    .carousel-control-next i {
+        font-size: 1.5rem;
+    }
 }
