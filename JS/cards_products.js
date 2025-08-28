@@ -204,3 +204,5 @@ document.addEventListener("DOMContentLoaded", () => {
                 container.innerHTML = '<p class="text-center w-100">Error al cargar los tours. Por favor, inténtalo de nuevo más tarde.</p>';
             }
         });
+
+    });
