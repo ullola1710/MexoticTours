@@ -1,18 +1,7 @@
-// Archivo: login.js
-// Espera a que el DOM (Document Object Model) esté completamente cargado antes de ejecutar el código.
-document.addEventListener("DOMContentLoaded", function () {
-    // 1. Referencias a los elementos del DOM.
-    // Se obtienen los elementos del formulario de login por su ID.
-    const loginForm = document.getElementById("loginForm");
-    const emailInput = document.getElementById("mt-email");
-    const passwordInput = document.getElementById("mt-password");
-    // Se corrigió el ID aquí: de "logingError" a "loginError"
-    const loginError = document.getElementById("loginError");
-    const welcomeMessageElement = document.getElementById("welcomeMessage");
-    const logoutLink = document.getElementById("logout-link");
-    const loginLink = document.getElementById("login-link");
-    const registerLink = document.getElementById("register-link");
+// Validaciones - Modulo
+import { validarEmail, validarPassword, limpiarErrores } from "./validaciones.js";
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     // 2. Función para mostrar mensajes de error.
     // Esta función recibe un mensaje y lo muestra en el elemento 'loginError'.
@@ -21,6 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
             loginError.textContent = message; // Establece el texto del mensaje de error.
             loginError.style.display = "block"; // Hace visible el contenedor del error.
 =======
+=======
+>>>>>>> MtMv_
 // Variables
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById("loginForm");
@@ -124,10 +115,13 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error("EmailJS no está cargado.");
             alert("Hubo un error enviando el correo. Intenta más tarde.");
             return;
+<<<<<<< HEAD
 >>>>>>> 3f63cbd7cb6b3fd83be531aa2c4ac40690bf3f8a
+=======
+>>>>>>> MtMv_
         }
-    }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     // 3. Evento de escucha para el envío del formulario.
     // Se añade un 'listener' al formulario para el evento 'submit' (cuando el usuario presiona el botón).
@@ -230,6 +224,8 @@ document.addEventListener('DOMContentLoaded', function () {
     showUserNameOnPage();
 });
 =======
+=======
+>>>>>>> MtMv_
         // Envio de email
         emailjs.send("service_pi5sznp", "template_7qr2tqv", templateParams)
             .then(() => {
@@ -344,5 +340,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // Ejecutar la función al cargar la página
     showUserNameOnPage();
 
+<<<<<<< HEAD
 }); 
 >>>>>>> 3f63cbd7cb6b3fd83be531aa2c4ac40690bf3f8a
+=======
+}); 
+>>>>>>> MtMv_

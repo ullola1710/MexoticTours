@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div class="popup-content">
                         <span class="close-btn" id="closePopup">&times;</span>
                         <h2 id="privacidadTitle" style="margin:0; padding:1rem;">Términos y condiciones</h2>
-                        <iframe src="./docs/Términos_y_Condiciones.pdf" frameborder="0"></iframe>
+                        <iframe src="./docs/Terminos_y_Condiciones.pdf" frameborder="0"></iframe>
                     </div>
                 </div>`
       );

@@ -135,33 +135,10 @@ function validarTelefono() {
 }
 
 // Validar mensaje
-
-// function validarMensaje() {
-//   const mensaje = document.getElementById("inputMensaje").value.trim(); // elimina espacios
-//   const feedback = document.getElementById("validationServerMessage");
-//   // if (mensaje.value.trim() === "") {
-//   //   mostrarError(mensaje, validationServerMessage, "El mensaje no puede ir vacío.");
-//   //   return false;
-//   // } else if (mensaje.value.trim().length < 20) {
-//   //   mostrarError(mensaje, validationServerMessage, "El mensaje debe contener al menos 20 caracteres.");
-//   //   return false;
-//   // } else {
-//   //   ocultarError(mensaje, validationServerMessage);
-//   //   return true;
-//   // }
-// if (mensaje === "") {
-//     feedback.textContent = "El mensaje no puede estar vacío ni contener sólo espacios"
-//     feedback.style.display ="block";  
-//     return false;
-//   } else {
-//     feedback.style.display= "none";
-//     return true;
-//   }
-// }
-
 function validarMensaje() {
   const mensajeValor = mensaje.value.trim();
   const feedback = document.getElementById("validationServerMessage");
+<<<<<<< HEAD
 <<<<<<< HEAD
 
   // 1. Mensaje vacío
@@ -172,40 +149,55 @@ function validarMensaje() {
 
   // 2. Múltiples espacios seguidos
 =======
+=======
+>>>>>>> MtMv_
   // 1. Mensaje vacío
   if (mensajeValor === "") {
     mostrarError(mensaje, feedback, "El mensaje no puede ir vacío."); return false;
   }
   //2. Múltiples espacios libres 
+<<<<<<< HEAD
 >>>>>>> 3f63cbd7cb6b3fd83be531aa2c4ac40690bf3f8a
+=======
+>>>>>>> MtMv_
   if (mensajeValor.includes("  ")) {
     mostrarError(mensaje, feedback, "El mensaje no puede contener múltiples espacios seguidos.");
     return false;
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   // 3. Longitud mínima (después de validaciones)
 =======
   //3.Longitud minima
 >>>>>>> 3f63cbd7cb6b3fd83be531aa2c4ac40690bf3f8a
+=======
+  //3.Longitud minima
+>>>>>>> MtMv_
   if (mensajeValor.length < 20) {
     mostrarError(mensaje, feedback, "El mensaje debe contener al menos 20 caracteres.");
     return false;
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 3f63cbd7cb6b3fd83be531aa2c4ac40690bf3f8a
+=======
+>>>>>>> MtMv_
   ocultarError(mensaje, feedback);
   return true;
 }
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 =======
 >>>>>>> 3f63cbd7cb6b3fd83be531aa2c4ac40690bf3f8a
+=======
+>>>>>>> MtMv_
 // Validar política de privacidad
 function validarPrivacidad() {
   if (!privacyCheck.checked) {
@@ -368,10 +360,13 @@ form.addEventListener("submit", function (event) {
             response.text
           );
 <<<<<<< HEAD
+<<<<<<< HEAD
           // alert("✅ Formulario enviado correctamente.");
            
 =======
 >>>>>>> 3f63cbd7cb6b3fd83be531aa2c4ac40690bf3f8a
+=======
+>>>>>>> MtMv_
           Swal.fire({ //SweetAlert
             icon: "success",
             title: "Formulario enviado",
@@ -384,12 +379,15 @@ form.addEventListener("submit", function (event) {
         function (error) {
           console.error("Error al enviar el correo", error);
 <<<<<<< HEAD
+<<<<<<< HEAD
           // alert(
           //   "❌ Ocurrió un error al enviar el formulario. Intenta más tarde."
           // );
           
 =======
 >>>>>>> 3f63cbd7cb6b3fd83be531aa2c4ac40690bf3f8a
+=======
+>>>>>>> MtMv_
           Swal.fire({ //SweetAlert
             icon: "error",
             title: "Error al enviar",

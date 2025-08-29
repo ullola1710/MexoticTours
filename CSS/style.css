@@ -307,3 +307,102 @@ position: absolute;
         margin-right: 1rem;
     }
 }
+
+.overlay-experiencia {
+  background-image: url('../assets/catedral.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative; 
+  min-height: 100vh;
+  padding-top: 150px;
+}
+
+.overlay-experiencia .color-overlay {
+  background: rgba(161, 138, 255, 0.354);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.overlay-experiencia .container {
+  position: relative;
+  z-index: 2;
+}
+
+.overlay-experiencia .stars {
+  color: #8D94FF;
+  font-size: 1.5rem;
+}
+
+.overlay-experiencia .container {
+  position: relative;
+  z-index: 2;
+}
+.overlay-experiencia .title {
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(127, 127, 247, 0.89);
+  font-size: 4rem;
+  margin-bottom: 30px;
+}
+
+.overlay-experiencia .card{
+  background: #ffffffd3;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  align-items: center;
+  
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.overlay-experiencia .card:hover{
+  transform: translate(-10px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.overlay-experiencia .card p {
+  font-size: 0.9rem;
+  margin-top: 10px;
+  flex-grow: 1;
+}
+
+.overlay-experiencia .card small {
+  font-size: 0.7rem;
+}
+
+.overlay-experiencia .card img {
+  max-width: 18rem;
+  max-height: 100%;
+
+}
+
+@media (max-width: 729px) {
+  .overlay-experiencia .row .col-md-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .overlay-experiencia .title {
+    font-size: 3rem;
+  }
+  .overlay-experiencia .card p {
+    font-size: 0.8rem;
+  }
+  .overlay-experiencia .card small {
+    font-size: 0.6rem;
+  }
+}
+
+.carruselImg:hover{
+
+transform: translate(-5px) scale(1.01);
+}
+.mt-main-container {
+  padding-top: 100px; /* Ajusta según el tamaño real de tu navbar */
+}
