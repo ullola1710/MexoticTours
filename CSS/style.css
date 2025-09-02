@@ -348,61 +348,152 @@ position: absolute;
   margin-bottom: 30px;
 }
 
-.overlay-experiencia .card{
+/* Estilos para las tarjetas */
+.overlay-experiencia .card {
+  align-items: center;
   background: #ffffffd3;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  min-height: 450px;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 1rem;
-  align-items: center;
-  
+  min-height: 37rem; /* Aumentado para asegurar uniformidad con el contenido más largo */
+  padding: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-.overlay-experiencia .card:hover{
-  transform: translate(-10px) scale(1.02);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-.overlay-experiencia .card p {
-  font-size: 0.9rem;
-  margin-top: 10px;
-  flex-grow: 1;
 }
 
-.overlay-experiencia .card small {
-  font-size: 0.7rem;
+.overlay-experiencia .card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform: translate(-10px) scale(1.02);
 }
 
 .overlay-experiencia .card img {
-  max-width: 18rem;
   max-height: 100%;
-
+  max-width: 18rem;
 }
 
-@media (max-width: 729px) {
+.overlay-experiencia .card p {
+flex-grow: 1; 
+  font-size: 1.2rem;
+  margin-top: 10px;
+  text-align: center; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #1f256d;
+}
+
+.overlay-experiencia .card small {
+  display: block;
+  font-family: 'Be Vietnam', sans-serif;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+/* Estilos para el carrusel */
+.carousel-experiencias {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  min-height: 500px;
+}
+
+.carousel-experiencias .carousel-inner {
+  padding: 0 60px; /* Espacio para los botones a los lados */
+}
+
+.carousel-experiencias .carousel-item {
+  transition: transform 0.6s ease-in-out;
+}
+
+.carousel-experiencias .col-12 {
+  padding: 0 10px;
+}
+/* Botones de navegación a los lados */
+.carousel-experiencias-btn {
+  align-items: center;
+  background-color: #9c9cff;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  position: absolute;
+  top: 10%;
+  transform: translateY(-50%);
+  transition: background-color 0.3s ease;
+  width: 40px;
+  z-index: 10;
+}
+
+.carousel-experiencias-btn i {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.carousel-experiencias-btn:hover {
+  background-color: #4f4fff;
+}
+
+.carousel-experiencias .carousel-control-prev {
+  left: 10px;
+}
+
+.carousel-experiencias .carousel-control-next {
+  right: 10px;
+}
+
+/* Ocultar indicadores */
+.carousel-experiencias .carousel-indicators {
+  display: none;
+}
+
+/* Efectos hover adicionales */
+.carruselImg:hover {
+  transform: translate(-5px) scale(1.01);
+}
+
+
+/* Media Queries */
+@media (max-width: 767px) {
+  .overlay-experiencia .title {
+    font-size: 3rem;
+  }
+
+  .overlay-experiencia .card p {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .overlay-experiencia .card small {
+    font-size: 0.6rem;
+    text-align: center;
+  }
+
   .overlay-experiencia .row .col-md-6 {
     flex: 0 0 100%;
     max-width: 100%;
   }
-  .overlay-experiencia .title {
-    font-size: 3rem;
-  }
-  .overlay-experiencia .card p {
-    font-size: 0.8rem;
-  }
-  .overlay-experiencia .card small {
-    font-size: 0.6rem;
-  }
-}
 
-.carruselImg:hover{
+  /* Desactivar carrusel y mostrar todas las tarjetas */
+  .carousel-experiencias {
+    padding: 0;
+  }
 
-transform: translate(-5px) scale(1.01);
-}
-.mt-main-container {
-  padding-top: 100px; /* Ajusta según el tamaño real de tu navbar */
+  .carousel-experiencias .carousel-inner {
+    padding: 0;
+    flex-direction: column;
+    display: flex; /* Asegura que las tarjetas se apilen */
+  }
+
+  .carousel-experiencias .carousel-item {
+    display: block; /* Elimina el comportamiento de carrusel */
+    flex: 0 0 100%;
+    width: 100%;
+  }
+
+  .carousel-experiencias-btn {
+    display: none; /* Oculta los botones en móvil */
+  }
 }
