@@ -5,6 +5,7 @@ import { validarTexto, validarTelefono, validarEmail, validarPassword, validarCo
 document.addEventListener('DOMContentLoaded', function () {
   const form = document.getElementById("form");
   const validationNombre = document.getElementById("validationNombre");
+  const validationApellido = document.getElementById("validationApellido");
   const validationTelefono = document.getElementById("validationTelefono");
   const email = document.getElementById("email");
   const password = document.getElementById("password");
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Alertas bootstrap
   const nombreFeedback = document.getElementById("nombreFeedback");
+  const apellidoFeedback = document.getElementById("apellidoFeedback");
   const telefonoFeedback = document.getElementById("telefonoFeedback");
   const emailFeedback = document.getElementById("emailFeedback");
   const passwordFeedback = document.getElementById("passwordFeedback");
@@ -23,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const privacyCheckFeedback = document.getElementById("privacyCheckFeedback");
 
   // Los campos deben existir antes de continuar
-  const elements = [form, validationNombre, validationTelefono, email, password, confirmPwd, privacyCheck, privacyLink];
+  const elements = [form, validationNombre, validationApellido,validationTelefono, email, password, confirmPwd, privacyCheck, privacyLink];
   const allElementsExist = elements.every(element => {
     if (!element) {
       console.error("Elemento no encontrado:", element);
@@ -41,7 +43,11 @@ document.addEventListener('DOMContentLoaded', function () {
   // Se ocuparan las validaciones importadas de validaciones.js - Especificando sus características de c/u
   function validarNombreRegistro() {
     return validarTexto(validationNombre.value.trim(), 3, nombreFeedback, validationNombre, "nombre");
-  } // valirNombreRegistro
+  } // validarNombreRegistro
+
+  function validarApellidoRegistro() {
+    return validarTexto(validationApellido.value.trim(), 3, apellidoFeedback, validationApellido, "apellido");
+  } //validarApellido
 
   function validarTelefonoRegistro() {
     return validarTelefono(validationTelefono.value.trim(), telefonoFeedback, validationTelefono);
@@ -67,18 +73,20 @@ document.addEventListener('DOMContentLoaded', function () {
   // Validaciones propias del registro
   function validarFormularioCompleto() {
     const nameOk = validarNombreRegistro();
+    const apellidoOk = validarApellidoRegistro();
     const telefonoOk = validarTelefonoRegistro();
     const emailOk = validarEmailRegistro();
     const pwdOk = validarPasswordRegistro();
     const confirmPwdOk = validarConfirmacionPasswordRegistro();
     const privacyOk = validarPrivacidadRegistro();
 
-    return nameOk && telefonoOk && emailOk && pwdOk && confirmPwdOk && privacyOk;
+    return nameOk && apellidoOk && telefonoOk && emailOk && pwdOk && confirmPwdOk && privacyOk;
   } // validarFormularioCompleto // validarFormularioCompleto
 
 
   // Orejas
   validationNombre.addEventListener("blur", validarNombreRegistro);
+  validationApellido.addEventListener("blur", validarApellidoRegistro);
   validationTelefono.addEventListener("blur", validarTelefonoRegistro);
   email.addEventListener("blur", validarEmailRegistro);
   password.addEventListener("blur", validarPasswordRegistro);
@@ -175,6 +183,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // Crear el objeto JSON 
       const usuario = {
         nombre: validationNombre.value.trim(),
+        apellido: validationApellido.value.trim(),
         telefono: validationTelefono.value.trim(),
         correo: email.value.trim(),
         password: password.value.trim(),
@@ -223,6 +232,7 @@ document.addEventListener('DOMContentLoaded', function () {
       form.reset();
       limpiarErrores([
         validationNombre,
+        validationApellido,
         validationTelefono,
         email,
         password,
