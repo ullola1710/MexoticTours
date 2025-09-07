@@ -1,6 +1,7 @@
 [
     {
         "id": 1,
+        "place": "palacio-postal",
         "estado": "CDMX",
         "ciudad": "Ciudad de México",
         "name": "Palacio Postal (La Quinta Casa de correo)" ,
@@ -30,6 +31,7 @@
 
     {
         "id": 2,
+        "place": "tour-de-leyendas-querétaro",
         "estado": "Querétaro",
         "ciudad": "Querétaro",
         "name": "Tour de Leyendas" ,
@@ -64,6 +66,7 @@
 
     {
         "id": 3,
+        "place": "tour-tequila",
         "estado": "Jalisco",
         "ciudad": "Tequila/Guadalajara",
         "name": "Tour Tequila" ,
@@ -103,6 +106,7 @@
     },
     {
         "id": 4,
+        "place": "tour-cervecero",
         "estado": "CDMX",
         "ciudad": "Ciudad de México ",
         "name": "Tour Cervecero" ,
@@ -131,6 +135,7 @@
     
     {
         "id": 5,
+        "place": "ruta-del-vino",
         "estado": "Querétaro",
         "ciudad": "Querétaro",
         "name": "Ruta del Vino" ,
@@ -174,6 +179,7 @@
             
     {
         "id": 6,
+        "place": "mercado-san-juan-de-dios",
         "estado": "Jalisco",
         "ciudad": "Guadalajara",
         "name": "Mercado San Juan de Dios", 
@@ -203,6 +209,7 @@
     },
     {
         "id": 7,
+        "place": "cdmx-arte-cafe-y-musica-en-vivo",
         "estado": "CDMX",
         "ciudad": "Ciudad de México",
         "name": "Café y Música en Vivo", 
@@ -232,6 +239,7 @@
     },
     {
         "id": 8,
+        "place": "qro-peña-bernal",
         "estado": "Querétaro",
         "ciudad": "Bernal / Tequisquiapan",
         "name": "Viaje a Peña de Bernal", 
@@ -262,6 +270,7 @@
     },
     {
         "id": 9,
+        "place": "cdmx-noche-de-antros-zona-rosa-polanco",
         "estado": "CDMX",
         "ciudad": "Ciudad de México",
         "name": "Noche de Antros: Zona Rosa & Polanco", 
@@ -290,6 +299,7 @@
     },
     {
         "id": 10,
+        "place": "cdmx-museo-nacional-de-arte",
         "estado": "CDMX",
         "ciudad": "Ciudad de México",
         "name": "Visita al Museo Nacional de Arte (MUNAL)",
@@ -331,3 +341,4 @@
         ]
     }
 ]
+

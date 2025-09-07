@@ -1,4 +1,5 @@
-export function normalizadorTour(raw = {}){
+// export function normalizadorTour(raw = {}){
+function normalizadorTour(raw = {}){
     const id = raw.id ?? raw.idTour ?? null;
     const name = raw.nombre ?? raw.name ?? '';
     const image = raw.img ?? raw.image ?? '';

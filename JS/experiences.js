@@ -1,5 +1,5 @@
 // Variables
-import { normalizadorTour } from "./normalizador.js";
+// import { normalizadorTour } from "./normalizador.js";
 
 // Leer JSON 
 function loadProducts() {
