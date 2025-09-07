@@ -33,6 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
       #submenuProductosMobile .nav-link {padding-left: 0.2rem;font-size: 1rem;transition: background-color 0.2s ease-in-out;}
       #submenuProductosMobile .nav-link:hover {background-color: rgb(255, 255, 255);border-radius: 0.4rem;}
       .collapse {transition: height 0.35s ease;}
+      #userMenuMobile .nav-item{margin:0; padding: 0.5rem 0; width: 100%; text-align:center;}
+      #userMenuMobile .nav-link{display:block; padding; 0.5rem 0;}
       @media (max-width: 991.98px) {#navbar-custom .nav-link img.logoRosa {position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);}}
       @media (min-width: 992px) {#navbar-custom .nav-link img.logoRosa {position: static;transform: none;}}
       .navbar-toggler {z-index: 1051;}     
@@ -80,14 +82,13 @@ document.addEventListener("DOMContentLoaded", () => {
               <span id="cartBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill"
                     style="background:#8D94FF; display: none;">0</span>
             </button>
-            <div id="menuUsuario" class="nav-item dropdown">
+            <div id="menuUsuario" class="nav-item dropdown d-none d-lg-block">
                 <a class="nav-link active dropdown-toggle d-flex align-items-center rounded-circle user-icon" href="#" role="button"
                   data-bs-toggle="dropdown" aria-expanded="false">
                   <i class="bi bi-person fs-2 text-white"></i>
                 </a>
                 <ul class="dropdown-menu" style="background-color: #8D94FF;">
-                  <li><a class="dropdown-item text-white" role="button" href="./logIn.html">Inicia sesión</a></li>
-                  <li><a class="dropdown-item text-white" role="button" href="./registro.html">Regístrate</a></li>
+        
                 </ul>
             </div>
         </div>
@@ -111,7 +112,9 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
             </li>
               <li class="nav-item">
-                <a class="nav-link text-dark text-center" href="./experiences.html">Experiencias</a>
+                <a class="nav-link text-dark text-center mb-2" href="./experiences.html">Experiencias</a>
+                <ul class= "navbar-nav w-100" id="userMenuMobile">
+                </ul>
               </li>
           </ul>
         </div>
@@ -179,6 +182,55 @@ document.addEventListener("DOMContentLoaded", () => {
       arrowIcon.classList.add('bi-chevron-right');
     });
   }
+
+  //Funcion para actualizar cuando el usuario inicia sesion
+  function updateUSerMenu(){
+    const sesionData = JSON.parse(localStorage.getItem("sesionIniciada"));
+
+    //Desktop
+    const userDropdownDesktop = document.querySelector("#menuUsuario .dropdown-menu");
+    if(userDropdownDesktop){
+      if(sesionData?.isLoggedIn){
+        userDropdownDesktop.innerHTML= `
+        <li><a class="dropdown-item text-white" role="button" href="./profile.html">Perfil</a></li>
+        <li><a class="dropdown-item text-white" role="button" href="#" id ="logoutDesktop">Salir de la sesión</a></li>
+        `;
+        document.getElementById("logoutDesktop").addEventListener("click", () => {
+          localStorage.removeItem("sesionIniciada");
+          location.reload();
+        });
+      }else{
+        userDropdownDesktop.innerHTML = `
+        <li><a class="dropdown-item text-white" role="button" href="./logIn.html">Inicia sesión</a></li>
+        <li><a class="dropdown-item text-white" role="button" href="./registro.html">Regístrate</a></li>
+        `;
+      }
+    }
+    
+    //Mobile
+    const userMenuMobile = document.getElementById("userMenuMobile");
+    if(userMenuMobile){
+      if(sesionData?.isLoggedIn){
+        userMenuMobile.innerHTML = `
+        <a  class="nav-link text-dark text-center" href="./profile.html">Perfil</a>
+        <a class="nav-link text-dark text-center" href="#" id ="logoutMobile">Salir de la sesión</a>
+        `;
+        document.getElementById("logoutMobile").addEventListener("click", () => {
+          localStorage.removeItem("sesionIniciada");
+          location.reload();
+        });
+      }else{
+        userMenuMobile.innerHTML = `
+        <a  class="nav-link text-dark text-center" href="./logIn.html">Inicia sesión</a>
+        <a class="nav-link text-dark text-center" href="./registro.html">Regístrate</a>
+        `;
+      }
+    }
+  }
+  updateUSerMenu();
+ 
+  
+
 
   // Lógica para ocultar/mostrar navbar al hacer scroll
   const nav = document.getElementById("navbar-custom");

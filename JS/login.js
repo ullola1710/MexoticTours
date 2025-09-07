@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const password = document.getElementById("mt-password");
     const resetPassword = document.getElementById("resetPassword");
     const loginError = document.getElementById("loginError");
-    const loginLink = document.getElementById("loginLink");
-    const registerLink = document.getElementById("registerLink");
-    const logoutLink = document.getElementById("logoutLink");
+    // const loginLink = document.getElementById("loginLink");
+    // const registerLink = document.getElementById("registerLink");
+    // const logoutLink = document.getElementById("logoutLink");
     const welcomeMessageElement = document.getElementById("welcomeMessage");
 
 

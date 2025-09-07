@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const privacyCheckFeedback = document.getElementById("privacyCheckFeedback");
 
   // Los campos deben existir antes de continuar
-  const elements = [form, validationNombre, validationApellido,validationTelefono, email, password, confirmPwd, privacyCheck, privacyLink];
+  const elements = [form, validationNombre, validationApellido, validationTelefono, email, password, confirmPwd, privacyCheck, privacyLink];
   const allElementsExist = elements.every(element => {
     if (!element) {
       console.error("Elemento no encontrado:", element);
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function validarApellidoRegistro() {
     return validarTexto(validationApellido.value.trim(), 3, apellidoFeedback, validationApellido, "apellido");
-  } //validarApellido
+  } // validarApellidoRegistro
 
   function validarTelefonoRegistro() {
     return validarTelefono(validationTelefono.value.trim(), telefonoFeedback, validationTelefono);
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const confirmPwdOk = validarConfirmacionPasswordRegistro();
     const privacyOk = validarPrivacidadRegistro();
 
-    return nameOk && apellidoOk && telefonoOk && emailOk && pwdOk && confirmPwdOk && privacyOk;
+    return nameOk && telefonoOk && emailOk && pwdOk && confirmPwdOk && privacyOk;
   } // validarFormularioCompleto // validarFormularioCompleto
 
 
