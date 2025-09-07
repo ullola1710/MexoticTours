@@ -1,14 +1,14 @@
 [
     {
-        "id": 1,
+        "idTour": 1,
         "place": "palacio-postal",
         "estado": "CDMX",
         "ciudad": "Ciudad de México",
-        "name": "Palacio Postal (La Quinta Casa de correo)" ,
-        "img_portada":"https://revistaaventurero.com.mx/wp-content/uploads/2020/06/PALACIO-DE-CORREOS-2-1280x720.jpg",
+        "nombre": "Palacio Postal (La Quinta Casa de correo)" ,
+        "imgPortada":"https://revistaaventurero.com.mx/wp-content/uploads/2020/06/PALACIO-DE-CORREOS-2-1280x720.jpg",
         "img": "./assets/PalacioPostal.jpeg",
-        "description": "Es ícono emblemático del Centro Histórico dadas sus características y cualidades artísticas, además de continuar con su propósito original de ser la Administración #1 del servicio de Correos en nuestro país",
-        "category": "Cultura",
+        "descripcion": "Es ícono emblemático del Centro Histórico dadas sus características y cualidades artísticas, además de continuar con su propósito original de ser la Administración #1 del servicio de Correos en nuestro país",
+        "categoria": "Cultura",
         "duracion":"2-3 horas" ,
         "precio": 350,
         "precioExclusivo": 250 ,
@@ -25,19 +25,20 @@
             "frecuencia": "Sábado - Domingo (Si gustas algún dia en especifico puedes personalizar el tour)" ,
             "grupos": " Apto para cualquier edad, interesado por conocer un poco mas de la historia y arquitectura que nuestra bella Ciudad de México tiene."
         },
-        "reservaUrl": ""
+        "experiencia": [
+        ]
     },
 
     {
-        "id": 2,
+        "idTour": 2,
         "place": "tour-de-leyendas-querétaro",
         "estado": "Querétaro",
         "ciudad": "Querétaro",
-        "name": "Tour de Leyendas" ,
-        "img_portada":"https://traveler.marriott.com/es/wp-content/uploads/sites/2/2024/09/GI-656814104_QuertaroAqueduct.jpg" ,
+        "nombre": "Tour de Leyendas" ,
+        "imgPortada":"https://traveler.marriott.com/es/wp-content/uploads/sites/2/2024/09/GI-656814104_QuertaroAqueduct.jpg" ,
         "img": "https://cloudfront-us-east-1.images.arcpublishing.com/eluniversal/7DE2GCCVEJG7DHSDLNJRV4L7QQ.jpg",
-        "description": "Recorrido interactivo por las principales calles de nuestra hermosa ciudad de Querétaro teatralizando las leyendas como: el Marqués, la celda de Satanás, La Carambada, Chucho El Roto, la Llorona o la Zacatecana",
-        "category": "Cultura",
+        "descripcion": "Recorrido interactivo por las principales calles de nuestra hermosa ciudad de Querétaro teatralizando las leyendas como: el Marqués, la celda de Satanás, La Carambada, Chucho El Roto, la Llorona o la Zacatecana",
+        "categoria": "Cultura",
         "duracion":"1-2 horas" ,
         "precio": 225,
         "precioExclusivo": 125,
@@ -52,19 +53,27 @@
             "frecuencia": "Martes, Jueves,Viernes,Sábado",
             "grupos": "Apto para cualquier edad, que tenga interés por conocer las leyendas de Querétaro"
         },
-        "reservaUrl": ""
+        "experiencia": [
+            {
+                "imgExperiencia": "./assets/experiencias/exp2cut.JPG",
+                "comentario": "¡Una noche mágica llena de misterios! El recorrido por las calles de Querétaro con las leyendas del Marqués y la Celda de Satanás fue escalofriante y fascinante. El guía lo hizo tan vivo que parecía estar en el pasado. ¡Recomendado para amantes de la historia!",
+                "calificacion": 5,
+                "fecha": "20-01-2020",
+                "usuario": "Fátima R., Querétaro"
+            }
+        ]
     },
 
     {
-        "id": 3,
+        "idTour": 3,
         "place": "tour-tequila",
         "estado": "Jalisco",
         "ciudad": "Tequila/Guadalajara",
-        "name": "Tour Tequila" ,
-        "img_portada": "https://visitmexico.com/media/usercontent/67fd7d33baf74-Tequila-2_gmxdot_jpeg",
+        "nombre": "Tour Tequila" ,
+        "imgPortada": "https://visitmexico.com/media/usercontent/67fd7d33baf74-Tequila-2_gmxdot_jpeg",
         "img": "https://panoramex.com.mx/wp-content/uploads/2014/11/tequila_pueblo_magico-768x532.jpg",
-        "description": "Descubra el origen de la bebida nacional por excelencia, explora sus antiguas destilerías, admira su paisaje agavero declarado Patrimonio Natural de la Humanidad por la UNESCO",
-        "category": "Cultura y Gastronomía",
+        "descripcion": "Descubra el origen de la bebida nacional por excelencia, explora sus antiguas destilerías, admira su paisaje agavero declarado Patrimonio Natural de la Humanidad por la UNESCO",
+        "categoria": "Cultura y Gastronomía",
         "duracion":"Dia completo" ,
         "precio": 2000,
         "precioExclusivo": 1500,
@@ -85,18 +94,26 @@
             "frecuencia": "Viernes,Sábado,Domingo; también dias festivos y vacaciones (consulta disponibilidad)",
             "grupos": "Grupos pequeños para atención personalizada. ¡Reserva con anticipación!"
         },
-        "reservaUrl": ""
+        "experiencia": [
+            {
+                "imgExperiencia": "./assets/experiencias/exp1.jpg",
+                "comentario": "Increíble aventura en las tierras agaveras. Explorar las antiguas destilerías y probar el tequila auténtico fue inolvidable. El paisaje declarado Patrimonio de la UNESCO es de ensueño, y el tour incluyó catas que nos transportaron a otro mundo. ¡No te lo pierdas!",
+                "calificacion": 5,
+                "fecha": "12-02-2019",
+                "usuario": "Paola S., Guadalajara"
+            }
+        ]
     },
     {
-        "id": 4,
+        "idTour": 4,
         "place": "tour-cervecero",
         "estado": "CDMX",
         "ciudad": "Ciudad de México ",
-        "name": "Tour Cervecero" ,
-        "img_portada":"https://i0.wp.com/foodandwineespanol.com/wp-content/uploads/2019/08/turicervecero.webp?fit=2560%2C1439&ssl=1",
+        "nombre": "Tour Cervecero" ,
+        "imgPortada":"https://i0.wp.com/foodandwineespanol.com/wp-content/uploads/2019/08/turicervecero.webp?fit=2560%2C1439&ssl=1",
         "img": "https://guiaturibus.com/cdn/shop/products/C3_Turicervecero_720x.jpg?v=1643214939",
-        "description": "Vive la experiencia única en su género.Para pasar un momento de diversión y degustación de tu bebida favorita",
-        "category": "Cultura",
+        "descripcion": "Vive la experiencia única en su género.Para pasar un momento de diversión y degustación de tu bebida favorita",
+        "categoria": "Cultura",
         "duracion":"3-4 horas" ,
         "precio": 650,
         "precioExclusivo": 550,
@@ -112,19 +129,20 @@
             "frecuencia": "Viernes,Sábado",
             "grupos": "Personas que esten interesadas en la degustación de la cerveza artesanal, No apto para niños"
         },
-        "reservaUrl": ""
+        "experiencia": [
+        ]
     },
     
     {
-        "id": 5,
+        "idTour": 5,
         "place": "ruta-del-vino",
         "estado": "Querétaro",
         "ciudad": "Querétaro",
-        "name": "Ruta del Vino" ,
-        "img_portada":"https://tiempolibreqro.com/wp-content/uploads/2020/11/Gastrofeset-Vin%CC%83edos-Azteca.jpg",
+        "nombre": "Ruta del Vino" ,
+        "imgPortada":"https://tiempolibreqro.com/wp-content/uploads/2020/11/Gastrofeset-Vin%CC%83edos-Azteca.jpg",
         "img": "https://www.bromoturismo.com/wp-content/uploads/2016/05/5427140736_e9e077fb8f.jpg",
-        "description": "¿Eres amante del vino? Entonces, ¡Este tour es para ti! Vive la increíble experiencia de visitar dos increíbles viñedos, además de realizar una deliciosa degustación de vinos",
-        "category": "Gastronomía",
+        "descripcion": "¿Eres amante del vino? Entonces, ¡Este tour es para ti! Vive la increíble experiencia de visitar dos increíbles viñedos, además de realizar una deliciosa degustación de vinos",
+        "categoria": "Gastronomía",
         "duracion":"9 horas" ,
         "precio": 1800,
         "precioExclusivo": 1700,
@@ -148,19 +166,27 @@
             "frecuencia": "Viernes,Sábado",
             "grupos": "Apto para cualquier persona que tenga un amor por el vino, No apto para menores de edad"
         },
-        "reservaUrl": ""
+        "experiencia": [
+            {
+                "imgExperiencia": "./assets/experiencias/exp4.jpg",
+                "comentario": "Para los amantes del vino, este tour es perfecto. Visitamos viñedos increíbles, degustamos vinos exquisitos y aprendimos sobre la producción local. La combinación de paisajes y sabores fue espectacular, ideal para una escapada romántica. ¡Volveremos!",
+                "calificacion": 5,
+                "fecha": "09-05-2020",
+                "usuario": "Luis T., Monterrey"
+            }
+        ]
     },
             
     {
-        "id": 6,
+        "idTour": 6,
         "place": "mercado-san-juan-de-dios",
         "estado": "Jalisco",
         "ciudad": "Guadalajara",
-        "name": "Mercado San Juan de Dios", 
-        "img_portada": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/36/50/bc/fruta-fresca-endemica.jpg?w=1200&h=-1&s=1",
+        "nombre": "Mercado San Juan de Dios", 
+        "imgPortada": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/36/50/bc/fruta-fresca-endemica.jpg?w=1200&h=-1&s=1",
         "img": "https://visitjalisco.mx/wp-content/uploads/2025/04/sjd-25-scaled.jpg",
-        "description": "Aproximadamente 4000 puestos con comida y artesanías",
-        "category": "Gastronomía",
+        "descripcion": "Aproximadamente 4000 puestos con comida y artesanías",
+        "categoria": "Gastronomía",
         "duracion": "6 horas",
         "precio": 650,
         "precioExclusivo": 520, 
@@ -178,18 +204,19 @@
             "frecuencia": "Opera todo el año; en feriados puede haber variaciones de aforo en mercados.",
             "grupos": "Para personas interesas en una degustación de la comida y antojitos tradicionales."
         },
-        "reservaUrl": ""
+        "experiencia": [
+        ]
     },
     {
-        "id": 7,
+        "idTour": 7,
         "place": "cdmx-arte-cafe-y-musica-en-vivo",
         "estado": "CDMX",
         "ciudad": "Ciudad de México",
-        "name": "Café y Música en Vivo", 
-        "img_portada": "https://media.foodandtravel.mx/wp-content/uploads/2020/02/MuskaMesas.jpg",
+        "nombre": "Café y Música en Vivo", 
+        "imgPortada": "https://media.foodandtravel.mx/wp-content/uploads/2020/02/MuskaMesas.jpg",
         "img": "https://media.foodandtravel.mx/wp-content/uploads/2020/02/MuskaMixologia.jpg",
-        "description": "Descubre los rincones más exquisitos para disfrutar de una velada romántica o con amigos, acompañado de una buena taza de café",
-        "category": "Gastronomía",
+        "descripcion": "Descubre los rincones más exquisitos para disfrutar de una velada romántica o con amigos, acompañado de una buena taza de café",
+        "categoria": "Gastronomía",
         "duracion": "8 hrs",
         "precio": 1600,
         "precioExclusivo": 1300, 
@@ -207,18 +234,19 @@
             "frecuencia": "Mejor disponibilidad en temporada baja (enero–marzo). Itinerario puede variar por agenda de la exposición y disponibilidad del venue musical",
             "grupos": "Apto para todas las edades; menores acompañados."
         },
-        "reservaUrl": ""
+        "experiencia": [
+        ]
     },
     {
-        "id": 8,
+        "idTour": 8,
         "place": "qro-peña-bernal",
         "estado": "Querétaro",
         "ciudad": "Bernal / Tequisquiapan",
-        "name": "Viaje a Peña de Bernal", 
-        "img_portada": "https://i.pinimg.com/736x/47/4f/13/474f134c693636cd65bc17215a08d6ec.jpg",
+        "nombre": "Viaje a Peña de Bernal", 
+        "imgPortada": "https://i.pinimg.com/736x/47/4f/13/474f134c693636cd65bc17215a08d6ec.jpg",
         "img": "https://culturestraveled.com/wp-content/uploads/2023/01/pena-de-bernal-queretaro-736x1024.jpg",
-        "description": "Si tienes poco tiempo para conocer el Pueblo Mágico de Bernal, esta es una increíble opción, además visitarás uno de los viñedos más importantes del bajío",
-        "category": "Cultura",
+        "descripcion": "Si tienes poco tiempo para conocer el Pueblo Mágico de Bernal, esta es una increíble opción, además visitarás uno de los viñedos más importantes del bajío",
+        "categoria": "Cultura",
         "duracion": "8 a 10 horas",
         "precio": 960,
         "precioExclusivo": 800, 
@@ -237,18 +265,19 @@
             "frecuencia": "Todos los sábados y domingos de acuerdo a la disponibilidad de cupo.",
             "grupos": "Mayores de edad con identificación oficial."
         },
-        "reservaUrl": ""
+        "experiencia": [
+        ]
     },
     {
-        "id": 9,
+        "idTour": 9,
         "place": "cdmx-noche-de-antros-zona-rosa-polanco",
         "estado": "CDMX",
         "ciudad": "Ciudad de México",
-        "name": "Noche de Antros: Zona Rosa & Polanco", 
-        "img_portada": "https://media.timeout.com/images/105243507/750/422/image.jpg",
+        "nombre": "Noche de Antros: Zona Rosa & Polanco", 
+        "imgPortada": "https://media.timeout.com/images/105243507/750/422/image.jpg",
         "img": "https://offloadmedia.feverup.com/cdmxsecreta.com/wp-content/uploads/2022/04/28132232/antros-gay-cdmx-1024x683.jpg", 
-        "description": "Disfruta de tres noches de fiesta inolvidables en la CDMX",
-        "category": "Fiesta",
+        "descripcion": "Disfruta de tres noches de fiesta inolvidables en la CDMX",
+        "categoria": "Fiesta",
         "duracion": "6 horas",
         "precio": 1500,
         "precioExclusivo": 1200, 
@@ -265,18 +294,19 @@
             "frecuencia": "Los dos últimos jueves, viernes y sábados de cada fin de mes.",
             "grupos": "Mayores de edad con identificación oficial."
         },
-        "reservaUrl": ""
+        "experiencia": [
+        ]
     },
     {
-        "id": 10,
+        "idTour": 10,
         "place": "cdmx-museo-nacional-de-arte",
         "estado": "CDMX",
         "ciudad": "Ciudad de México",
-        "name": "Visita al Museo Nacional de Arte (MUNAL)",
-        "img_portada": "https://www.mexicoescultura.com/galerias/espacios/fotogalerias/munal4.png",
+        "nombre": "Visita al Museo Nacional de Arte (MUNAL)",
+        "imgPortada": "https://www.mexicoescultura.com/galerias/espacios/fotogalerias/munal4.png",
         "img": "https://www.diariocultura.mx/wp-content/uploads/2013/04/Munal.jpg",
-        "description": "Uno de los recintos culturales más importantes de México, albergando una amplia colección de arte mexicano desde el siglo XVI hasta la primera mitad del siglo XX",
-        "category": "Arte",
+        "descripcion": "Uno de los recintos culturales más importantes de México, albergando una amplia colección de arte mexicano desde el siglo XVI hasta la primera mitad del siglo XX",
+        "categoria": "Arte",
         "duracion": "5 horas",
         "precio": 620,
         "precioExclusivo": 540,
@@ -293,6 +323,21 @@
             "frecuencia": "De martes a domingo, excepto días festivos oficiales.",
             "grupos": "Recomendado para amantes del arte, estudiantes y familias."
         },
-        "reservaUrl": ""
+        "experiencia": [
+            {
+                "imgExperiencia": "./assets/experiencias/experiencia3.jpg",
+                "comentario": "Una joya cultural en el corazón de México. La colección desde el siglo XVI hasta el XX es impresionante, con obras maestras que te dejan sin aliento. El edificio histórico añade magia al recorrido. ¡Esencial para cualquier visitante a CDMX!",
+                "calificacion": 5,
+                "fecha": "28-12-2023",
+                "usuario": "Claudia V., CDMX"
+            },
+            {
+                "imgExperiencia": "./assets/experiencias/experiencia3.jpg",
+                "comentario": "Increíble experiencia que tuve con el equipo de Mexotic y en el Museo, sin duda volvería a ir!",
+                "calificacion": 4.5,
+                "fecha": "12-11-2023",
+                "usuario": "Alicia P., CDMX" 
+            }
+        ]
     }
 ]
