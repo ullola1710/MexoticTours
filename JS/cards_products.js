@@ -1,4 +1,6 @@
 // Variables
+// import { normalizadorTour } from "./normalizador.js";
+
 const detalleUrl = (tour) => `tours.html?id=${tour.id}`;
 let allTours = [];
 

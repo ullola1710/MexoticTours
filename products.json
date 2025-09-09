@@ -25,7 +25,8 @@
             "frecuencia": "Sábado - Domingo (Si gustas algún dia en especifico puedes personalizar el tour)" ,
             "grupos": " Apto para cualquier edad, interesado por conocer un poco mas de la historia y arquitectura que nuestra bella Ciudad de México tiene."
         },
-        "reservaUrl": ""
+        "experiencia": [
+        ]
     },
 
     {
@@ -52,7 +53,15 @@
             "frecuencia": "Martes, Jueves,Viernes,Sábado",
             "grupos": "Apto para cualquier edad, que tenga interés por conocer las leyendas de Querétaro"
         },
-        "reservaUrl": ""
+        "experiencia": [
+            {
+                "imgExperiencia": "./assets/experiencias/exp2cut.JPG",
+                "comentario": "¡Una noche mágica llena de misterios! El recorrido por las calles de Querétaro con las leyendas del Marqués y la Celda de Satanás fue escalofriante y fascinante. El guía lo hizo tan vivo que parecía estar en el pasado. ¡Recomendado para amantes de la historia!",
+                "calificacion": 5,
+                "fecha": "20-01-2020",
+                "usuario": "Fátima R., Querétaro"
+            }
+        ]
     },
 
     {
@@ -85,7 +94,15 @@
             "frecuencia": "Viernes,Sábado,Domingo; también dias festivos y vacaciones (consulta disponibilidad)",
             "grupos": "Grupos pequeños para atención personalizada. ¡Reserva con anticipación!"
         },
-        "reservaUrl": ""
+        "experiencia": [
+            {
+                "imgExperiencia": "./assets/experiencias/exp1.jpg",
+                "comentario": "Increíble aventura en las tierras agaveras. Explorar las antiguas destilerías y probar el tequila auténtico fue inolvidable. El paisaje declarado Patrimonio de la UNESCO es de ensueño, y el tour incluyó catas que nos transportaron a otro mundo. ¡No te lo pierdas!",
+                "calificacion": 5,
+                "fecha": "12-02-2019",
+                "usuario": "Paola S., Guadalajara"
+            }
+        ]
     },
     {
         "id": 4,
@@ -112,7 +129,8 @@
             "frecuencia": "Viernes,Sábado",
             "grupos": "Personas que esten interesadas en la degustación de la cerveza artesanal, No apto para niños"
         },
-        "reservaUrl": ""
+        "experiencia": [
+        ]
     },
     
     {
@@ -148,7 +166,15 @@
             "frecuencia": "Viernes,Sábado",
             "grupos": "Apto para cualquier persona que tenga un amor por el vino, No apto para menores de edad"
         },
-        "reservaUrl": ""
+        "experiencia": [
+            {
+                "imgExperiencia": "./assets/experiencias/exp4.jpg",
+                "comentario": "Para los amantes del vino, este tour es perfecto. Visitamos viñedos increíbles, degustamos vinos exquisitos y aprendimos sobre la producción local. La combinación de paisajes y sabores fue espectacular, ideal para una escapada romántica. ¡Volveremos!",
+                "calificacion": 5,
+                "fecha": "09-05-2020",
+                "usuario": "Luis T., Monterrey"
+            }
+        ]
     },
             
     {
@@ -178,7 +204,8 @@
             "frecuencia": "Opera todo el año; en feriados puede haber variaciones de aforo en mercados.",
             "grupos": "Para personas interesas en una degustación de la comida y antojitos tradicionales."
         },
-        "reservaUrl": ""
+        "experiencia": [
+        ]
     },
     {
         "id": 7,
@@ -207,7 +234,8 @@
             "frecuencia": "Mejor disponibilidad en temporada baja (enero–marzo). Itinerario puede variar por agenda de la exposición y disponibilidad del venue musical",
             "grupos": "Apto para todas las edades; menores acompañados."
         },
-        "reservaUrl": ""
+        "experiencia": [
+        ]
     },
     {
         "id": 8,
@@ -237,7 +265,8 @@
             "frecuencia": "Todos los sábados y domingos de acuerdo a la disponibilidad de cupo.",
             "grupos": "Mayores de edad con identificación oficial."
         },
-        "reservaUrl": ""
+        "experiencia": [
+        ]
     },
     {
         "id": 9,
@@ -265,7 +294,8 @@
             "frecuencia": "Los dos últimos jueves, viernes y sábados de cada fin de mes.",
             "grupos": "Mayores de edad con identificación oficial."
         },
-        "reservaUrl": ""
+        "experiencia": [
+        ]
     },
     {
         "id": 10,
@@ -293,6 +323,22 @@
             "frecuencia": "De martes a domingo, excepto días festivos oficiales.",
             "grupos": "Recomendado para amantes del arte, estudiantes y familias."
         },
-        "reservaUrl": ""
+        "experiencia": [
+            {
+                "imgExperiencia": "./assets/experiencias/experiencia3.jpg",
+                "comentario": "Una joya cultural en el corazón de México. La colección desde el siglo XVI hasta el XX es impresionante, con obras maestras que te dejan sin aliento. El edificio histórico añade magia al recorrido. ¡Esencial para cualquier visitante a CDMX!",
+                "calificacion": 5,
+                "fecha": "28-12-2023",
+                "usuario": "Claudia V., CDMX"
+            },
+            {
+                "imgExperiencia": "./assets/experiencias/experiencia3.jpg",
+                "comentario": "Increíble experiencia que tuve con el equipo de Mexotic y en el Museo, sin duda volvería a ir!",
+                "calificacion": 4.5,
+                "fecha": "12-11-2023",
+                "usuario": "Alicia P., CDMX" 
+            }
+        ]
     }
 ]
+

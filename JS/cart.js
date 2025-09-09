@@ -1,4 +1,6 @@
 // Definir carrito
+// import { normalizadorTour } from "./normalizador.js";
+
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 // Función para agregar al carrito
