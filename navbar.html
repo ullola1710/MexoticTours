@@ -77,6 +77,38 @@
         .btn-signin:hover {
             color: #FFC2DD;
         }
+        .user-icon{
+            width: 45px;
+            height: 45px;
+            border: 2px solid white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+            padding: 0;
+            transition: all 0.3s ease;
+        } 
+
+        .user-icon:hover{
+            border-color: #FFC2DD;
+            filter: drop-shadow(2px 4px 3px white);
+        }
+        .user-icon::after {
+            display: none; /* Oculta la flecha predeterminada */
+        }
+        /* Centrar el menu del dropdown */
+        #menuUsuario .dropdown-menu{
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 0.3rem;
+        }
+
+        #menuUsuario .dropdown-menu .dropdown-item:hover{
+            background-color: #757efb;
+            color: #ffffff;
+            transition: all 0.2s ease;
+        }
 
         /* Estilos del submenu de productos */
         #submenuProductosMobile ul {
@@ -118,135 +150,149 @@
                 transform: none;
             }
         }
+
         /* Ajustes para la posicion dol boton burger */
         .navbar-toggler {
             z-index: 1051;
         }
-      
-
     </style>
 </head>
 
 <body>
 
-      
-<!-- Navbar -->
-        <nav id="navbar-custom" class="navbar navbar-expand-lg navbar-dark rounded-pill fixed-top"
-            style="background-color: #09112E; height: 4.5rem; width: auto; margin: 2.5rem 2.5rem 0 2.5rem;">
-            <div class="container">
-                <!-- Boton hamburguesa  -->
-                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#menuLateral" aria-controls="menuLateral" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <!-- Posicion del logo (Izquierda en escritorio centrado en mobile)-->
-                <a class="navbar-brand d-none d-lg-block" href="./index.html">
-                    <img class="logoRosa" src="./assets/LogoRosa.png" alt="Mexotic Tours" style="width: 3.2rem">
-                </a>
-                <a class="position-absolute top-50 start-50 translate-middle d-lg-none" href="./index.html">
-                    <img class="logoRosa" src="./assets/LogoRosa.png" alt="Mexotic Tours" style="width: 3.2rem">
-                </a>
-                <!-- Sección 2 -->
-                <div class="collapse navbar-collapse justify-content-center d-none d-lg-flex" id="navbarSupportedContent">
-                    <ul class="navbar-nav mb-2 mb-lg-0 d-flex gap-3"> <!--ACA-->
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./index.html">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="./aboutUs.html">Nosotras</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="./contact.html">Contacto</a>
-                        </li>
-                        <!-- Dropdown -->
-                        <li class="nav-item dropdown d-none d-lg-block">
-                            <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="true">
-                                Productos
-                            </a>
-                            <ul class="dropdown-menu" style="background-color: #8D94FF;">
-                                <li><a class="dropdown-item" style="color: white;" href="./products.html">Todo</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" style="color: white;"
-                                        href="./personalized.html">Personalizado</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-disabled="page" href="./experiences.html">Experiencias</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- Sección 3  Carrito  logIn SignIn-->
-                 
-                <div class="d-flex gap-2 align-items-center">
-                    <a class="nav-link" href="#"> <!-- Falta hover para carrito -->
-                        <i class="bi bi-cart2 fs-2"></i>
-                    </a>
-                    <a class="btn btn-login rounded-pill d-none d-lg-inline-block" role="button" href="./logIn.html">Inicia sesión</a>
-                    <a class="btn btn-signin rounded-pill d-none d-lg-inline-block" role="button" href="./regitro.html">Registrate</a>
-                </div>
-            </div>
-        </nav>
-        <!-- Menú mobile -->
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="menuLateral" aria-labelledby="menuLateralLabel"style="width: 100vw; max-width: 100vw; height: 100vh;">
-            <div class="offcanvas-header d-flex justify-content-start align-items-center" style="background-color: #ffffff;">
-                <!-- Boton de cerrar el menu -->
-                <button type="button"
-                        class="btn-close p-2"
-                        style="background-color: #6c757d; filter: invert(1); border-radius: 0.2rem; margin-left: 0.5rem;"
-                        data-bs-dismiss="offcanvas"
-                        aria-label="Close">
-                </button>
-            </div>
-            <!-- Cuerpo del menu -->
-            <div class="offcanvas-body d-flex justify-content-center align-items-center flex-column text-center"style="background-color: #ffffff; color: rgb(0, 0, 0);">
-                <ul class="navbar-nav gap-3 w-100">
+    <!-- Navbar -->
+    <nav id="navbar-custom" class="navbar navbar-expand-lg navbar-dark rounded-pill fixed-top"
+        style="background-color: #09112E; height: 4.5rem; width: auto; margin: 2.5rem 2.5rem 0 2.5rem;">
+        <div class="container">
+            <!-- Boton hamburguesa  -->
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#menuLateral" aria-controls="menuLateral" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Posicion del logo (Izquierda en escritorio centrado en mobile)-->
+            <a class="navbar-brand d-none d-lg-block" href="./index.html">
+                <img class="logoRosa" src="./assets/LogoRosa.png" alt="Mexotic Tours" style="width: 3.2rem">
+            </a>
+            <a class="position-absolute top-50 start-50 translate-middle d-lg-none" href="./index.html">
+                <img class="logoRosa" src="./assets/LogoRosa.png" alt="Mexotic Tours" style="width: 3.2rem">
+            </a>
+            <!-- Sección 2 -->
+            <div class="collapse navbar-collapse justify-content-center d-none d-lg-flex" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0 d-flex gap-3"> <!--ACA-->
                     <li class="nav-item">
-                        <a class="nav-link nav-link text-dark text-center" href="./index.html">Inicio</a>
+                        <a class="nav-link active" href="./aboutUs.html">Nosotras</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link nav-link text-dark text-center" href="./aboutUs.html">Nosotras</a>
+                        <a class="nav-link active" href="./contact.html">Contacto</a>
                     </li>
-                    <!-- Submenu de productos con un icono de flecha que representa que se despliega -->
-                    <li class="nav-item d-lg-none">
-                       <a class="nav-link text-dark text-center d-flex justify-content-center align-items-center" data-bs-toggle="collapse" href="#submenuProductosMobile" role="button"
-                            aria-expanded="false" aria-controls="submenuProductosMobile" id="toggleProductosMobile">
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown d-none d-lg-block">
+                        <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="true">
                             Productos
-                             <i class="bi bi-chevron-right ms-2" id="arrowIcon"></i>
                         </a>
-                        <div class="collapse w-90" id="submenuProductosMobile">
-                            <ul class="navbar-nav w-90">
-                                <li class="nav-item w-90">
-                                    <a class="nav-link text-dark text-center" href="./products.html">Todo</a>
-                                </li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li class="nav-item w-90">
-                                    <a class="nav-link text-dark text-center" href="./personalized.html">Personalizado</a>
-                                </li>
-                            </ul>
-                        </div>
+                        <ul class="dropdown-menu" style="background-color: #8D94FF;">
+                            <li><a class="dropdown-item" style="color: white;" href="./products.html">Todo</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" style="color: white;"
+                                    href="./personalized.html">Personalizado</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark text-center" href="./experiences.html">Experiencias</a>
-                        <a  class="nav-link text-dark text-center" href="./logIn.html">Inicia sesión</a>
-                        <a class="nav-link text-dark text-center" href="./signIn.html">Registrarse</a>
+                        <a class="nav-link active" aria-disabled="page" href="./experiences.html">Experiencias</a>
                     </li>
                 </ul>
             </div>
+            <!-- Sección 3  Carrito  logIn SignIn-->
+
+            <div class="d-flex gap-4 align-items-center">
+                <a class="nav-link" href="#"> <!-- Falta hover para carrito -->
+                    <i class="bi bi-cart2 fs-2"></i>
+                </a>
+                <!-- Dropdown de usuario -->
+                <div id="menuUsuario" class="nav-item dropdown ">
+                    <a class="nav-link active dropdown-toggle d-flex align-items-center rounded-circle user-icon" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person fs-2 text-white"></i>
+                    </a>
+                     <ul class="dropdown-menu" style="background-color: #8D94FF;">
+                        <li><a class="dropdown-item text-white" role="button" href="./logIn.html">Inicia sesión</a></li>
+                        <li><a class="dropdown-item text-white" role="button" href="./registro.html">Registro</a></li>
+                     </ul>
+                    <!-- <a class="btn btn-login rounded-pill d-none d-lg-inline-block" role="button" href="./logIn.html">Inicia sesión</a> -->
+                     <!-- <a class="btn btn-login rounded-pill d-none d-lg-inline-block" href="./logIn.html">Inicia Sesión</a>
+                     <a class="btn btn-signin rounded-pill d-none d-lg-inline-block" href="./registro.html">Regístrate</a> -->
+                </div>
+            </div>
         </div>
-            
+    </nav>
+    <!-- Menú mobile -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="menuLateral" aria-labelledby="menuLateralLabel"
+        style="width: 100vw; max-width: 100vw; height: 100vh;">
+        <div class="offcanvas-header d-flex justify-content-start align-items-center"
+            style="background-color: #ffffff;">
+            <!-- Boton de cerrar el menu -->
+            <button type="button" class="btn-close p-2"
+                style="background-color: #6c757d; filter: invert(1); border-radius: 0.2rem; margin-left: 0.5rem;"
+                data-bs-dismiss="offcanvas" aria-label="Close">
+            </button>
+        </div>
+        <!-- Cuerpo del menu -->
+        <div class="offcanvas-body d-flex justify-content-center align-items-center flex-column text-center"
+            style="background-color: #ffffff; color: rgb(0, 0, 0);">
+            <ul class="navbar-nav gap-3 w-100">
+                <li class="nav-item">
+                    <a class="nav-link nav-link text-dark text-center" href="./index.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link text-dark text-center" href="./aboutUs.html">Nosotras</a>
+                </li>
+                <!-- Submenu de productos con un icono de flecha que representa que se despliega -->
+                <li class="nav-item d-lg-none">
+                    <a class="nav-link text-dark text-center d-flex justify-content-center align-items-center"
+                        data-bs-toggle="collapse" href="#submenuProductosMobile" role="button" aria-expanded="false"
+                        aria-controls="submenuProductosMobile" id="toggleProductosMobile">
+                        Productos
+                        <i class="bi bi-chevron-right ms-2" id="arrowIcon"></i>
+                    </a>
+                    <div class="collapse w-90" id="submenuProductosMobile">
+                        <ul class="navbar-nav w-90">
+                            <li class="nav-item w-90">
+                                <a class="nav-link text-dark text-center" href="./products.html">Todo</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li class="nav-item w-90">
+                                <a class="nav-link text-dark text-center" href="./personalized.html">Personalizado</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark text-center" href="./experiences.html">Experiencias</a>
+                    <!-- <a class="nav-link text-dark text-center" href="./logIn.html">Inicia sesión</a>
+                    <a class="nav-link text-dark text-center" href="./signIn.html">Registrarse</a> -->
+                    <!-- <a  class="nav-link text-dark text-center" href="./logIn.html">Inicia sesión</a>
+                    <a class="nav-link text-dark text-center" href="./registro.html">Regístrate</a> -->
+                </li>
+            </ul>
+        </div>
+    </div>
+
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
     <script src="./js/main.js"></script>
 
-        <!-- Script para el icono de productos -->
-        <script>
+    <!-- Script para el icono de productos -->
+    <script>
         const collapseElement = document.getElementById('submenuProductosMobile');
         const arrowIcon = document.getElementById('arrowIcon');
 
@@ -259,7 +305,7 @@
             arrowIcon.classList.remove('bi-chevron-down');
             arrowIcon.classList.add('bi-chevron-right');
         });
-        </script>
+    </script>
     <!-- <script>
         document.addEventListener('DOMContentLoaded', () => {
             const nav = document.getElementById('navbar-custom');
