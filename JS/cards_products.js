@@ -1,4 +1,6 @@
 // Variables
+// import { normalizadorTour } from "./normalizador.js";
+
 const detalleUrl = (tour) => `tours.html?id=${tour.id}`;
 let allTours = [];
 
@@ -210,5 +212,4 @@ document.addEventListener("DOMContentLoaded", () => {
                 container.innerHTML = '<p class="text-center w-100">Error al cargar los tours. Por favor, inténtalo de nuevo más tarde.</p>';
             }
         });
-
     });
