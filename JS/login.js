@@ -8,9 +8,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const password = document.getElementById("mt-password");
     const resetPassword = document.getElementById("resetPassword");
     const loginError = document.getElementById("loginError");
-    const loginLink = document.getElementById("loginLink");
-    const registerLink = document.getElementById("registerLink");
-    const logoutLink = document.getElementById("logoutLink");
+    // const loginLink = document.getElementById("loginLink");
+    // const registerLink = document.getElementById("registerLink");
+    // const logoutLink = document.getElementById("logoutLink");
     const welcomeMessageElement = document.getElementById("welcomeMessage");
 
 
@@ -102,18 +102,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (!window.emailjs) {
             console.error("EmailJS no está cargado.");
-            alert("Hubo un error enviando el correo. Intenta más tarde.");
+            // alert("Hubo un error enviando el correo. Intenta más tarde.");
+            Swal.fire({ //SweetAlert
+                icon: "error",
+                title: "Error al enviar",
+                text: "❌ Hubo un error enviando el correo. Intenta más tarde.",
+                confirmButtonColor: "#8D94FF"
+            });
             return;
         }
 
         // Envio de email
         emailjs.send("service_pi5sznp", "template_7qr2tqv", templateParams)
             .then(() => {
-                alert("Se ha enviado un correo con instrucciones para restablecer tu contraseña.");
+                // alert("Se ha enviado un correo con instrucciones para restablecer tu contraseña.");
+                Swal.fire({ //SweetAlert
+                    icon: "success",
+                    title: "Solicitud enviada",
+                    text: "✅ Se ha enviado un correo con instrucciones para restablecer tu contraseña.",
+                    confirmButtonColor: "#8D94FF"
+                });
             })
             .catch((error) => {
                 console.error("❌ Error al enviar el correo", error);
-                alert("Hubo un error, intenta más tarde.");
+                // alert("Hubo un error, intenta más tarde.");
+                Swal.fire({ //SweetAlert
+                    icon: "error",
+                    title: "Error al enviar",
+                    text: "❌ Hubo un error, intenta más tarde.",
+                    confirmButtonColor: "#8D94FF"
+                });
             });
     } // recuperarContraseña
 
@@ -124,7 +142,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const emailOk = validarEmailRegistro();
             if (!emailOk) {
-                alert("El correo electrónico y/o contraseña son incorrectos. Por favor, intentalo de nuevo.");
+                // alert("El correo electrónico y/o contraseña son incorrectos. Por favor, intentalo de nuevo.");
+                Swal.fire({ //SweetAlert
+                    icon: "error",
+                    title: "Error al enviar",
+                    text: "El correo electrónico y/o contraseña son incorrectos. Por favor, intentalo de nuevo.",
+                    confirmButtonColor: "#8D94FF"
+                });
                 return;
             }
             const userEmail = email.value.trim();
@@ -172,7 +196,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Redirigir después de 2 segundos
             setTimeout(() => {
-                window.location.href = "./index.html";
+                window.location.href = "index.html";
             }, 2000);
         } else {
             showError("Correo o contraseña incorrectos. Por favor, intente de nuevo.");
@@ -184,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Función para cerrar sesión
     function logoutUser() {
         localStorage.removeItem("sesionIniciada");
-        window.location.href = "./index.html";
+        window.location.href = "index.html";
     }
 
     // Event listener para cerrar sesión

@@ -27,9 +27,9 @@
             </div>
         </header>
         <!-- Sección de estados -->
-        <section class="filtro-tours mb-5 d-none d-lg-block">
+        <section class="filtro-tours d-none d-lg-block">
             <div class="filtro-container">
-                <button class="filtro-btn placeFilter" data-place="CDMX,Estado de México">Estado de México/CDMX</button>
+                <button class="filtro-btn placeFilter" data-place="CDMX,Estado de México">EDOMEX/CDMX</button>
                 <button class="filtro-btn placeFilter" data-place="Querétaro">Querétaro</button>
                 <button class="filtro-btn placeFilter" data-place="Jalisco">Jalisco</button>
             </div>
@@ -48,7 +48,7 @@
                 <ul class="navbar-nav w-90">
                     <li class="nav-item w-90">
                         <a class="nav-link text-dark text-center placeFilter" id="cdmx"
-                            data-place="CDMX,Estado de México">CDMX/Estado de México</a>
+                            data-place="CDMX,Estado de México">CDMX/EDOMEX</a>
                     </li>
                     <li>
                         <hr class="dropdown-divider">
@@ -70,8 +70,7 @@
 
 
         <!-- Sección de categorías -->
-        <br>
-        <section class="mb-5 d-none d-lg-block">
+        <section class="d-none d-lg-block">
             <div class="d-flex justify-content-center align-items-center gap-2 gap-md-4 flex-wrap">
                 <span class="category-btn active categoryFilter" id="btnTodos" role="button" data-category="all">
                     <a href="./products.html" style="text-decoration: none; color: #0F0E0E;"><i
@@ -188,6 +187,7 @@
             emailjs.init("GNnB5jB5JcNSpPcEb"); // Tu User ID público
         })();
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
     <script src="./JS/footer.js"></script>
 
 

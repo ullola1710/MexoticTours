@@ -1,230 +1,339 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mexotic Tours</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@400;700&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./CSS/tours.css">
-    <!-- Bootstrap Iconsk -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Navbar</title>
     <link rel="stylesheet" href="./CSS/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <style>
-        .card-imp-top {
-            height: 200px;
-            object-fit: cover;
-            /* transition: transform 0.3s ease-in-out;/*Transición para la imagen*/
+        #navbar-custom {
+            padding-left: 2rem;
+            padding-right: 2rem;
+            transition: transform 0.8s
         }
 
-        .card {
-            transition: box-shadow 0.3s ease-in-out;
-            /*Suaviza transición*/
-            cursor: pointer;
-            overflow: hidden;
-            /*oculta lo que se salga de la tarjeta*/
+        .nav--hidden {
+            transform: translateY(-180%);
         }
 
-        .card:hover {
-            transform: scale(1.05);
-            /*escala la tarjeta cuando el mouse está encima*/
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            /*sombra cursor: pointer;
-            /*Cursor*/
+        #navbar-custom .nav-link:hover {
+            color: #FFC2DD;
         }
 
-        #contenedorTarjetas {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(./assets/bellas-artes.jpeg);
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            min-height: 100vh;
+        .logoRosa:hover {
+            filter: drop-shadow(4px 4px 3px white);
+            /* El filter calcula la sombra a partir de las zonas opacas del .png (distancia de sombra, dirección,)*/
         }
 
-        .typewriter {
-            overflow: hidden;
-            /*Oculta texto*/
-            border-right: .15em solid orange;
-            /*cursor*/
-            white-space: nowrap;
-            /*Evita que el texto salte a la sig. linea*/
-            margin: 0 auto;
-            padding: 1.5rem;
-            letter-spacing: .15em;
-            animation:
-                typing 3.5s steps(35, end)forwards,
-                blink-caret .60s step-end 7 forwards;
-            font-family: 'Dancing Script', cursive;
-            font-size: 3rem;
-
+        /* Dropdown */
+        #navbar-custom .dropdown-item:hover,
+        #navbar-custom .dropdown-item:active {
+            color: #FFC2DD;
+            background-color: transparent;
         }
 
-        /* La animación de "escritura" */
-        @keyframes typing {
-            from {
-                width: 0;
+        /* Carrito */
+        .bi-cart2 {
+            color: white;
+            transition: color 0.2s;
+        }
+
+        .bi-cart2:hover {
+            color: #FFC2DD;
+            filter: drop-shadow(2px 4px 3px white);
+        }
+
+        /* Para cualquier botón */
+        .btn-login,
+        .btn-signin {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 5.5rem;
+            height: 2.8rem;
+        }
+
+        /* Botón Log in*/
+        .btn-login {
+            background-color: white;
+            color: #09112E;
+        }
+
+        .btn-login:hover {
+            background-color: #FFC2DD;
+        }
+
+        /* Botón Sign in */
+        .btn-signin {
+            background-color: #09112E;
+            color: white;
+        }
+
+        .btn-signin:hover {
+            color: #FFC2DD;
+        }
+        .user-icon{
+            width: 45px;
+            height: 45px;
+            border: 2px solid white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: transparent;
+            padding: 0;
+            transition: all 0.3s ease;
+        } 
+
+        .user-icon:hover{
+            border-color: #FFC2DD;
+            filter: drop-shadow(2px 4px 3px white);
+        }
+        .user-icon::after {
+            display: none; /* Oculta la flecha predeterminada */
+        }
+        /* Centrar el menu del dropdown */
+        #menuUsuario .dropdown-menu{
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 0.3rem;
+        }
+
+        #menuUsuario .dropdown-menu .dropdown-item:hover{
+            background-color: #757efb;
+            color: #ffffff;
+            transition: all 0.2s ease;
+        }
+
+        /* Estilos del submenu de productos */
+        #submenuProductosMobile ul {
+            background-color: rgba(218, 214, 214, 0.456);
+            border-radius: 0.5rem;
+            margin-top: 0.3rem;
+            padding: 0.3rem 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        #submenuProductosMobile .nav-link {
+            padding-left: 0.2rem;
+            font-size: 1rem;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        #submenuProductosMobile .nav-link:hover {
+            background-color: rgb(255, 255, 255);
+            border-radius: 0.4rem;
+        }
+
+        .collapse {
+            transition: height 0.35s ease;
+        }
+
+        /* Mediaqueri para el logo y su cambio de posicion */
+        @media (max-width: 991.98px) {
+            #navbar-custom .nav-link img.logoRosa {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
             }
+        }
 
-            to {
-                width: 100%;
+        @media (min-width: 992px) {
+            #navbar-custom .nav-link img.logoRosa {
+                position: static;
+                transform: none;
             }
         }
 
-        /* La animación del cursor que parpadea */
-        @keyframes blink-caret {
-
-            from,
-            to {
-                border-color: transparent
-            }
-
-            50% {
-                border-color: #fff;
-            }
+        /* Ajustes para la posicion dol boton burger */
+        .navbar-toggler {
+            z-index: 1051;
         }
-
-        @media (max-width: 768px){
-            h1.display-3 {
-                font-size: 4rem;
-            }
-            #subtitulo {
-                font-size: 3rem !important;
-            }
-            .typewriter{
-                font-size:2rem ;
-            }
-
-
-        }
-
     </style>
 </head>
 
-<body style="text-align: center;">
+<body>
+
+
     <!-- Navbar -->
-    <div id="navbar-container"></div>
+    <nav id="navbar-custom" class="navbar navbar-expand-lg navbar-dark rounded-pill fixed-top"
+        style="background-color: #09112E; height: 4.5rem; width: auto; margin: 2.5rem 2.5rem 0 2.5rem;">
+        <div class="container">
+            <!-- Boton hamburguesa  -->
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#menuLateral" aria-controls="menuLateral" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    <!-- Hero Section GDL INICIO -->
-    <header>
-        <section class="hero-section" style="position: relative; overflow: hidden; min-height: 100vh;">
-            <div class="hero-overlay">
-                <div class="hero-content text-center">
-                    <p class="lead text-white dancing-script">Explora lo mejor de México con viajes únicos y seguros</p>
-                    <h1 class="display-3 fw-bold text-white">DESCUBRE MÉXICO COMO NUNCA</h1>
-                    <p class="text-white Be-Vietnam-Pro">Viajes únicos en CDMX, Querétaro y Guadalajara</p>
-                    <a href="./products.html" class="custom-btn btn-lg mt-3">
-                        <i class="bi bi-bookmark-heart"></i> Ver Próximas Aventuras <i class="bi bi-bookmark-heart"></i>
-
-                    </a>
-                </div>
+            <!-- Posicion del logo (Izquierda en escritorio centrado en mobile)-->
+            <a class="navbar-brand d-none d-lg-block" href="./index.html">
+                <img class="logoRosa" src="./assets/LogoRosa.png" alt="Mexotic Tours" style="width: 3.2rem">
+            </a>
+            <a class="position-absolute top-50 start-50 translate-middle d-lg-none" href="./index.html">
+                <img class="logoRosa" src="./assets/LogoRosa.png" alt="Mexotic Tours" style="width: 3.2rem">
+            </a>
+            <!-- Sección 2 -->
+            <div class="collapse navbar-collapse justify-content-center d-none d-lg-flex" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0 d-flex gap-3"> <!--ACA-->
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./aboutUs.html">Nosotras</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./contact.html">Contacto</a>
+                    </li>
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown d-none d-lg-block">
+                        <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="true">
+                            Productos
+                        </a>
+                        <ul class="dropdown-menu" style="background-color: #8D94FF;">
+                            <li><a class="dropdown-item" style="color: white;" href="./products.html">Todo</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" style="color: white;"
+                                    href="./personalized.html">Personalizado</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-disabled="page" href="./experiences.html">Experiencias</a>
+                    </li>
+                </ul>
             </div>
-        </section>
-    </header>
-    <!-- Contenedor de tarjetas  -->
-    <div id="contenedorTarjetas" class="container-fluid">
-        <!-- Sub Encabezado -->
-        <div class="container py-5 text-center">
-            <h2 id="subtitulo" class="display-3 text-white" style="font-size: 5rem;"> Mexotic no solo te lleva a un destino, te conecta
-                con el...
-            </h2>
-            <h3 class="lead dancing-script fw-semibold text-white typewriter"> Nuestra esencia y beneficios </h3>
-            <span></span>
-            <div class="row g-4 justify-content-center">
-                <!-- <--- primera  card-->
-                <div class="col-md-6 col-lg-4 d-flex aling-items-stretch">
-                    <div class="card p-3">
-                        <img src="./assets/Sayulita.jpg" class="card-img-top" alt="Sayulita">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="class card-title">Viajes diseñados con enfoque local</h5>
-                            <p class="card-text flex-grow-1">En Mexotic diseñamos experiencias auténticas, con guías
-                                locales que conocen los rincones más especiales de cada ciudad!</ln>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- <--- segunda  card-->
-                <div class="col-md-6 col-lg-4 d-flex aling-items-stretch">
-                    <div class="card p-3">
-                        <img src="./assets/pexels-jorge-acre-239933086-16625367.jpg" class="card-img-top"
-                            alt="Sayulita,jal.">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">Espacios seguros y confiables para todos</h5>
-                            <p class="card-text flex-grow-1">Nos aseguramos de que cada tour sea <strong>cómodo</strong>
-                                y<strong> seguro</strong>. Queremos que explores sintiéndote <strong>segura</strong>s en
-                                cualquier momento! </strong></p>
-                        </div>
-                    </div>
-                </div>
-                <!-- <--- tercera  card-->
-                <div class="col-md-6 col-lg-4 d-flex aling-items-stretch">
-                    <div class="card p-3">
-                        <img src="./assets/Catedral gdl.jpg" alt="Rotonda de los Jaliciences Ilustres.png"
-                            class="card-img-top">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="cord-title">Grupos Pequeños, con atención personalizada</h5>
-                            <p class="card-text flex-grow-1">En Mexotic no somos tours masivos. Creamos grupos reducidos
-                                para que vivas un viaje cercano, humano y sin prisas.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- <--- cuarta card-->
-                <div class="col-md-6 col-lg-4 d-flex aling-items-stretch">
-                    <div class="card p-3">
-                        <img src="./assets/catedral atardecer.jpg" alt="Catedral atardecer." class="card-img-top">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="cord-title">Conectamos cultura con aventura</h5>
-                            <p class="card-text flex-grow-1">No solo visitas un lugar: lo vives. Desde probar comida
-                                típica
-                                con cocineras locales hasta descubrir música o arte con quienes lo crean.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- quinta card -->
-                <div class="col-md-6 col-lg-4 d-flex aling-items-stretch">
-                    <div class="card p-3">
-                        <img src="./assets/dia de muertos.jpg" alt="tradiciones mexicanas" class="card-img-top">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">Fácil de reservar, Completa tranquilidad</h5>
-                            <p class="card-text flex-grow-1"> Todo desde tu espacio, con asesoría en tiempo real. Solo
-                                necesitas elegir el destino, y nosotros nos encargamos del resto.</p>
-                        </div>
-                    </div>
+            <!-- Sección 3  Carrito  logIn SignIn-->
+
+            <div class="d-flex gap-4 align-items-center">
+                <a class="nav-link" href="#"> <!-- Falta hover para carrito -->
+                    <i class="bi bi-cart2 fs-2"></i>
+                </a>
+                <!-- Dropdown de usuario -->
+                <div id="menuUsuario" class="nav-item dropdown ">
+                    <a class="nav-link active dropdown-toggle d-flex align-items-center rounded-circle user-icon" href="#" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-person fs-2 text-white"></i>
+                    </a>
+                     <ul class="dropdown-menu" style="background-color: #8D94FF;">
+                        <li><a class="dropdown-item text-white" role="button" href="./logIn.html">Inicia sesión</a></li>
+                        <li><a class="dropdown-item text-white" role="button" href="./registro.html">Registro</a></li>
+                     </ul>
+                    <!-- <a class="btn btn-login rounded-pill d-none d-lg-inline-block" role="button" href="./logIn.html">Inicia sesión</a> -->
+                     <!-- <a class="btn btn-login rounded-pill d-none d-lg-inline-block" href="./logIn.html">Inicia Sesión</a>
+                     <a class="btn btn-signin rounded-pill d-none d-lg-inline-block" href="./registro.html">Regístrate</a> -->
                 </div>
             </div>
         </div>
+    </nav>
+    <!-- Menú mobile -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="menuLateral" aria-labelledby="menuLateralLabel"
+        style="width: 100vw; max-width: 100vw; height: 100vh;">
+        <div class="offcanvas-header d-flex justify-content-start align-items-center"
+            style="background-color: #ffffff;">
+            <!-- Boton de cerrar el menu -->
+            <button type="button" class="btn-close p-2"
+                style="background-color: #6c757d; filter: invert(1); border-radius: 0.2rem; margin-left: 0.5rem;"
+                data-bs-dismiss="offcanvas" aria-label="Close">
+            </button>
+        </div>
+        <!-- Cuerpo del menu -->
+        <div class="offcanvas-body d-flex justify-content-center align-items-center flex-column text-center"
+            style="background-color: #ffffff; color: rgb(0, 0, 0);">
+            <ul class="navbar-nav gap-3 w-100">
+                <li class="nav-item">
+                    <a class="nav-link nav-link text-dark text-center" href="./index.html">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link text-dark text-center" href="./aboutUs.html">Nosotras</a>
+                </li>
+                <!-- Submenu de productos con un icono de flecha que representa que se despliega -->
+                <li class="nav-item d-lg-none">
+                    <a class="nav-link text-dark text-center d-flex justify-content-center align-items-center"
+                        data-bs-toggle="collapse" href="#submenuProductosMobile" role="button" aria-expanded="false"
+                        aria-controls="submenuProductosMobile" id="toggleProductosMobile">
+                        Productos
+                        <i class="bi bi-chevron-right ms-2" id="arrowIcon"></i>
+                    </a>
+                    <div class="collapse w-90" id="submenuProductosMobile">
+                        <ul class="navbar-nav w-90">
+                            <li class="nav-item w-90">
+                                <a class="nav-link text-dark text-center" href="./products.html">Todo</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li class="nav-item w-90">
+                                <a class="nav-link text-dark text-center" href="./personalized.html">Personalizado</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark text-center" href="./experiences.html">Experiencias</a>
+                    <!-- <a class="nav-link text-dark text-center" href="./logIn.html">Inicia sesión</a>
+                    <a class="nav-link text-dark text-center" href="./signIn.html">Registrarse</a> -->
+                    <!-- <a  class="nav-link text-dark text-center" href="./logIn.html">Inicia sesión</a>
+                    <a class="nav-link text-dark text-center" href="./registro.html">Regístrate</a> -->
+                </li>
+            </ul>
+        </div>
     </div>
+
     </main>
-
-
-
-    <!-- Footer -->
-    <div id="footer-container"></div>
-
-
-
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
-    <script src="./JS/cart.js"></script>
-    <script src="./JS/navbar.js"></script>
-    <!-- EmailJS -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script>
-        (function () {
-            emailjs.init("GNnB5jB5JcNSpPcEb"); // Tu User ID público
-        })();
-    </script>
-    <script src="./JS/footer.js"></script>
+    <script src="./js/main.js"></script>
 
+    <!-- Script para el icono de productos -->
+    <script>
+        const collapseElement = document.getElementById('submenuProductosMobile');
+        const arrowIcon = document.getElementById('arrowIcon');
+
+        collapseElement.addEventListener('show.bs.collapse', () => {
+            arrowIcon.classList.remove('bi-chevron-right');
+            arrowIcon.classList.add('bi-chevron-down');
+        });
+
+        collapseElement.addEventListener('hide.bs.collapse', () => {
+            arrowIcon.classList.remove('bi-chevron-down');
+            arrowIcon.classList.add('bi-chevron-right');
+        });
+    </script>
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const nav = document.getElementById('navbar-custom');
+            let lastScrollY = window.pageYOffset;
+
+            window.addEventListener('scroll', () => {
+                const currentScrollY = window.pageYOffset;
+
+                // 1) Si estás en el tope de la página, siempre mostrar
+                if (currentScrollY <= 0) {
+                    nav.classList.remove('nav--hidden');
+                    lastScrollY = 0;
+                    return;
+                }
+
+                // 2) Si scroll hacia abajo y aún no está oculto, oculta
+                if (currentScrollY > lastScrollY || !nav.classList.contains('nav--hidden')) {
+                    nav.classList.add('nav--hidden');
+                }
+                // 3) Si scroll hacia arriba y está oculto, muestra
+                else if (currentScrollY < lastScrollY || nav.classList.contains('nav--hidden')) {
+                    nav.classList.remove('nav--hidden');
+                }
+
+                lastScrollY = currentScrollY;
+            });
+        });
+    </script> -->
 </body>
 
 </html>
