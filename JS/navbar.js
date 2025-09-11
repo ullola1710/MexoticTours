@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="cart-total d-flex justify-content-between align-items-center" id="cartTotal" style="display: none;">
               <span><strong>Total: $<span id="totalAmount">0.00</span> MXN</strong></span>
               <div id="checkoutButton" style="display: none;">
-                <button class="btn btn-custom" style="border-radius: 8px; width: 150px;">Pagar</button>
+                <button class="btn btn-custom" style="border-radius: 8px; width: 150px;" onclick="redirectToPayment()">Pagar</button>
               </div>
             </div>
         </div>

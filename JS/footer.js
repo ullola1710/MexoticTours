@@ -71,7 +71,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const email = footerEmail.value.trim();
 
         if (email === "") {
-            alert("⚠️ Por favor ingresa un correo válido.");
+            // alert("⚠️ Por favor ingresa un correo válido.");
+            Swal.fire({ //SweetAlert
+                icon: "error",
+                title: "Error al enviar",
+                text: "Por favor ingresa un correo válido.",
+                confirmButtonColor: "#8D94FF"
+            });
             return;
         }
 
@@ -91,15 +97,25 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(
                 function (response) {
                     console.log("✅ Correo enviado con éxito", response.status, response.text);
-                    alert("Te has suscrito correctamente 🎉");
+                    // alert("Te has suscrito correctamente 🎉");
+                    Swal.fire({ //SweetAlert
+                        icon: "success",
+                        title: "Solicitud enviada",
+                        text: "Te has suscrito correctamente",
+                        confirmButtonColor: "#8D94FF"
+                    });
                     footerForm.reset();
                 },
                 function (error) {
                     console.error("❌ Error al enviar el correo", error);
-                    alert("Hubo un error, intenta más tarde.");
+                    // alert("Hubo un error, intenta más tarde.");
+                    Swal.fire({ //SweetAlert
+                        icon: "error",
+                        title: "Error al enviar",
+                        text: "❌ Hubo un error, intenta más tarde.",
+                        confirmButtonColor: "#8D94FF"
+                    });
                 }
             );
     });
 });
-
-
