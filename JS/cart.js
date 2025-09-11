@@ -19,6 +19,7 @@ function addToCart(product) {
   }
   saveCart();
   updateCartBadge();
+  updateCheckoutButtonVisibility();
 }
 
 // Eliminar producto del carrito
@@ -29,6 +30,10 @@ function removeFromCart(productId) {
   // Volver a rendirizar
   if (document.getElementById('cartDrawer').classList.contains('show')) {
     renderCartItems();
+  }
+  // Para pagos
+  if (document.getElementById('cart-summary')) {
+    loadCartSummary();
   }
 } // removeFromCart
 
@@ -43,6 +48,10 @@ function updateQuantity(productId, change) {
       saveCart();
       if (document.getElementById('cartDrawer')?.classList.contains('show')) {
         renderCartItems();
+      }
+      // Para pagos
+      if (document.getElementById('cart-summary')) {
+        loadCartSummary();
       }
     }
   }
@@ -63,6 +72,31 @@ function updateCartBadge() {
   }
 }
 
+// Si se tienen producto en cart se muestre, sino no
+function updateCheckoutButtonVisibility() {
+  const checkoutButton = document.getElementById('checkoutButton');
+  const cartTotal = document.getElementById('cartTotal');
+  if (cart.length > 0) {
+    // Cart con productos
+    if (cartTotal) cartTotal.style.display = 'flex';  
+    if (checkoutButton) checkoutButton.style.display = 'block'; 
+    const totalAmount = cart.reduce((total, item) => total + item.price * item.quantity, 0);
+    if (document.getElementById('totalAmount')) {
+      document.getElementById('totalAmount').textContent = totalAmount.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+  } else {
+    // Ocultar con cart vacío
+    if (cartTotal) cartTotal.style.display = 'none';
+    if (checkoutButton) checkoutButton.style.display = 'none';
+  }
+}
+
+// Ir a Pago si hay algo que pagar
+function redirectToPayment() {
+  window.location.href = "./pagos.html";
+}
+
+
 // Renderizar
 function renderCartItems() {
   const container = document.getElementById('cartItemsContainer');
@@ -77,7 +111,7 @@ function renderCartItems() {
         <p>Tu carrito está vacío</p>
       </div>`;
     if (totalElement){ 
-      //totalElement.style.display = 'none';
+      totalElement.style.display = 'none';
       totalElement.querySelector('#totalAmount').textContent = '0.00';
     }
     if (checkoutButton) checkoutButton.style.display = 'none';
@@ -122,7 +156,49 @@ function renderCartItems() {
   }
 }
 
+function loadCartSummary() {
+  const cartSummary = document.getElementById('cart-summary');
+  const totalElement = document.getElementById('totalAmount');
+  
+  if (!cartSummary) return;
+  
+  // Verificar si el carrito está vacío
+  if (cart.length === 0) {
+    cartSummary.innerHTML = "<p>No hay productos en tu carrito.</p>";
+    if (totalElement) totalElement.textContent = "0.00";
+  } else {
+    let total = 0;
+    let html = '';
+    cart.forEach(item => {
+      const itemTotal = item.price * item.quantity;
+      total += itemTotal;
+      html += `
+        <div class="d-flex justify-content-between mb-3">
+          <span>${item.name} x${item.quantity}</span>
+          <span>$${itemTotal.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+        </div>
+      `;
+    });
+
+    cartSummary.innerHTML = html;
+    if (totalElement) totalElement.textContent = total.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+} // loadCartSummary
+
+
 // Inicializar carrito
 document.addEventListener('DOMContentLoaded', function() {
   updateCartBadge();
+  updateCheckoutButtonVisibility();
+  
+  // Solo ejecutar loadCartSummary si estamos en la página de pagos
+  if (document.getElementById('cart-summary')) {
+    loadCartSummary();
+  }
+  
+  // Solo ejecutar renderCartItems si estamos en la página con el carrito desplegable
+  if (document.getElementById('cartItemsContainer')) {
+    renderCartItems();
+  }
 });
+
