@@ -1,82 +1,728 @@
 <!DOCTYPE html>
 <html lang="es">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil del Usuario</title>
+    <title>Perfil de Usuario</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./CSS/style.css">
     <style>
-        body {
-            background-color: #acb1f88c;
+
+        body.footer {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
+
+        #footer-container {
+            margin-top: auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        :root {
+            --color-primary: #3e265f;
+            --color-secondary: #2a1847;
+            --color-accent: #7c5db2;
+            --color-light: #e1d1f5;
+            --color-background: #e1d1f58c;
+        }
+        
+        body {
+            background-color: var(--color-background);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+           
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: white;
+            padding: 2rem 1.5rem;
+            height: 100vh;
+            position: fixed;
+            width: 250px;
+            z-index: 0;
+        }
+        
+        .sidebar h4 {
+            margin-top: 15rem;
+            color: var(--color-light);
+            font-weight: 300;
+            border-bottom: 1px solid var(--color-accent);
+            padding-bottom: 15px;
+            margin-top: 2rem;
+        }
+        
+        .sidebar a {
+            display: block;
+            padding: 0.8rem 1rem;
+            color: #fff;
+            text-decoration: none;
+            border-left: 4px solid transparent;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+            margin: 8px 0;
+        }
+        
+        .sidebar a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 4px solid var(--color-light);
+        }
+        
+        .sidebar a i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+            z-index: 1;
+        }
+
+        .main-content {
+            margin-top: 0;
+            }
+
+            @media (min-width: 768px) {
+            .main-content {
+                margin-top: 12px;
+            }
+            }
+        
+        
         .profile-card {
             background-color: #fff;
             padding: 2rem;
             border-radius: 1rem;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 20px;
         }
-        .review-form {
-            background-color: #fff;
-            padding: 1.5rem;
-            border-radius: 0.8rem;
-            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--color-primary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header {
+            margin-top: 5rem;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .btn-primary {
+            background-color: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--color-secondary);
+            border-color: var(--color-secondary);
+        }
+        
+        .form-control:focus {
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 0.25rem rgba(126, 93, 178, 0.25);
+        }
+        
+        .historial-item {
+            transition: transform 0.2s;
+        }
+        
+        .historial-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            vertical-align: text-bottom;
+            border: 0.25em solid currentColor;
+            border-right-color: transparent;
+            border-radius: 50%;
+            animation: spinner-border 0.75s linear infinite;
+        }
+        
+        @keyframes spinner-border {
+            to { transform: rotate(360deg); }
+        }
+        
+        @media (max-width: 992px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 1rem;
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+        }
+
+        .badge {
+            font-size: 0.75em;
+            margin-right: 5px;
+        }
+        
+        .star-rating {
+            color: #ffc107;
+            font-size: 1.2rem;
+        }
+        
+        .debug-panel {
+            background-color: #f8f9fa;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin-top: 20px;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        /* Responsivo */
+        @media (max-width: 992px) {
+        .sidebar {
+            position: relative;
+            width: 100%;
+            height: auto;
+            padding: 1rem;
+        }
+        .main-content {
+            margin-left: 0;
+        }
+        }
+
+        @media (max-width: 576px) {
+        .profile-card {
+            padding: 1rem;
+        }
+        .profile-img {
+            width: 90px;
+            height: 90px;
+        }
+        .header h2 {
+            font-size: 1.3rem;
+        }
         }
     </style>
 </head>
 <body>
-
-<div class="container my-5">
-    <!-- Perfil del usuario -->
-    <div class="profile-card text-center mb-4">
-        <i class="bi bi-person-circle fs-1 mb-2"></i>
-        <!-- debo poner los datos del usuario con el localStorage cuando incia sesion  -->
-        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#historialCompras" aria-expanded="false" aria-controls="historialCompras">
-            Historial de Compras
-        </button>
+    <div id="navbar-container"></div>
+    <!-- Barra lateral -->
+    <div class="sidebar">
+        <div class="text-center" style="margin-top: 100px;">
+            <img src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" alt="Logo" width="60">
+        </div>
+        <h4 class="text-center mt-3">Menú <span id="nombre-menu">Usuario</span></h4>
+        <a href="#" onclick="mostrarSeccion('perfil')"><i class="bi bi-person-circle"></i> Perfil</a>
+        <a href="#" onclick="mostrarSeccion('historial')"><i class="bi bi-clock-history"></i> Historial</a>
+        <a href="#" onclick="cerrarSesion()"><i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a>
     </div>
+    
+    <!-- Contenido principal -->
+    <div class="main-content">
+        <div class="header">
+            <h2><i class="bi bi-person-badge"></i> Perfil de Usuario</h2>
+            <p class="mb-0">Gestiona tu información personal y revisa tu historial</p>
+        </div>
 
-    <!-- Historial de Compras -->
-    <div class="collapse" id="historialCompras">
-        <div class="card card-body mb-4">
-            <h5>Mis Tours </h5>
-            <ul class="list-group mb-3">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <!-- Aqui irian el nombre de los tours -->
-                    <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="collapse" data-bs-target="#reviewForm1" aria-expanded="false">
-                        Escribir Reseña
-                    </button>
-                </li>
-                <div class="collapse" id="reviewForm1">
-                    <div class="review-form mt-3">
-                        <form>
-                            <div class="mb-3">
-                                <label for="reviewTitle1" class="form-label">Título de la reseña</label>
-                                <input type="text" class="form-control" id="reviewTitle1" placeholder="Escribe un título">
-                            </div>
-                            <div class="mb-3">
-                                <label for="reviewContent1" class="form-label">Reseña</label>
-                                <textarea class="form-control" id="reviewContent1" rows="3" placeholder="Escribe tu experiencia"></textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label for="reviewRating1" class="form-label">Calificación</label>
-                                <select class="form-select" id="reviewRating1">
-                                    <option value="5">★★★★★ 5 - Excelente</option>
-                                    <option value="4">★★★★ 4 - Muy bueno</option>
-                                    <option value="3">★★★ 3 - Bueno</option>
-                                    <option value="2">★★ 2 - Regular</option>
-                                    <option value="1">★ 1 - Malo</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="btn btn-success">Enviar Reseña</button>
-                        </form>
+        <!-- Sección de Perfil -->
+        <div id="perfil" class="seccion">
+            <div class="profile-card">
+                <div class="text-center">
+                    <div class="mb-3 position-relative d-inline-block mt-4">
+                        <img id="fotoPerfil" src="https://cdn-icons-png.flaticon.com/512/149/149071.png" class="profile-img" alt="Foto de perfil">
+                        <label for="inputFoto" class="btn btn-sm btn-light position-absolute bottom-0 end-0" style="display: none;" id="btnCambiarFoto">
+                            <i class="bi bi-camera"></i>
+                        </label>
+                    </div>
+                    <input type="file" class="form-control d-none" id="inputFoto" accept="image/*" disabled>
+                    <h5 id="nombreCompletoUsuario" class="mt-3">Nombre Usuario</h5>
+                    <p id="emailUsuario" class="text-muted">email@ejemplo.com</p>
+                </div>
+                
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="nombreUsuario" class="form-label">Nombre</label>
+                        <input type="text" id="nombreUsuario" class="form-control" disabled>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="apellidoUsuario" class="form-label">Apellido</label>
+                        <input type="text" id="apellidoUsuario" class="form-control" disabled>
                     </div>
                 </div>
-            </ul>
+                
+                <div class="mb-3">
+                    <label for="telefonoUsuario" class="form-label">Teléfono</label>
+                    <input type="text" id="telefonoUsuario" class="form-control" disabled>
+                </div>
+                
+                <div id="mensaje-perfil" class="alert alert-success mt-3" style="display: none;"></div>
+                
+                <div class="d-flex gap-2">
+                    <button class="btn btn-primary" id="btnPerfil" onclick="editarPerfil()">Editar Perfil</button>
+                    <button class="btn btn-outline-secondary" id="btnCancelar" onclick="cancelarEdicion()" style="display: none;">Cancelar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de Historial -->
+        <div id="historial" class="seccion d-none">
+            <div class="profile-card">
+                <h4><i class="bi bi-list-check"></i> Historial de Compras</h4>
+                <p class="text-muted">Revisa tus compras anteriores y comparte tu experiencia</p>
+                <div id="cargando-historial" class="text-center py-4">
+                    <div class="loading-spinner text-primary"></div>
+                    <p class="mt-2">Cargando historial...</p>
+                </div>
+                <ul class="list-group mt-4" id="listaHistorial" style="display: none;"></ul>
+                <div id="error-historial" class="alert alert-danger mt-3" style="display: none;">
+                    <i class="bi bi-exclamation-triangle"></i> Error al cargar el historial. 
+                </div>
+                <div id="sin-historial" class="alert alert-info mt-3" style="display: none;">
+                    <i class="bi bi-info-circle"></i> No tienes compras en tu historial.
+                </div>
+            </div>
         </div>
     </div>
-</div>
+    <div id="footer-container"></div>
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
+    <script src="./JS/cart.js"></script>
+    <script src="./JS/navbar.js"></script>
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <script src="./JS/footer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let usuario;
+        let historialDeCompras = [];
+        let modoEdicion = false;
+        let datosOriginales = {};
+
+        // Verificar si el usuario ya está logueado
+        document.addEventListener("DOMContentLoaded", () => {
+            const sesionIniciada = localStorage.getItem("sesionIniciada");
+            
+            if (sesionIniciada) {
+                // Cargar usuario
+                usuario = JSON.parse(sesionIniciada);
+                
+                // Sincronizar datos
+                sincronizarUsuarioCompleto();
+                
+                mostrarPerfil();
+                
+                // Poner experiencias
+                if (!localStorage.getItem('experiencias')) {
+                    localStorage.setItem('experiencias', JSON.stringify([]));
+                }
+            } else {
+                // redirigir a login
+                window.location.href = "logIn.html";
+            }
+        });
+
+        // Sincronizar usuario
+        function sincronizarUsuarioCompleto() {
+            const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
+            const usuarioCompleto = usuarios.find(u => u.email === usuario.email);
+            
+            if (usuarioCompleto) {
+                // Guardar datos específicos
+                const datosSesion = { ...usuario };
+                usuario = { ...usuarioCompleto, ...datosSesion };
+                localStorage.setItem("sesionIniciada", JSON.stringify(usuario));
+                const usuarioIndex = usuarios.findIndex(u => u.email === usuario.email);
+                if (usuarioIndex !== -1) {
+                    usuarios[usuarioIndex] = usuario;
+                    localStorage.setItem('usuarios', JSON.stringify(usuarios));
+                }
+                
+                console.log("Usuario sincronizado correctamente");
+            }
+        }
+
+        // Cargar datos del JSON
+        async function cargarHistorialDesdeJSON() {
+            try {
+                const response = await fetch('historial.json');
+                if (!response.ok) {
+                    throw new Error('No se pudo cargar el archivo JSON');
+                }
+                historialDeCompras = await response.json();
+                return true;
+            } catch (error) {
+                console.error("Error al cargar el historial:", error);
+                document.getElementById('error-historial').style.display = 'block';
+                return false;
+            }
+        }
+
+        // Vista del perfil
+        function mostrarPerfil() {
+            const nombre = usuario.nombre || '';
+            const apellido = usuario.apellido || '';
+            
+            document.getElementById("nombreCompletoUsuario").innerText = `${nombre} ${apellido}`;
+            document.getElementById("emailUsuario").innerText = usuario.email || '';
+            document.getElementById("telefonoUsuario").value = usuario.telefono || '';
+            document.getElementById("nombreUsuario").value = nombre;
+            document.getElementById("apellidoUsuario").value = apellido;
+            document.getElementById("fotoPerfil").src = usuario.foto || "https://cdn-icons-png.flaticon.com/512/149/149071.png";
+            document.getElementById("nombre-menu").innerText = nombre || 'Usuario';
+        }
+
+        function editarPerfil() {
+            if (modoEdicion) {
+                guardarPerfil();
+                return;
+            }
+            
+            // Guardar datos originales para posible cancelación
+            datosOriginales = {
+                nombre: document.getElementById("nombreUsuario").value,
+                apellido: document.getElementById("apellidoUsuario").value,
+                telefono: document.getElementById("telefonoUsuario").value,
+                foto: document.getElementById("fotoPerfil").src
+            };
+            
+            // Edición
+            document.getElementById("nombreUsuario").disabled = false;
+            document.getElementById("apellidoUsuario").disabled = false;
+            document.getElementById("telefonoUsuario").disabled = false;
+            document.getElementById("inputFoto").disabled = false;
+            document.getElementById("btnCambiarFoto").style.display = 'block';
+            document.getElementById("btnCancelar").style.display = 'inline-block';
+            
+            document.getElementById("btnPerfil").innerText = "Guardar Cambios";
+            document.getElementById("btnPerfil").classList.remove('btn-primary');
+            document.getElementById("btnPerfil").classList.add('btn-success');
+            
+            modoEdicion = true;
+        }
+
+        function cancelarEdicion() {
+            // Restaurar datos originales
+            document.getElementById("nombreUsuario").value = datosOriginales.nombre;
+            document.getElementById("apellidoUsuario").value = datosOriginales.apellido;
+            document.getElementById("telefonoUsuario").value = datosOriginales.telefono;
+            document.getElementById("fotoPerfil").src = datosOriginales.foto;
+            
+            // Deshabilitar edición
+            document.getElementById("nombreUsuario").disabled = true;
+            document.getElementById("apellidoUsuario").disabled = true;
+            document.getElementById("telefonoUsuario").disabled = true;
+            document.getElementById("inputFoto").disabled = true;
+            document.getElementById("btnCambiarFoto").style.display = 'none';
+            document.getElementById("btnCancelar").style.display = 'none';
+            
+            document.getElementById("btnPerfil").innerText = "Editar Perfil";
+            document.getElementById("btnPerfil").classList.remove('btn-success');
+            document.getElementById("btnPerfil").classList.add('btn-primary');
+            
+            modoEdicion = false;
+            document.getElementById("mensaje-perfil").style.display = 'none';
+        }
+
+        function guardarPerfil() {
+            // Validaciones básicas
+            const telefono = document.getElementById("telefonoUsuario").value;
+            const nombre = document.getElementById("nombreUsuario").value;
+            const apellido = document.getElementById("apellidoUsuario").value;
+            
+            if (!nombre || !apellido) {
+                Swal.fire({ //SweetAlert
+                    icon: "warning",
+                    title: "¡Cuidado!",
+                    text: "Por favor, completa al menos tu nombre y apellido.",
+                    confirmButtonColor: "#8D94FF"
+                });
+                return;
+            }
+            
+            if (telefono && !/^[\d\s\-\+\(\)]{10,}$/.test(telefono)) {
+                Swal.fire({ //SweetAlert
+                    icon: "warning",
+                    title: "¡Cuidado!",
+                    text: "Por favor, ingresa un número de teléfono válido.",
+                    confirmButtonColor: "#8D94FF"
+                });
+                return;
+            }
+            
+            // Actualizar objeto 
+            usuario.nombre = nombre;
+            usuario.apellido = apellido;
+            usuario.telefono = telefono;
+            usuario.foto = document.getElementById("fotoPerfil").src;
+            
+            // Actualizar sesión
+            localStorage.setItem("sesionIniciada", JSON.stringify(usuario));
+            
+
+            const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
+            const usuarioIndex = usuarios.findIndex(u => u.email === usuario.email);
+            
+            if (usuarioIndex !== -1) {
+                usuarios[usuarioIndex] = usuario;
+                localStorage.setItem('usuarios', JSON.stringify(usuarios));
+            }
+            
+
+            document.getElementById("nombreCompletoUsuario").innerText = `${usuario.nombre} ${usuario.apellido}`;
+            document.getElementById("nombre-menu").innerText = usuario.nombre;
+            
+            // Deshabilitar edición
+            document.getElementById("nombreUsuario").disabled = true;
+            document.getElementById("apellidoUsuario").disabled = true;
+            document.getElementById("telefonoUsuario").disabled = true;
+            document.getElementById("inputFoto").disabled = true;
+            document.getElementById("btnCambiarFoto").style.display = 'none';
+            document.getElementById("btnCancelar").style.display = 'none';
+            
+            document.getElementById("btnPerfil").innerText = "Editar Perfil";
+            document.getElementById("btnPerfil").classList.remove('btn-success');
+            document.getElementById("btnPerfil").classList.add('btn-primary');
+            
+            const mensaje = document.getElementById("mensaje-perfil");
+            mensaje.innerText = "Perfil actualizado exitosamente.";
+            mensaje.style.display = 'block';
+            
+            // Ocultar mensaje después de 3 segundos
+            setTimeout(() => {
+                mensaje.style.display = 'none';
+            }, 3000);
+            
+            modoEdicion = false;
+        }
+
+        document.getElementById("inputFoto").addEventListener("change", function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                // Validar tipo de archivo
+                if (!file.type.match('image.*')) {
+                    Swal.fire({ //SweetAlert
+                        icon: "warning",
+                        title: "¡Cuidado!",
+                        text: "Por favor, selecciona solo archivos de imagen..",
+                        confirmButtonColor: "#8D94FF"
+                });
+                    return;
+                }
+                if (file.size > 2 * 1024 * 1024) {
+                    Swal.fire({ //SweetAlert
+                        icon: "warning",
+                        title: "¡Cuidado!",
+                        text: "La imagen debe ser menor a 2MB.",
+                        confirmButtonColor: "#8D94FF"
+                });
+                    
+                    
+                    return;
+                }
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById("fotoPerfil").src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Historial de compras 
+        async function mostrarHistorial() {
+            const cargandoElement = document.getElementById("cargando-historial");
+            const listaHistorial = document.getElementById("listaHistorial");
+            const errorElement = document.getElementById("error-historial");
+            const sinHistorialElement = document.getElementById("sin-historial");
+            
+            cargandoElement.style.display = 'block';
+            listaHistorial.style.display = 'none';
+            errorElement.style.display = 'none';
+            sinHistorialElement.style.display = 'none';
+            
+            // Cargar datos desde el JSON
+            const exito = await cargarHistorialDesdeJSON();
+            
+            if (!exito) {
+                cargandoElement.style.display = 'none';
+                errorElement.style.display = 'block';
+                return;
+            }
+
+            cargandoElement.style.display = 'none';
+            listaHistorial.style.display = 'block';
+            listaHistorial.innerHTML = '';
+
+            const usuarioHistorial = historialDeCompras.find(h => h.usuario.email === usuario.email);
+
+            if (usuarioHistorial && usuarioHistorial.reserva.length > 0) {
+                usuarioHistorial.reserva.forEach((reserva, index) => {
+                    reserva.tours.forEach(tour => {
+                        const fechaPago = new Date(reserva.pago.fechaPago);
+                        const fechaFormateada = fechaPago.toLocaleDateString('es-ES', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        });
+                        
+                        // Verificar si ya existe una experiencia para este tour
+                        const experiencias = JSON.parse(localStorage.getItem('experiencias') || '[]');
+                        const tourExperiencia = experiencias.find(e => 
+                            e.idTour === tour.idTour && e.idUsuario === usuario.idUsuario
+                        );
+                        
+                        const li = document.createElement("li");
+                        li.className = "list-group-item historial-item";
+                        li.innerHTML = `
+                            <div class="d-flex justify-content-between align-items-center flex-wrap">
+                                <div>
+                                    <h6 class="mb-1">${tour.nombre}</h6>
+                                    <small class="text-muted">${fechaFormateada} - ${reserva.pago.metodoPago}</small>
+                                    <div class="mt-1">
+                                        <span class="badge bg-primary">${tour.categoria}</span>
+                                        <span class="badge bg-secondary">${reserva.cantidad} ${reserva.cantidad > 1 ? 'personas' : 'persona'}</span>
+                                        <span class="badge bg-success">$${tour.precio} MXN</span>
+                                    </div>
+                                </div>
+                                ${tourExperiencia ? 
+                                    `<button class="btn btn-success btn-sm mt-2 mt-sm-0" disabled>
+                                        <i class="bi bi-check2"></i> Experiencia Enviada
+                                        ${tourExperiencia.calificacion ? `<br><small>${'★'.repeat(tourExperiencia.calificacion)}</small>` : ''}
+                                    </button>` :
+                                    `<button class="btn btn-outline-primary btn-sm mt-2 mt-sm-0" 
+                                            data-bs-toggle="collapse" 
+                                            data-bs-target="#experiencia-tour-${tour.idTour}">
+                                        <i class="bi bi-chat-text"></i> Escribir experiencia
+                                    </button>`
+                                }
+                            </div>
+                            <div class="collapse mt-3" id="experiencia-tour-${tour.idTour}">
+                                <form onsubmit="event.preventDefault(); enviarExperiencia(this, ${tour.idTour});">
+                                    <div class="mb-3">
+                                        <label for="review-text-${tour.idTour}" class="form-label">Tu experiencia</label>
+                                        <textarea class="form-control" id="review-text-${tour.idTour}" rows="3" required 
+                                                  placeholder="Comparte tu experiencia sobre este tour..."></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="review-rating-${tour.idTour}" class="form-label">Calificación</label>
+                                        <select class="form-select" id="review-rating-${tour.idTour}" required>
+                                            <option value="">Selecciona una calificación</option>
+                                            <option value="5">★★★★★ Excelente</option>
+                                            <option value="4">★★★★ Muy bueno</option>
+                                            <option value="3">★★★ Bueno</option>
+                                            <option value="2">★★ Regular</option>
+                                            <option value="1">★ Malo</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-success">
+                                        <i class="bi bi-send"></i> Enviar experiencia
+                                    </button>
+                                </form>
+                            </div>
+                        `;
+                        listaHistorial.appendChild(li);
+                    });
+                });
+            } else {
+                listaHistorial.style.display = 'none';
+                sinHistorialElement.style.display = 'block';
+            }
+        }
+
+        function enviarExperiencia(form, tourId) {
+            const experiencia = form.querySelector('textarea').value;
+            const calificacion = form.querySelector('select').value;
+
+            if (experiencia && calificacion) {
+                // Guardar la experiencia en localStorage
+                const experiencias = JSON.parse(localStorage.getItem('experiencias') || '[]');
+                
+                // Crear objeto experiencia
+                const nuevaExperiencia = {
+                    id: Date.now(), // ID único
+                    idTour: tourId,
+                    idUsuario: usuario.idUsuario,
+                    emailUsuario: usuario.email, // Guardar también el email para backup
+                    experiencia: experiencia,
+                    calificacion: parseInt(calificacion),
+                    fecha: new Date().toISOString()
+                };
+                
+                // Agregar la nueva experiencia
+                experiencias.push(nuevaExperiencia);
+                localStorage.setItem('experiencias', JSON.stringify(experiencias));
+
+                Swal.fire({ //SweetAlert
+                    icon: "success",
+                    title: "Solicitud enviada",
+                    text: "¡Gracias por tu experiencia! Ha sido enviada con éxito.",
+                    confirmButtonColor: "#8D94FF"
+                });
+
+                // Ocultar el formulario
+                const collapseElement = form.closest('.collapse');
+                const bsCollapse = new bootstrap.Collapse(collapseElement);
+                bsCollapse.hide();
+
+                // Actualizar el botón
+                const btn = form.closest('.historial-item').querySelector('button');
+                btn.disabled = true;
+                btn.innerHTML = `<i class="bi bi-check2"></i> Experiencia Enviada<br><small>${'★'.repeat(calificacion)}</small>`;
+                btn.classList.remove('btn-outline-primary');
+                btn.classList.add('btn-success');
+            } else {
+                Swal.fire({ //SweetAlert
+                    icon: "warning",
+                    title: "Solicitud enviada",
+                    text: "Por favor, completa todos los campos requeridos.",
+                    confirmButtonColor: "#8D94FF"
+                });
+            }
+        }
+
+        // Funciones generales
+        function mostrarSeccion(id) {
+            document.querySelectorAll(".seccion").forEach(s => s.classList.add("d-none"));
+            document.getElementById(id).classList.remove("d-none");
+            if (id === 'perfil') {
+                mostrarPerfil();
+            } else if (id === 'historial') {
+                mostrarHistorial();
+            }
+        }
+
+        function cerrarSesion() {
+            // Elimina la clave de sesión
+            localStorage.removeItem("sesionIniciada");
+
+            Swal.fire({ //SweetAlert
+                    icon: "success",
+                    title: "Sesión cerrada",
+                    confirmButtonColor: "#8D94FF"
+                });
+            
+            // Redirigir a la página de inicio
+            window.location.href = "index.html";
+        }
+    </script>
 </body>
 </html>

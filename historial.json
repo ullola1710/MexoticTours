@@ -1,0 +1,134 @@
+[
+    {
+        "usuario": {
+            "idUsuario": 1,
+            "nombre": "Jade Ullola",
+            "email": "jadeullola@gmail.com",
+            "telefono": "5512345678",
+            "contrasena": "pruebaJade1."
+        },
+        "reserva": [
+            {
+                "idReserva": 1,
+                "cantidad": 4,
+                "tours": [
+                    {
+                        "idTour": 7,
+                        "estado": "CDMX",
+                        "ciudad": "Ciudad de México",
+                        "nombre": "Café y Música en Vivo",
+                        "categoria": "Gastronomía",
+                        "precio": 1600,
+                        "cantidad": 2,
+                        "subtotal": 3200
+                    },
+                    {
+                        "idTour": 10,
+                        "estado": "CDMX",
+                        "ciudad": "Ciudad de México",
+                        "nombre": "Visita al Museo Nacional de Arte (MUNAL)",
+                        "categoria": "Arte",
+                        "precio": 620,
+                        "cantidad": 2,
+                        "subtotal": 1240
+                    }
+                ],
+                "pago": {
+                    "idPago": 1,
+                    "monto": 4440,
+                    "fechaPago": "2025-09-01T15:35:00Z",
+                    "metodoPago": "Tarjeta Crédito"
+                }
+            },
+            {
+                "idReserva": 2,
+                "cantidad": 3,
+                "tours": [
+                    {
+                        "idTour": 1,
+                        "estado": "CDMX",
+                        "ciudad": "Ciudad de México",
+                        "nombre": "Palacio Postal (La Quinta Casa de correo)",
+                        "categoria": "Cultura",
+                        "precio": 350,
+                        "cantidad": 3,
+                        "subtotal": 1050
+                    }
+                ],
+                "pago": {
+                    "idPago": 2,
+                    "monto": 1050,
+                    "fechaPago": "2025-08-15T19:22:00Z",
+                    "metodoPago": "Transferencia"
+                }
+            }
+        ]
+    },
+    {
+        "usuario": {
+            "idUsuario": 2,
+            "nombre": "Brandy Medina",
+            "email": "medinabrandy034@gmail.com",
+            "telefono": "5512345678",
+            "contrasena": "pruebaBrandy1."
+        },
+        "reserva": [
+            {
+                "idReserva": 4,
+                "cantidad": 2,
+                "tours": [
+                    {
+                        "idTour": 3,
+                        "estado": "Jalisco",
+                        "ciudad": "Tequila/Guadalajara",
+                        "nombre": "Tour Tequila",
+                        "categoria": "Cultura y Gastronomía",
+                        "duracion": "Dia completo",
+                        "precio": 2000, 
+                        "cantidad": 2,
+                        "subtotal": 4000
+                    }
+                ],
+                "pago": {
+                    "idPago": 3,
+                    "monto": 4440,
+                    "fechaPago": "2025-02-12T11:10:00Z",
+                    "metodoPago": "Tarjeta Crédito"
+                }
+            },
+            {
+                "idReserva": 5,
+                "cantidad": 2,
+                "tours": [
+                    {
+                        "idTour": 6,
+                        "estado": "Jalisco",
+                        "ciudad": "Guadalajara",
+                        "nombre": "Mercado San Juan de Dios",
+                        "categoria": "Gastronomía",
+                        "duracion": "6 horas",
+                        "precio": 650,
+                        "cantidad": 1,
+                        "subtotal": 650
+                    }, 
+                    {
+                        "idTour": 3,
+                        "estado": "Jalisco",
+                        "ciudad": "Tequila/Guadalajara",
+                        "name": "Tour Tequila",
+                        "categoria": "Cultura y Gastronomía",
+                        "precio": 2000,
+                        "cantidad": 1,
+                        "subtotal": 2000
+                    }
+                ],
+                "pago": {
+                    "idPago": 3,
+                    "monto": 2650,
+                    "fechaPago": "2025-08-15T19:22:00Z",
+                    "metodoPago": "Comisionista"
+                }
+            }
+        ]
+    }
+]
